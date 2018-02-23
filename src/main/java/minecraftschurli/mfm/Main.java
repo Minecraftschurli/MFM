@@ -35,13 +35,13 @@ public class Main
 	@EventHandler
 	public static void init(FMLInitializationEvent event) 
 	{
-		RegistryHandler.initRegistries();
+	    RegistryHandler.initRegistries();
 	}
 	
 	@EventHandler
-	public static void postInit(FMLPostInitializationEvent event) 
+	public static void postInit(FMLPostInitializationEvent event)
 	{
-		RegistryHandler.postInitRegistries();
+	    RegistryHandler.postInitRegistries();
 	}
 
 }
