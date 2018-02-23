@@ -2,13 +2,13 @@
 {
   "modid": "mfm",
   "name": "My first Mod",
-  "description": "Test Mod",
+  "description": "My first mod",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["Minecrsftschurli"],
-  "credits": "Harry's Tech Reviews for a wonderful Tutorial",
+  "credits": "Harry's Tech Reviews for wonderful Tutorials \nand LavaSnakeGaming and YoshiKoopa for helping",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
