@@ -1,0 +1,13 @@
+{
+    "parent": "block/orientable",
+    "textures": 
+    {
+        "particle": "mfm:blocks/alloying_furnace_front_off",
+        "up": "mfm:blocks/alloying_furnace_top",
+        "down": "mfm:blocks/alloying_furnace_bottom",
+        "north": "mfm:blocks/alloying_furnace_front_on",
+        "east": "mfm:blocks/alloying_furnace_side",
+        "south": "mfm:blocks/alloying_furnace_side",
+        "west": "mfm:blocks/alloying_furnace_side"
+    }
+}

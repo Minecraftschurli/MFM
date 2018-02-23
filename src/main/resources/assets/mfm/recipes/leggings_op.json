@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "III",
+        "ICI",
+        "I I"
+    ],
+    "key":
+    {
+        "I":
+        {
+            "item": "mfm:ingot_op"
+        },
+        "C":
+        {
+            "item": "mfm:item_core"
+        }
+    },
+    "result":
+    {
+        "item": "mfm:leggings_op"
+    }
+}

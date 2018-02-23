@@ -1,0 +1,28 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "CL ",
+        "L L",
+        " LI"
+    ],
+    "key":
+    {
+        "C":
+        {
+            "item": "mfm:item_core"
+        },
+        "L":
+        {
+            "item": "minecraft:leather"
+        },
+        "I":
+        {
+            "item": "mfm:ingot_op"
+        }
+    },
+    "result":
+    {
+        "item": "mfm:item_whirlwind"
+    }
+}

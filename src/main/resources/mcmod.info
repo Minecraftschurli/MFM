@@ -1,0 +1,16 @@
+[
+{
+  "modid": "mfm",
+  "name": "My first Mod",
+  "description": "Test Mod",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Minecrsftschurli"],
+  "credits": "Harry's Tech Reviews for a wonderful Tutorial",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

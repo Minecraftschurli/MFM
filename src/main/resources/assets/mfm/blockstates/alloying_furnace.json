@@ -1,0 +1,13 @@
+{
+    "variants": 
+    {
+        "active=false,facing=north": { "model": "mfm:alloying_furnace" },
+        "active=false,facing=east": { "model": "mfm:alloying_furnace", "y": 90 },
+        "active=false,facing=south": { "model": "mfm:alloying_furnace", "y": 180 },
+        "active=false,facing=west": { "model": "mfm:alloying_furnace", "y": 270 },
+        "active=true,facing=north": { "model": "mfm:alloying_furnace" },
+        "active=true,facing=east": { "model": "mfm:alloying_furnace", "y": 90 },
+        "active=true,facing=south": { "model": "mfm:alloying_furnace", "y": 180 },
+        "active=true,facing=west": { "model": "mfm:alloying_furnace", "y":270  }
+    }
+}

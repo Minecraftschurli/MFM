@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " D ",
+        "DND",
+        " D "
+    ],
+    "key":
+    {
+        "D":
+        {
+            "item": "minecraft:diamond_block"
+        },
+        "N":
+        {
+            "item": "minecraft:nether_star"
+        }
+    },
+    "result":
+    {
+        "item": "mfm:item_core"
+    }
+}

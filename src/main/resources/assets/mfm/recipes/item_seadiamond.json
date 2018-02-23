@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        " S ",
+        "SDS",
+        " S "
+    ],
+    "key":
+    {
+        "D":
+        {
+            "item": "minecraft:diamond"
+        },
+        "S":
+        {
+            "item": "minecraft:prismarine_shard"
+        }
+    },
+    "result":
+    {
+        "item": "mfm:item_seadiamond"
+    }
+}
