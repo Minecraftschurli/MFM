@@ -22,6 +22,31 @@ public class BlockBase extends Block implements IHasModel {
 		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
+	public BlockBase(String name, Material material, float hardness, float resistance, String toolClass, int level) {
+		super(material);
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		setCreativeTab(Main.CREATIVETAB);
+		setHardness(hardness);
+		setResistance(resistance);
+		setHarvestLevel(toolClass, level);
+
+		BlockInit.BLOCKS.add(this);
+		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+	}
+
+	public BlockBase(String name, Material material, float hardness, float resistance) {
+		super(material);
+		setUnlocalizedName(name);
+		setRegistryName(name);
+		setCreativeTab(Main.CREATIVETAB);
+		setHardness(hardness);
+		setResistance(resistance);
+
+		BlockInit.BLOCKS.add(this);
+		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+	}
+
 	@Override
 	public void registerModels() {
 		Main.proxy.registerItemRenderer(Item.getItemFromBlock(this), 0, "inventory");
