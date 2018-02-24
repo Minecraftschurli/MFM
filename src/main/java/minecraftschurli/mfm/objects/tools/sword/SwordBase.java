@@ -1,13 +1,13 @@
-package minecraftschurli.mfm.objects.tools;
+package minecraftschurli.mfm.objects.tools.sword;
 
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
-import net.minecraft.item.ItemSpade;
+import net.minecraft.item.ItemSword;
 
-public class ShovelBase extends ItemSpade implements IHasModel
+public class SwordBase extends ItemSword implements IHasModel
 {
-    public ShovelBase(String name, ToolMaterial material)
+    public SwordBase(String name, ToolMaterial material)
     {
         super(material);
         setUnlocalizedName(name);

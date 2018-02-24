@@ -3,7 +3,6 @@ package minecraftschurli.mfm.init;
 import java.util.ArrayList;
 import java.util.List;
 
-import minecraftschurli.mfm.objects.armor.ArmorBase;
 import minecraftschurli.mfm.objects.armor.godium.BootsGodium;
 import minecraftschurli.mfm.objects.armor.godium.ChestplateGodium;
 import minecraftschurli.mfm.objects.armor.godium.HelmetGodium;
@@ -27,20 +26,20 @@ import minecraftschurli.mfm.objects.armor.vulcanium.LeggingsVulcanium;
 import minecraftschurli.mfm.objects.items.ItemWhirlwind;
 import minecraftschurli.mfm.objects.items.ItemBase;
 import minecraftschurli.mfm.objects.items.ItemStanium;
+import minecraftschurli.mfm.objects.tools.axe.AxeBase;
+import minecraftschurli.mfm.objects.tools.sword.SwordBase;
+import minecraftschurli.mfm.objects.tools.sword.SwordVulcanium;
 import minecraftschurli.mfm.util.Reference;
-import net.minecraft.block.Block;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
-import net.minecraft.item.ItemElytra;
-import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class ItemInit {
 	
-	public static final List<Item> ITEMS = new ArrayList<Item>();
+	public static final List<Item> ITEMS = new ArrayList<>();
 	
 	//Material
 		//Armor
@@ -77,12 +76,12 @@ public class ItemInit {
 	public static final Item GEM_SEADIAMOND = new ItemBase("gem_seadiamond");
 	public static final Item GEM_STANIUM = new ItemStanium("item_stanium");
 	public static final Item GEM_CRYSTAL = new ItemBase("gem_crystal");
-	/*
-	//Tools
-        //Vulcanium
-    public static final Item AXE_VULCANIUM =
-    public static final Item SWORD_VULCANIUM =
-    public static final Item SHOVEL_VULCANIUM =
+
+    //Tools
+		//Vulcanium
+	public static final Item AXE_VULCANIUM = new AxeBase("axe_vulcanium", TOOL_VULCANIUM, 10F,0F);
+    public static final Item SWORD_VULCANIUM = new SwordVulcanium();
+	/*public static final Item SHOVEL_VULCANIUM =
     public static final Item PICKAXE_VULCANIUM =
 
         //Kandium
@@ -91,18 +90,18 @@ public class ItemInit {
     public static final Item SHOVEL_KANDIUM =
     public static final Item PICKAXE_KANDIUM =
 
-        //Kanadium
-    public static final Item AXE_KANADIUM =
-    public static final Item SWORD_KANADIUM =
-    public static final Item SHOVEL_KANADIUM =
-    public static final Item PICKAXE_KANADIUM =
+            //Kanadium
+        public static final Item AXE_KANADIUM =
+        public static final Item SWORD_KANADIUM =
+        public static final Item SHOVEL_KANADIUM =
+        public static final Item PICKAXE_KANADIUM =
 
-        //Godium
-    public static final Item AXE_GODIUM =
-    public static final Item SWORD_GODIUM =
-    public static final Item SHOVEL_GODIUM =
-    public static final Item PICKAXE_GODIUM =
-*/
+            //Godium
+        public static final Item AXE_GODIUM =
+        public static final Item SWORD_GODIUM =
+        public static final Item SHOVEL_GODIUM =
+        public static final Item PICKAXE_GODIUM =
+    */
     //Armor
 		//Armor Op
 	public static final Item HELMET_OP = new HelmetOp(ARMOR_OP, 1, EntityEquipmentSlot.HEAD);

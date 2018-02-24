@@ -1,13 +1,13 @@
-package minecraftschurli.mfm.objects.tools;
+package minecraftschurli.mfm.objects.tools.pickaxe;
 
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
-import net.minecraft.item.ItemSword;
+import net.minecraft.item.ItemPickaxe;
 
-public class SwordBase extends ItemSword implements IHasModel
+public class PickaxeBase extends ItemPickaxe implements IHasModel
 {
-    public SwordBase(String name, ToolMaterial material)
+    public PickaxeBase(String name, ToolMaterial material)
     {
         super(material);
         setUnlocalizedName(name);

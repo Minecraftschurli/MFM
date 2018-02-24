@@ -1,15 +1,15 @@
-package minecraftschurli.mfm.objects.tools;
+package minecraftschurli.mfm.objects.tools.axe;
 
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemAxe;
 
-public class PickaxeBase extends ItemPickaxe implements IHasModel
+public class AxeBase extends ItemAxe implements IHasModel
 {
-    public PickaxeBase(String name, ToolMaterial material)
+    public AxeBase(String name, ToolMaterial material, float damage, float speed)
     {
-        super(material);
+        super(material,damage,speed);
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(Main.CREATIVETAB);

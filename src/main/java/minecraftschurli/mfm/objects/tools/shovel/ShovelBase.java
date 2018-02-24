@@ -1,15 +1,15 @@
-package minecraftschurli.mfm.objects.tools;
+package minecraftschurli.mfm.objects.tools.shovel;
 
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
-import net.minecraft.item.ItemAxe;
+import net.minecraft.item.ItemSpade;
 
-public class AxeBase extends ItemAxe implements IHasModel
+public class ShovelBase extends ItemSpade implements IHasModel
 {
-    public AxeBase(String name, ToolMaterial material, float damage, float speed)
+    public ShovelBase(String name, ToolMaterial material)
     {
-        super(material,damage,speed);
+        super(material);
         setUnlocalizedName(name);
         setRegistryName(name);
         setCreativeTab(Main.CREATIVETAB);
