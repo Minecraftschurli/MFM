@@ -7,9 +7,11 @@ import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import minecraftschurli.mfm.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -33,14 +35,21 @@ public class RegistryHandler {
 		TileEntityHandler.registerTileEntities();
 	}
 
-    @SubscribeEvent
     public static void onFluidRegister()
     {
-        for (Fluid fluid: FluidInit.FLUIDS)
-        {
-            FluidRegistry.registerFluid(fluid); // fluid has to be registered
-            FluidRegistry.addBucketForFluid(fluid); // add a bucket for the fluid
-        }
+        Fluid fluid;
+        if (FluidInit.FLUIDS != null)
+            for (int i=0;i<FluidInit.FLUIDS.size();i++)
+            {
+                fluid = FluidInit.FLUIDS.get(i);
+                if (fluid != null)
+                {
+                    FluidRegistry.registerFluid(fluid); // fluid has to be registered
+                    FluidRegistry.addBucketForFluid(fluid); // add a bucket for the fluid
+                    //BlockInit.BLOCKS.add(new BlockFluidClassic(fluid, Material.LAVA));
+                }
+
+            }
     }
 	
 	@SubscribeEvent

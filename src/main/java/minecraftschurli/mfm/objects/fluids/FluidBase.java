@@ -7,16 +7,19 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 
-import java.awt.*;
 
 public class FluidBase extends Fluid
 {
     public FluidBase(String name,int color)
     {
         super(name, new ResourceLocation("tconstruct:blocks/fluids/molten_metal"),new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow"),color);
+        setGaseous(false);
 
-        BlockInit.BLOCKS.add(new BlockFluidClassic(this, Material.LAVA));
-        FluidInit.FLUIDS.add(this);
+        if(this!=null)
+        {
+            FluidInit.FLUIDS.add(this);
+        }
+
     }
 
 }

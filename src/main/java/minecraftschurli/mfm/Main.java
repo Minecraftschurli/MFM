@@ -29,22 +29,23 @@ public class Main
 	public static CommonProxy proxy;
 
 	@EventHandler
-	public static void preInit(FMLPreInitializationEvent event) 
+	public static void preInit(FMLPreInitializationEvent event)
 	{
+        /*if(Loader.isModLoaded("tconstruct"))*/TinkersIntegration.register();
+        RegistryHandler.onFluidRegister();
 		RegistryHandler.preInitRegistries();
 	}
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) 
 	{
-        if(Loader.isModLoaded("tconstruct"))TinkersIntegration.register();
 	    RegistryHandler.initRegistries();
 	}
 	
 	@EventHandler
 	public static void postInit(FMLPostInitializationEvent event)
 	{
-	    RegistryHandler.postInitRegistries();
+        RegistryHandler.postInitRegistries();
 	}
 
 }
