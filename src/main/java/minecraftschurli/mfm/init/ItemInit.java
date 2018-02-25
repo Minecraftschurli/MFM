@@ -60,22 +60,22 @@ public class ItemInit {
 	public static final Item ITEM_CORE = new ItemBase("item_core");
 	
 	//Ingots
-	public static final Item INGOT_OP_BASE = new ItemBase("ingot_op_base");
-	public static final Item INGOT_OP = new ItemBase("ingot_op");
-	public static final Item INGOT_VULCANIUM = new ItemBase("ingot_vulcanium");
-	public static final Item INGOT_KANDIUM = new ItemBase("ingot_kandium");
-	public static final Item INGOT_KANADIUM = new ItemBase("ingot_kanadium");
+	public static final Item INGOT_OP_BASE = new ItemBase("ingot_op_base","ingotOpBase");
+	public static final Item INGOT_OP = new ItemBase("ingot_op","ingotOp");
+	public static final Item INGOT_VULCANIUM = new ItemBase("ingot_vulcanium","ingotVulcanium");
+	public static final Item INGOT_KANDIUM = new ItemBase("ingot_kandium","ingotKandium");
+	public static final Item INGOT_KANADIUM = new ItemBase("ingot_kanadium","ingotKanadium");
 	
 	//Nuggets
-	public static final Item NUGGET_OP = new ItemBase("nugget_op");
-	public static final Item NUGGET_VULCANIUM = new ItemBase("nugget_vulcanium");
-	public static final Item NUGGET_KANDIUM = new ItemBase("nugget_kandium");
-	public static final Item NUGGET_KANADIUM = new ItemBase("nugget_kanadium");
+	public static final Item NUGGET_OP = new ItemBase("nugget_op","nuggetOp");
+	public static final Item NUGGET_VULCANIUM = new ItemBase("nugget_vulcanium","nuggetVulcanium");
+	public static final Item NUGGET_KANDIUM = new ItemBase("nugget_kandium","nuggetKandium");
+	public static final Item NUGGET_KANADIUM = new ItemBase("nugget_kanadium","nuggetKanadium");
 	
 	//Gems
-	public static final Item GEM_SEADIAMOND = new ItemBase("gem_seadiamond");
+	public static final Item GEM_SEADIAMOND = new ItemBase("gem_seadiamond","gemSeadiamond");
 	public static final Item GEM_STANIUM = new ItemStanium("item_stanium");
-	public static final Item GEM_CRYSTAL = new ItemBase("gem_crystal");
+	public static final Item GEM_CRYSTAL = new ItemBase("gem_crystal","gemCrystal");
 
     //Tools
 		//Vulcanium

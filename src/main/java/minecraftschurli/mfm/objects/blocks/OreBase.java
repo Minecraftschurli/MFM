@@ -18,6 +18,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.oredict.OreDictionary;
 
 public class OreBase extends Block implements IHasModel 
 {
@@ -30,8 +31,9 @@ public class OreBase extends Block implements IHasModel
 	private final int maxHeight;
 	private final Block baseBlock;
 	private final int exp;
-	
-	/**
+    private final String oreDictName;
+
+    /**
 	 * 
 	 * @param name
 	 * @param material
@@ -48,7 +50,7 @@ public class OreBase extends Block implements IHasModel
 	 * @param level
 	 * @param item
 	 */
-	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, int exp, Block baseBlock, float hardness, float resistance, String toolClass, int level, ItemStack item) 
+	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, int exp, Block baseBlock, float hardness, float resistance, String toolClass, int level, ItemStack item, String oreDict)
 	{
         super(material);
         setUnlocalizedName(name);
@@ -65,7 +67,8 @@ public class OreBase extends Block implements IHasModel
         this.maxHeight = maxHeight;
         this.baseBlock = baseBlock;
         this.exp = exp;
-        
+        this.oreDictName = "block"+oreDict;
+
         BlockInit.BLOCKS.add(this);
         BlockInit.ORES.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -87,7 +90,7 @@ public class OreBase extends Block implements IHasModel
 	 * @param level
 	 * @param item
 	 */
-	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, int exp, float hardness, float resistance, String toolClass, int level, ItemStack item) 
+	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, int exp, float hardness, float resistance, String toolClass, int level, ItemStack item, String oreDict)
 	{
         super(material);
         setUnlocalizedName(name);
@@ -104,7 +107,8 @@ public class OreBase extends Block implements IHasModel
         this.maxHeight = maxHeight;
         this.baseBlock = dimension==-1?Blocks.NETHERRACK:dimension==1?Blocks.END_STONE:Blocks.STONE;
         this.exp = exp;
-        
+        this.oreDictName = "ore"+oreDict;
+
         BlockInit.BLOCKS.add(this);
         BlockInit.ORES.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -125,7 +129,7 @@ public class OreBase extends Block implements IHasModel
 	 * @param toolClass
 	 * @param level
 	 */
-	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, Block baseBlock, float hardness, float resistance, String toolClass, int level) 
+	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, Block baseBlock, float hardness, float resistance, String toolClass, int level, String oreDict)
 	{
         super(material);
         setUnlocalizedName(name);
@@ -142,7 +146,8 @@ public class OreBase extends Block implements IHasModel
         this.maxHeight = maxHeight;
         this.baseBlock = baseBlock;
         this.exp = 0;
-        
+        this.oreDictName = "ore"+oreDict;
+
         BlockInit.BLOCKS.add(this);
         BlockInit.ORES.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
@@ -162,7 +167,7 @@ public class OreBase extends Block implements IHasModel
 	 * @param toolClass
 	 * @param level
 	 */
-	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, float hardness, float resistance, String toolClass, int level) 
+	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, float hardness, float resistance, String toolClass, int level, String oreDict)
 	{
         super(material);
         setUnlocalizedName(name);
@@ -179,8 +184,9 @@ public class OreBase extends Block implements IHasModel
         this.maxHeight = maxHeight;
         this.baseBlock = dimension==-1?Blocks.NETHERRACK:dimension==1?Blocks.END_STONE:Blocks.STONE;
         this.exp = 0;
-        
-        BlockInit.BLOCKS.add(this);
+        this.oreDictName = "ore"+oreDict;
+
+		BlockInit.BLOCKS.add(this);
         BlockInit.ORES.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }

@@ -4,6 +4,8 @@ import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.objects.blocks.BlockBase;
+import minecraftschurli.mfm.objects.items.ItemBase;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import minecraftschurli.mfm.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
@@ -18,6 +20,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.oredict.OreDictionary;
 
 @EventBusSubscriber
 public class RegistryHandler {
@@ -26,12 +29,34 @@ public class RegistryHandler {
 	public static void onItemRegister(RegistryEvent.Register<Item> event)
     {
 		event.getRegistry().registerAll(ItemInit.ITEMS.toArray(new Item[0]));
+        for (Item item:ItemInit.ITEMS)
+        {
+            if(item instanceof ItemBase)
+            {
+                if (((ItemBase) item).oreDictName != null)
+                {
+
+                    OreDictionary.registerOre(((ItemBase) item).oreDictName,item);
+                }
+            }
+        }
 	}
 	
 	@SubscribeEvent
 	public static void onBlockRegister(RegistryEvent.Register<Block> event)
 	{
 		event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
+        for (Block block:BlockInit.BLOCKS)
+        {
+            if(block instanceof BlockBase)
+            {
+                if (((BlockBase) block).oreDictName != null)
+                {
+                    OreDictionary.registerOre(((BlockBase) block).oreDictName,block);
+                }
+            }
+        }
+
 		TileEntityHandler.registerTileEntities();
 	}
 

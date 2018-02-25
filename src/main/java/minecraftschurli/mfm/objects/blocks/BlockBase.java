@@ -9,20 +9,39 @@ import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
+import net.minecraftforge.oredict.OreDictionary;
 
-public class BlockBase extends Block implements IHasModel {
+public class BlockBase extends Block implements IHasModel
+{
 
-	public BlockBase(String name, Material material) {
+    public final String oreDictName;
+
+	public BlockBase(String name, Material material, String oreDict)
+	{
 		super(material);
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(Main.CREATIVETAB);
-		
-		BlockInit.BLOCKS.add(this);
+        this.oreDictName = "block"+oreDict;
+
+        BlockInit.BLOCKS.add(this);
 		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
-	public BlockBase(String name, Material material, float hardness, float resistance, String toolClass, int level) {
+    public BlockBase(String name, Material material)
+    {
+        super(material);
+        setUnlocalizedName(name);
+        setRegistryName(name);
+        setCreativeTab(Main.CREATIVETAB);
+        this.oreDictName = null;
+
+        BlockInit.BLOCKS.add(this);
+        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+    }
+
+	public BlockBase(String name, Material material, float hardness, float resistance, String toolClass, int level, String oreDict)
+    {
 		super(material);
 		setUnlocalizedName(name);
 		setRegistryName(name);
@@ -30,20 +49,22 @@ public class BlockBase extends Block implements IHasModel {
 		setHardness(hardness);
 		setResistance(resistance);
 		setHarvestLevel(toolClass, level);
+        this.oreDictName = "block"+oreDict;
 
 		BlockInit.BLOCKS.add(this);
 		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 
-	public BlockBase(String name, Material material, float hardness, float resistance) {
+	public BlockBase(String name, Material material, float hardness, float resistance, String oreDict) {
 		super(material);
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		setCreativeTab(Main.CREATIVETAB);
 		setHardness(hardness);
 		setResistance(resistance);
+        this.oreDictName = "block"+oreDict;
 
-		BlockInit.BLOCKS.add(this);
+        BlockInit.BLOCKS.add(this);
 		ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
 	}
 

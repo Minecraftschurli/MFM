@@ -31,9 +31,9 @@ public class Main
 	@EventHandler
 	public static void preInit(FMLPreInitializationEvent event)
 	{
-        /*if(Loader.isModLoaded("tconstruct"))*/TinkersIntegration.register();
         RegistryHandler.onFluidRegister();
 		RegistryHandler.preInitRegistries();
+
 	}
 	
 	@EventHandler

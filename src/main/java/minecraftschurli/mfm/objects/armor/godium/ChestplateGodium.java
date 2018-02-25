@@ -35,12 +35,12 @@ public class ChestplateGodium extends ArmorBase implements SetGodium
 		}
 		if(check==4)
 		{
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 200, 4, false, false));
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(23), 200, 0, false, false));
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 200, 4, false, false));
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(13), 200, 0, false, false));
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 200, 4, false, false));
-			player.addPotionEffect(new PotionEffect(Potion.getPotionById(12), 200, 0, false, false));
+			player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 100, 4, false, false));
+			player.addPotionEffect(new PotionEffect(Potion.getPotionById(23), 100, 0, false, false));
+			player.addPotionEffect(new PotionEffect(Potion.getPotionById(16), 2000, 4, false, false));
+			player.addPotionEffect(new PotionEffect(Potion.getPotionById(13), 100, 0, false, false));
+			player.addPotionEffect(new PotionEffect(Potion.getPotionById(5), 100, 4, false, false));
+			player.addPotionEffect(new PotionEffect(Potion.getPotionById(12), 100, 0, false, false));
 		}
 	}
 
