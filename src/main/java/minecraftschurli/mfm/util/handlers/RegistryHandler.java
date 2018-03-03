@@ -6,6 +6,8 @@ import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.objects.blocks.BlockBase;
 import minecraftschurli.mfm.objects.items.ItemBase;
+import minecraftschurli.mfm.util.integrations.TinkersInit;
+import minecraftschurli.mfm.util.integrations.TinkersMaterial;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import minecraftschurli.mfm.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
@@ -21,6 +23,11 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.materials.BowMaterialStats;
+import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
+import slimeknights.tconstruct.library.materials.HandleMaterialStats;
+import slimeknights.tconstruct.library.materials.HeadMaterialStats;
 
 @EventBusSubscriber
 public class RegistryHandler {
@@ -75,6 +82,26 @@ public class RegistryHandler {
                 }
 
             }
+    }
+
+    public static void onTinkersRegister()
+    {
+        for (int i = 0; i < TinkersInit.MATERIALS.size(); i++)
+        {
+            Object mat = TinkersInit.MATERIALS.get(i);
+            if(mat instanceof TinkersMaterial)
+            {
+                slimeknights.tconstruct.library.materials.Material material = ((TinkersMaterial)mat).material;
+                TinkerRegistry.addMaterialStats(material,
+                        new HeadMaterialStats(((TinkersMaterial)mat).matStat.getHeadDurability(), ((TinkersMaterial)mat).matStat.getMiningSpeed(), ((TinkersMaterial)mat).matStat.getAttackDamage(), ((TinkersMaterial)mat).matStat.getMiningLevel()),
+                        new HandleMaterialStats(((TinkersMaterial)mat).matStat.getHandleModifier(), ((TinkersMaterial)mat).matStat.getHandleDurability()),
+                        new ExtraMaterialStats(((TinkersMaterial)mat).matStat.getExtraDurability()),
+                        new BowMaterialStats(((TinkersMaterial)mat).matStat.getDrawspeed(), ((TinkersMaterial)mat).matStat.getRange(), ((TinkersMaterial)mat).matStat.getBonusDamage()));
+                TinkerRegistry.addMaterial(material);
+            }
+
+        }
+
     }
 	
 	@SubscribeEvent

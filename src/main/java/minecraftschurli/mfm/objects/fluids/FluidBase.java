@@ -1,14 +1,10 @@
 package minecraftschurli.mfm.objects.fluids;
 
-import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.FluidInit;
-import net.minecraft.block.material.Material;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 
 import java.awt.*;
-import java.util.Locale;
 
 
 public class FluidBase extends Fluid

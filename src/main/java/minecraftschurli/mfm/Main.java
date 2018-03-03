@@ -7,6 +7,9 @@ import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.handlers.RegistryHandler;
 import minecraftschurli.mfm.util.integrations.TinkersIntegration;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.client.model.ModelLoader;
+import net.minecraftforge.client.model.ModelLoaderRegistry;
+import net.minecraftforge.common.ForgeModContainer;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -33,7 +36,7 @@ public class Main
 	{
         RegistryHandler.onFluidRegister();
 		RegistryHandler.preInitRegistries();
-
+        if(Loader.isModLoaded("tconstruct"))RegistryHandler.onTinkersRegister();
 	}
 	
 	@EventHandler
