@@ -7,19 +7,32 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 
+import java.awt.*;
+import java.util.Locale;
+
 
 public class FluidBase extends Fluid
 {
-    public FluidBase(String name,int color)
+    public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing, Color color)
     {
-        super(name, new ResourceLocation("tconstruct:blocks/fluids/molten_metal"),new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow"),color);
-        setGaseous(false);
+        super(fluidName,still,flowing,color);
 
-        if(this!=null)
-        {
-            FluidInit.FLUIDS.add(this);
-        }
-
+        FluidInit.FLUIDS.add(this);
     }
+
+    FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing, int color)
+    {
+        super(fluidName,still,flowing,color);
+
+        FluidInit.FLUIDS.add(this);
+    }
+
+    public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing)
+    {
+        super(fluidName,still,flowing);
+
+        FluidInit.FLUIDS.add(this);
+    }
+
 
 }
