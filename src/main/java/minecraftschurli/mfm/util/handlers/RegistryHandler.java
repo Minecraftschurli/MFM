@@ -99,7 +99,6 @@ public class RegistryHandler {
                         new BowMaterialStats(((TinkersMaterial)mat).matStat.getDrawspeed(), ((TinkersMaterial)mat).matStat.getRange(), ((TinkersMaterial)mat).matStat.getBonusDamage()));
                 TinkerRegistry.addMaterial(material);
             }
-
         }
 
     }
