@@ -35,10 +35,6 @@ public class Main
 	{
         RegistryHandler.onFluidRegister();
 		RegistryHandler.preInitRegistries();
-        if(Loader.isModLoaded("tconstruct"))
-        {
-            RegistryHandler.onTinkersRegister();
-        }
 
 	}
 	
@@ -48,6 +44,7 @@ public class Main
 	    RegistryHandler.initRegistries();
         if(Loader.isModLoaded("tconstruct"))
         {
+            RegistryHandler.onTinkersRegister();
             TinkerRegistry.registerSmelteryFuel(new FluidStack(FluidInit.FLUID_STANIUM,1),10000);
         }
 	}

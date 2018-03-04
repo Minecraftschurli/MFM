@@ -6,6 +6,8 @@ import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.objects.blocks.BlockBase;
 import minecraftschurli.mfm.objects.items.ItemBase;
+import minecraftschurli.mfm.util.integrations.tinkers.CastingRecipe;
+import minecraftschurli.mfm.util.integrations.tinkers.MeltingRecipe;
 import minecraftschurli.mfm.util.integrations.tinkers.TinkersInit;
 import minecraftschurli.mfm.util.integrations.tinkers.TinkersMaterial;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
@@ -21,11 +23,17 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.BowMaterialStats;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
 import slimeknights.tconstruct.library.materials.HeadMaterialStats;
+import slimeknights.tconstruct.library.smeltery.Cast;
+import slimeknights.tconstruct.library.smeltery.ICastingRecipe;
+
+import static slimeknights.tconstruct.library.materials.Material.VALUE_Block;
+import static slimeknights.tconstruct.library.materials.Material.VALUE_Ingot;
 
 @EventBusSubscriber
 public class RegistryHandler {
@@ -86,22 +94,37 @@ public class RegistryHandler {
     {
         for (int i = 0; i < TinkersInit.MATERIALS.size(); i++)
         {
-            Object mat = TinkersInit.MATERIALS.get(i);
-            if(mat instanceof TinkersMaterial)
-            {
-                slimeknights.tconstruct.library.materials.Material material = ((TinkersMaterial)mat).material;
+            TinkersMaterial mat = (TinkersMaterial)TinkersInit.MATERIALS.get(i);
+                slimeknights.tconstruct.library.materials.Material material = mat.material;
                 TinkerRegistry.addMaterialStats(material,
-                        new HeadMaterialStats(((TinkersMaterial)mat).matStat.getHeadDurability(), ((TinkersMaterial)mat).matStat.getMiningSpeed(), ((TinkersMaterial)mat).matStat.getAttackDamage(), ((TinkersMaterial)mat).matStat.getMiningLevel()),
-                        new HandleMaterialStats(((TinkersMaterial)mat).matStat.getHandleModifier(), ((TinkersMaterial)mat).matStat.getHandleDurability()),
-                        new ExtraMaterialStats(((TinkersMaterial)mat).matStat.getExtraDurability()),
-                        new BowMaterialStats(((TinkersMaterial)mat).matStat.getDrawspeed(), ((TinkersMaterial)mat).matStat.getRange(), ((TinkersMaterial)mat).matStat.getBonusDamage()));
+                        new HeadMaterialStats(mat.matStat.getHeadDurability(), mat.matStat.getMiningSpeed(), mat.matStat.getAttackDamage(), mat.matStat.getMiningLevel()),
+                        new HandleMaterialStats(mat.matStat.getHandleModifier(), mat.matStat.getHandleDurability()),
+                        new ExtraMaterialStats(mat.matStat.getExtraDurability()),
+                        new BowMaterialStats(mat.matStat.getDrawspeed(), mat.matStat.getRange(), mat.matStat.getBonusDamage()));
                 TinkerRegistry.addMaterial(material);
-                if(material.getFluid()!=null)TinkerRegistry.registerMelting("ore"+ ((TinkersMaterial)mat).oreDictSuffix,material.getFluid(),144);
+        }
+        for (int i = 0; i < TinkersInit.CASTING_RECIPES.size(); i++)
+        {
+            ICastingRecipe recipe = (ICastingRecipe) TinkersInit.CASTING_RECIPES.get(i);
+            if(recipe instanceof CastingRecipe)
+            {
+
+                CastingRecipe rec = ((CastingRecipe)recipe);
+                if(rec.isBasin())
+                {
+                    TinkerRegistry.registerBasinCasting(rec);
+                }
+                else
+                {
+                    TinkerRegistry.registerTableCasting(rec);
+                }
             }
         }
-
-
-
+        for (int i = 0; i < TinkersInit.MELTING_RECIPES.size(); i++)
+        {
+            MeltingRecipe recipe = (MeltingRecipe) TinkersInit.MELTING_RECIPES.get(i);
+            TinkerRegistry.registerMelting(recipe);
+        }
     }
 	
 	@SubscribeEvent
