@@ -43,11 +43,6 @@ public class TinkersMaterial
         this.material.setCraftable(part);
         this.material.setVisible();
 
-        if(!part)
-        {
-
-        }
-
         TinkersInit.MATERIALS.add(this);
     }
 }
