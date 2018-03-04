@@ -1,17 +1,10 @@
 package minecraftschurli.mfm.proxy;
 
 import minecraftschurli.mfm.util.Reference;
-import minecraftschurli.mfm.util.handlers.RegistryHandler;
-import minecraftschurli.mfm.util.integrations.TinkersIntegration;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 public class CommonProxy
 {

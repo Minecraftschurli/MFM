@@ -6,16 +6,14 @@ import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.objects.blocks.BlockBase;
 import minecraftschurli.mfm.objects.items.ItemBase;
-import minecraftschurli.mfm.util.integrations.TinkersInit;
-import minecraftschurli.mfm.util.integrations.TinkersMaterial;
+import minecraftschurli.mfm.util.integrations.tinkers.TinkersInit;
+import minecraftschurli.mfm.util.integrations.tinkers.TinkersMaterial;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import minecraftschurli.mfm.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
-import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -73,7 +71,7 @@ public class RegistryHandler {
         if (FluidInit.FLUIDS != null)
             for (int i=0;i<FluidInit.FLUIDS.size();i++)
             {
-                fluid = FluidInit.FLUIDS.get(i);
+                fluid = (Fluid)FluidInit.FLUIDS.get(i);
                 if (fluid != null)
                 {
                     FluidRegistry.registerFluid(fluid); // fluid has to be registered
@@ -98,8 +96,11 @@ public class RegistryHandler {
                         new ExtraMaterialStats(((TinkersMaterial)mat).matStat.getExtraDurability()),
                         new BowMaterialStats(((TinkersMaterial)mat).matStat.getDrawspeed(), ((TinkersMaterial)mat).matStat.getRange(), ((TinkersMaterial)mat).matStat.getBonusDamage()));
                 TinkerRegistry.addMaterial(material);
+                if(material.getFluid()!=null)TinkerRegistry.registerMelting("ore"+ ((TinkersMaterial)mat).oreDictSuffix,material.getFluid(),144);
             }
         }
+
+
 
     }
 	

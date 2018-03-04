@@ -1,15 +1,13 @@
 package minecraftschurli.mfm;
 
 
+import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.proxy.CommonProxy;
 import minecraftschurli.mfm.tabs.MFMTab;
 import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.handlers.RegistryHandler;
-import minecraftschurli.mfm.util.integrations.TinkersIntegration;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.client.model.ModelLoaderRegistry;
-import net.minecraftforge.common.ForgeModContainer;
+import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -18,6 +16,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import slimeknights.tconstruct.library.TinkerRegistry;
 
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = Reference.MCVERSION)
 public class Main 
@@ -36,13 +35,21 @@ public class Main
 	{
         RegistryHandler.onFluidRegister();
 		RegistryHandler.preInitRegistries();
-        if(Loader.isModLoaded("tconstruct"))RegistryHandler.onTinkersRegister();
+        if(Loader.isModLoaded("tconstruct"))
+        {
+            RegistryHandler.onTinkersRegister();
+        }
+
 	}
 	
 	@EventHandler
 	public static void init(FMLInitializationEvent event) 
 	{
 	    RegistryHandler.initRegistries();
+        if(Loader.isModLoaded("tconstruct"))
+        {
+            TinkerRegistry.registerSmelteryFuel(new FluidStack(FluidInit.FLUID_STANIUM,1),10000);
+        }
 	}
 	
 	@EventHandler

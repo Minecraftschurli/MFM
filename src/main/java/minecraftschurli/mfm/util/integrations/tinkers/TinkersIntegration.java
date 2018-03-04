@@ -1,4 +1,4 @@
-package minecraftschurli.mfm.util.integrations;
+package minecraftschurli.mfm.util.integrations.tinkers;
 
 
 import net.minecraftforge.fluids.Fluid;
