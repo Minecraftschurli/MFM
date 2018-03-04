@@ -6,9 +6,9 @@ import java.awt.*;
 
 public class FluidMaterial extends FluidBase
 {
-    public FluidMaterial(String name,int r,int g,int b)
+    public FluidMaterial(String name,Color color)
     {
-        super(name, new ResourceLocation("tconstruct:blocks/fluids/molten_metal"),new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow"),new Color(r,g,b));
+        super(name, new ResourceLocation("tconstruct:blocks/fluids/molten_metal"),new ResourceLocation("tconstruct:blocks/fluids/molten_metal_flow"),color);
         setGaseous(false);
     }
 }

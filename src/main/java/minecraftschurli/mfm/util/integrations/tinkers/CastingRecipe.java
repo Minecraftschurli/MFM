@@ -68,8 +68,15 @@ public class CastingRecipe extends slimeknights.tconstruct.library.smeltery.Cast
             nbt.setString("PartType","tconstruct:"+casts[i]);
             ItemStack cast = new ItemStack(Item.getByNameOrId("tconstruct:cast"));
             cast.setTagCompound(nbt);
-            castingRecipeList.addE(new CastingRecipe(result,RecipeMatch.ofNBT(cast),fluid,(int)Math.round(VALUE_Ingot*i==0?3:i==1?8:i==2?8:i==3?2:i==4?1:i==5?8:i==6?3:i==7?3:i==8?1:i==9?3:i==10?1:i==11?1:i==12?0.5:i==13?2:i==14?2:i==15?2:i==16?8:i==17?8:i==18?1:i==19?3:i==20?8:i==21?2:i==22?2:i==23?1:i==24?2:0)));
+            castingRecipeList.addE(new CastingRecipe(result,RecipeMatch.ofNBT(cast,
+                    (int)((VALUE_Ingot)*valueMultiplicator(i))),
+                    fluid,(int)((VALUE_Ingot)*valueMultiplicator(i))));
         }
         return castingRecipeList;
+    }
+
+    private static double valueMultiplicator(int i)
+    {
+        return (i==0?3:i==1?8:i==2?8:i==3?2:i==4?1:i==5?8:i==6?3:i==7?3:i==8?1:i==9?3:i==10?1:i==11?1:i==12?0.5:i==13?2:i==14?2:i==15?2:i==16?8:i==17?8:i==18?1:i==19?3:i==20?8:i==21?2:i==22?2:i==23?1:i==24?2:0);
     }
 }

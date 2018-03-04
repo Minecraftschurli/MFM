@@ -24,25 +24,25 @@ public class TinkersInit
     public static final List<ICastingRecipe> CASTING_RECIPES = new List<>();
     public static final List<MeltingRecipe> MELTING_RECIPES = new List<>();
 
-    public static final TinkersMaterial MATERIAL_VULCANIUM = new TinkersMaterial("vulcanium",new Color(222,155,0).getRGB(),"Vulcanium",
+    public static final TinkersMaterial MATERIAL_VULCANIUM = new TinkersMaterial("vulcanium",new Color(222,155,0,255).getRGB(),"Vulcanium",
             false,true, FluidInit.FLUID_VULCANIUM, new MaterialStats(0,0,0,0,
             0,0,0,0,0,0),
             (new List<>().addE(TinkerTraits.autosmelt).addE(TinkerTraits.superheat).addE(TinkerTraits.flammable)),
             (new List<>().addE(MaterialTypes.HEAD).addE(null).addE(null)));
 
-    public static final TinkersMaterial MATERIAL_KANDIUM = new TinkersMaterial("kandium",new Color(0,228,199).getRGB(),"Kandium",
+    public static final TinkersMaterial MATERIAL_KANDIUM = new TinkersMaterial("kandium",new Color(0,228,199,255).getRGB(),"Kandium",
             false,true, FluidInit.FLUID_KANDIUM, new MaterialStats(0,0,0,0,
             0,0,0,0,0,0),
             (new List<>()),
             (new List<>()));
 
-    public static final TinkersMaterial MATERIAL_KANADIUM = new TinkersMaterial("kanadium",new Color(0,119,255).getRGB(),"Kanadium",
+    public static final TinkersMaterial MATERIAL_KANADIUM = new TinkersMaterial("kanadium",new Color(0,119,255,255).getRGB(),"Kanadium",
             false,true, FluidInit.FLUID_KANADIUM, new MaterialStats(0,0,0,0,
             0,0,0,0,0,0),
             (new List<>()),
             (new List<>()));
 
-    public static final TinkersMaterial MATERIAL_CRYSTAL = new TinkersMaterial("crystal",new Color(240,255,255).getRGB(),"Crystal",
+    public static final TinkersMaterial MATERIAL_CRYSTAL = new TinkersMaterial("crystal",new Color(240,255,255,255).getRGB(),"Crystal",
             true,false, null, new MaterialStats(0,0,0,0,
             0,0,0,0,0,0),
             (new List<>()),
