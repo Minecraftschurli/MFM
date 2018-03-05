@@ -1,10 +1,7 @@
 package minecraftschurli.mfm.util.integrations.tinkers;
 
-import jdk.nashorn.internal.ir.annotations.Ignore;
-import net.minecraftforge.common.config.Config;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.oredict.OreDictionary;
-import scala.reflect.internal.ReificationSupport;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.traits.ITrait;
 
