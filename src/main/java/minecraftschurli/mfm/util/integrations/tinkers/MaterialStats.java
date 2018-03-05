@@ -2,10 +2,12 @@ package minecraftschurli.mfm.util.integrations.tinkers;
 
 public class MaterialStats
 {
-    private final float drawspeed,range,bonusDamage,handleModifier,miningSpeed,attackDamage;
-    private final int headDurability,miningLevel,handleDurability,extraDurability;
+    private final float drawspeed,range,bonusDamage,handleModifier,miningSpeed,attackDamage,arrowShaftModifier;
+    private final int headDurability,miningLevel,handleDurability,extraDurability,bonusAmmo;
 
-    public MaterialStats(int headDurability, int miningLevel, int handleDurability, int extraDurability, float drawspeed, float range, float bonusDamage, float handleModifier, float miningSpeed, float attackDamage)
+    public MaterialStats(int headDurability, int miningLevel, int handleDurability, int extraDurability,int bonusAmmo,
+                         float drawspeed, float range, float bonusDamage, float handleModifier, float miningSpeed,
+                         float attackDamage, float arrowShaftModifier)
     {
         this.attackDamage = attackDamage;
         this.bonusDamage = bonusDamage;
@@ -17,6 +19,8 @@ public class MaterialStats
         this.miningLevel = miningLevel;
         this.miningSpeed = miningSpeed;
         this.range = range;
+        this.arrowShaftModifier = arrowShaftModifier;
+        this.bonusAmmo = bonusAmmo;
     }
 
     public int getHeadDurability() {
@@ -57,5 +61,13 @@ public class MaterialStats
 
     public float getBonusDamage() {
         return bonusDamage;
+    }
+
+    public float getArrowShaftModifier() {
+        return arrowShaftModifier;
+    }
+
+    public int getBonusAmmo() {
+        return bonusAmmo;
     }
 }

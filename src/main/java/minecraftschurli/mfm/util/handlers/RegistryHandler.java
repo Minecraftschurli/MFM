@@ -6,10 +6,7 @@ import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.objects.blocks.BlockBase;
 import minecraftschurli.mfm.objects.items.ItemBase;
-import minecraftschurli.mfm.util.integrations.tinkers.CastingRecipe;
-import minecraftschurli.mfm.util.integrations.tinkers.MeltingRecipe;
-import minecraftschurli.mfm.util.integrations.tinkers.TinkersInit;
-import minecraftschurli.mfm.util.integrations.tinkers.TinkersMaterial;
+import minecraftschurli.mfm.util.integrations.tinkers.*;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import minecraftschurli.mfm.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
@@ -25,10 +22,7 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.materials.BowMaterialStats;
-import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
-import slimeknights.tconstruct.library.materials.HandleMaterialStats;
-import slimeknights.tconstruct.library.materials.HeadMaterialStats;
+import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.smeltery.Cast;
 import slimeknights.tconstruct.library.smeltery.ICastingRecipe;
 
@@ -95,13 +89,17 @@ public class RegistryHandler {
         for (int i = 0; i < TinkersInit.MATERIALS.size(); i++)
         {
             TinkersMaterial mat = (TinkersMaterial)TinkersInit.MATERIALS.get(i);
-                slimeknights.tconstruct.library.materials.Material material = mat.material;
-                TinkerRegistry.addMaterialStats(material,
-                        new HeadMaterialStats(mat.matStat.getHeadDurability(), mat.matStat.getMiningSpeed(), mat.matStat.getAttackDamage(), mat.matStat.getMiningLevel()),
-                        new HandleMaterialStats(mat.matStat.getHandleModifier(), mat.matStat.getHandleDurability()),
-                        new ExtraMaterialStats(mat.matStat.getExtraDurability()),
-                        new BowMaterialStats(mat.matStat.getDrawspeed(), mat.matStat.getRange(), mat.matStat.getBonusDamage()));
-                TinkerRegistry.addMaterial(material);
+            slimeknights.tconstruct.library.materials.Material material = mat.material;
+            TinkerRegistry.addMaterialStats(material,
+                    new HeadMaterialStats(mat.matStat.getHeadDurability(), mat.matStat.getMiningSpeed(), mat.matStat.getAttackDamage(), mat.matStat.getMiningLevel()),
+                    new HandleMaterialStats(mat.matStat.getHandleModifier(), mat.matStat.getHandleDurability()),
+                    new ExtraMaterialStats(mat.matStat.getExtraDurability()),
+                    new BowMaterialStats(mat.matStat.getDrawspeed(), mat.matStat.getRange(), mat.matStat.getBonusDamage()),
+                    new ArrowShaftMaterialStats(mat.matStat.getArrowShaftModifier(),mat.matStat.getBonusAmmo()),
+                    new ProjectileMaterialStats()
+            );
+
+            TinkerRegistry.addMaterial(material);
         }
         for (int i = 0; i < TinkersInit.CASTING_RECIPES.size(); i++)
         {
