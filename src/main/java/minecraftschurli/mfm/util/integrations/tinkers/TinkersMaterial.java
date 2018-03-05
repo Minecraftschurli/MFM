@@ -55,4 +55,8 @@ public class TinkersMaterial
 
         TinkersInit.MATERIALS.addE(this);
     }
+
+    public String getOreDictSuffix() {
+        return oreDictSuffix;
+    }
 }
