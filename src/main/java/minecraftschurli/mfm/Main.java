@@ -45,7 +45,7 @@ public class Main
 	    RegistryHandler.initRegistries();
         if(Loader.isModLoaded("tconstruct"))
         {
-            new TinkersIntegration().INSTANCE.integrate().close();
+            TinkersIntegration.INSTANCE.integrate().close();
         }
 	}
 	

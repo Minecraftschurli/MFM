@@ -12,7 +12,7 @@ public class AppleGodium extends MagicApple implements IHasEffect
 
     public AppleGodium()
     {
-        super("apple_gudium",100, 100);
+        super("apple_godium",100, 100);
     }
 
     @Override

@@ -5,15 +5,16 @@ import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.util.handlers.RegistryHandler;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.library.TinkerRegistry;
+import slimeknights.tconstruct.library.materials.HandleMaterialStats;
+import slimeknights.tconstruct.library.materials.HeadMaterialStats;
+import slimeknights.tconstruct.library.materials.Material;
+import slimeknights.tconstruct.tools.TinkerMaterials;
 
 public class TinkersIntegration
 {
-    public static TinkersIntegration INSTANCE;
+    public static TinkersIntegration INSTANCE = new TinkersIntegration();
 
-    public TinkersIntegration()
-    {
-        INSTANCE = this;
-    }
+    private TinkersIntegration() {}
 
     public TinkersIntegration integrate()
     {
@@ -23,8 +24,5 @@ public class TinkersIntegration
         return this;
     }
 
-    public void close()
-    {
-        INSTANCE = null;
-    }
+    public void close() { INSTANCE = null; }
 }

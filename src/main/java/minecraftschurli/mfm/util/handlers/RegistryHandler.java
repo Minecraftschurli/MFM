@@ -70,18 +70,18 @@ public class RegistryHandler {
     public static void onFluidRegister()
     {
         Fluid fluid;
-        if (FluidInit.FLUIDS != null)
-            for (int i=0;i<FluidInit.FLUIDS.size();i++)
+        for (int i=0;i<FluidInit.FLUIDS.size();i++)
+        {
+            fluid = (Fluid)FluidInit.FLUIDS.get(i);
+            if (fluid != null)
             {
-                fluid = (Fluid)FluidInit.FLUIDS.get(i);
-                if (fluid != null)
-                {
-                    FluidRegistry.registerFluid(fluid); // fluid has to be registered
-                    FluidRegistry.addBucketForFluid(fluid); // add a bucket for the fluid
-                    //BlockInit.BLOCKS.add(new BlockFluidClassic(fluid, Material.LAVA));
-                }
-
+                FluidRegistry.registerFluid(fluid); // fluid has to be registered
+                FluidRegistry.addBucketForFluid(fluid); // add a bucket for the fluid
+                //BlockInit.BLOCKS.add(new BlockFluidClassic(fluid, Material.LAVA));
             }
+
+        }
+
     }
 
     public static void onTinkersRegister()
@@ -95,8 +95,7 @@ public class RegistryHandler {
                     new HandleMaterialStats(mat.matStat.getHandleModifier(), mat.matStat.getHandleDurability()),
                     new ExtraMaterialStats(mat.matStat.getExtraDurability()),
                     new BowMaterialStats(mat.matStat.getDrawspeed(), mat.matStat.getRange(), mat.matStat.getBonusDamage()),
-                    new ArrowShaftMaterialStats(mat.matStat.getArrowShaftModifier(),mat.matStat.getBonusAmmo()),
-                    new ProjectileMaterialStats()
+                    new ArrowShaftMaterialStats(mat.matStat.getArrowShaftModifier(),mat.matStat.getBonusAmmo())
             );
 
             TinkerRegistry.addMaterial(material);

@@ -1,6 +1,10 @@
 package minecraftschurli.mfm.util.integrations.tinkers;
 
+import jdk.nashorn.internal.ir.annotations.Ignore;
+import net.minecraftforge.common.config.Config;
 import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.oredict.OreDictionary;
+import scala.reflect.internal.ReificationSupport;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.traits.ITrait;
 
@@ -13,36 +17,45 @@ public class TinkersMaterial
 
     public final Material material;
     public final MaterialStats matStat;
-    public final String oreDictSuffix;
+    private final String oreDictSuffix;
 
-    public TinkersMaterial(String name, int color, String suffix, boolean part,boolean cast, Fluid fluid, MaterialStats matStat, List<ITrait> traits, List<String> deps)
+    TinkersMaterial(String name, int color, String suffix, boolean part,boolean cast, Fluid fluid, MaterialStats matStat, List<ITrait> traits, List<String> deps)
     {
 
-        this.material = new Material(name, color, false);
+        this.material = new Material(name, color);
+        this.material.setRenderInfo(color);
+        System.out.println(this.material.renderInfo.toString());
         this.matStat = matStat;
         this.oreDictSuffix = suffix;
+
         if(fluid!=null)
         {
             this.material.setFluid(fluid);
         }
+
         this.material.addCommonItems(suffix);
-        this.material.addItem("gem"+suffix,1,VALUE_Gem);
+        if(OreDictionary.doesOreNameExist("gem"+suffix))this.material.addItem("gem"+suffix,1,VALUE_Gem);
         ITrait trait;
         String dep;
+
         for (int i = 0; i < traits.size(); i++)
         {
             trait = traits.get(i);
             dep = deps.get(i);
             if (dep != null)
+            {
                 this.material.addTrait(trait, dep);
+            }
             else
+            {
                 this.material.addTrait(trait);
-
+            }
         }
+
         this.material.setCastable(cast);
         this.material.setCraftable(part);
         this.material.setVisible();
 
-        TinkersInit.MATERIALS.add(this);
+        TinkersInit.MATERIALS.addE(this);
     }
 }
