@@ -23,6 +23,7 @@ import minecraftschurli.mfm.objects.armor.vulcanium.BootsVulcanium;
 import minecraftschurli.mfm.objects.armor.vulcanium.ChestplateVulcanium;
 import minecraftschurli.mfm.objects.armor.vulcanium.HelmetVulcanium;
 import minecraftschurli.mfm.objects.armor.vulcanium.LeggingsVulcanium;
+import minecraftschurli.mfm.objects.food.AppleGodium;
 import minecraftschurli.mfm.objects.items.ItemWhirlwind;
 import minecraftschurli.mfm.objects.items.ItemBase;
 import minecraftschurli.mfm.objects.items.ItemStanium;
@@ -58,6 +59,9 @@ public class ItemInit {
 	//Items
 	public static final Item ITEM_WHIRLEWIND = new ItemWhirlwind();
 	public static final Item ITEM_CORE = new ItemBase("item_core");
+
+	//Food
+    public static final Item FOOD_APPLE_GODIUM = new AppleGodium();
 	
 	//Ingots
 	public static final Item INGOT_OP_BASE = new ItemBase("ingot_op_base","ingotOpBase");

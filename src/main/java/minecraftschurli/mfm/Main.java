@@ -6,6 +6,7 @@ import minecraftschurli.mfm.proxy.CommonProxy;
 import minecraftschurli.mfm.tabs.MFMTab;
 import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.handlers.RegistryHandler;
+import minecraftschurli.mfm.util.integrations.tinkers.TinkersIntegration;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fluids.FluidStack;
 import net.minecraftforge.fml.common.Loader;
@@ -44,8 +45,7 @@ public class Main
 	    RegistryHandler.initRegistries();
         if(Loader.isModLoaded("tconstruct"))
         {
-            RegistryHandler.onTinkersRegister();
-            TinkerRegistry.registerSmelteryFuel(new FluidStack(FluidInit.FLUID_STANIUM,1),10000);
+            new TinkersIntegration().INSTANCE.integrate().close();
         }
 	}
 	
