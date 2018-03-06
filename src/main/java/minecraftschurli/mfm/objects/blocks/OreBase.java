@@ -231,26 +231,24 @@ public class OreBase extends Block implements IHasModel
 	{
 		return super.getSilkTouchDrop(state);
 	}
-	
+
+    @Override
 	public int quantityDropped(Random random)
     {
         return (Item.getItemFromBlock(this) != this.getItemDropped(this.getDefaultState(),random,0)) ? 1 + random.nextInt(2) : 1;
     }
 
+    @Override
     public int quantityDroppedWithBonus(int fortune, Random random) {
-        if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(this.getBlockState().getValidStates().iterator().next(), random, fortune))
-        {
+        if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(this.getBlockState().getValidStates().iterator().next(), random, fortune)) {
             int i = random.nextInt(fortune + 2) - 1;
 
-            if (i < 0)
-            {
+            if (i < 0) {
                 i = 0;
             }
 
             return this.quantityDropped(random) * (i + 1);
-        }
-        else
-        {
+        } else {
             return this.quantityDropped(random);
         }
     }
