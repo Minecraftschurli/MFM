@@ -1,17 +1,13 @@
 package minecraftschurli.mfm.objects.blocks.machines.staniumsmelter;
 
-import java.util.Random;
-
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.objects.blocks.BlockBase;
 import minecraftschurli.mfm.util.Reference;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.properties.PropertyDirection;
 import net.minecraft.block.state.BlockStateContainer;
@@ -22,13 +18,12 @@ import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.Mirror;
-import net.minecraft.util.Rotation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
+
+import java.util.Random;
 
 public class BlockStaniumSmelter extends BlockBase implements ITileEntityProvider {
 
@@ -47,7 +42,7 @@ public class BlockStaniumSmelter extends BlockBase implements ITileEntityProvide
 	}
 	
 	@Override
-	public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state){
+	public ItemStack getPickBlock(IBlockState state, RayTraceResult target, World world, BlockPos pos, EntityPlayer player) {
 		return new ItemStack(BlockInit.STANIUM_SMELTER);
 	}
 	
@@ -67,7 +62,7 @@ public class BlockStaniumSmelter extends BlockBase implements ITileEntityProvide
             IBlockState south = worldIn.getBlockState(pos.south());
             IBlockState west = worldIn.getBlockState(pos.west());
             IBlockState east = worldIn.getBlockState(pos.east());
-            EnumFacing face = (EnumFacing)state.getValue(FACING);
+			EnumFacing face = state.getValue(FACING);
 
             if (face == EnumFacing.NORTH && north.isFullBlock() && !south.isFullBlock()) face = EnumFacing.SOUTH;
             else if (face == EnumFacing.SOUTH && south.isFullBlock() && !north.isFullBlock()) face = EnumFacing.NORTH;
@@ -121,17 +116,17 @@ public class BlockStaniumSmelter extends BlockBase implements ITileEntityProvide
 	
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
-		return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
+		return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
 	}
 	
 	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
-		return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
+		return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
 	}
 	
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {ACTIVE,FACING});
+		return new BlockStateContainer(this, ACTIVE, FACING);
 	}
 	
 	@Override
@@ -145,7 +140,7 @@ public class BlockStaniumSmelter extends BlockBase implements ITileEntityProvide
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return ((EnumFacing)state.getValue(FACING)).getIndex();
+		return state.getValue(FACING).getIndex();
 	}
 
 }

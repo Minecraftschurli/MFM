@@ -48,15 +48,16 @@ public class ContainerAlloyingFurnace extends Container {
 	public void detectAndSendChanges() 
 	{
 		super.detectAndSendChanges();
-		
-		for(int i = 0; i < this.listeners.size(); ++i) 
-		{
-			IContainerListener listener = (IContainerListener)this.listeners.get(i);
-			
-			if(this.cookTime != this.tileentity.getField(2)) listener.sendWindowProperty(this, 2, this.tileentity.getField(2));
-			if(this.burnTime != this.tileentity.getField(0)) listener.sendWindowProperty(this, 0, this.tileentity.getField(0));
-			if(this.currentBurnTime != this.tileentity.getField(1)) listener.sendWindowProperty(this, 1, this.tileentity.getField(1));
-			if(this.totalCookTime != this.tileentity.getField(3)) listener.sendWindowProperty(this, 3, this.tileentity.getField(3));
+
+		for (IContainerListener listener : this.listeners) {
+			if (this.cookTime != this.tileentity.getField(2))
+				listener.sendWindowProperty(this, 2, this.tileentity.getField(2));
+			if (this.burnTime != this.tileentity.getField(0))
+				listener.sendWindowProperty(this, 0, this.tileentity.getField(0));
+			if (this.currentBurnTime != this.tileentity.getField(1))
+				listener.sendWindowProperty(this, 1, this.tileentity.getField(1));
+			if (this.totalCookTime != this.tileentity.getField(3))
+				listener.sendWindowProperty(this, 3, this.tileentity.getField(3));
 		}
 		
 		this.cookTime = this.tileentity.getField(2);
@@ -82,7 +83,7 @@ public class ContainerAlloyingFurnace extends Container {
 	public ItemStack transferStackInSlot(EntityPlayer playerIn, int index) 
 	{
 		ItemStack stack = ItemStack.EMPTY;
-		Slot slot = (Slot)this.inventorySlots.get(index);
+		Slot slot = this.inventorySlots.get(index);
 		
 		if(slot != null && slot.getHasStack()) 
 		{
@@ -93,10 +94,8 @@ public class ContainerAlloyingFurnace extends Container {
 			{
 				if(!this.mergeItemStack(stack1, 4, 40, true)) return ItemStack.EMPTY;
 				slot.onSlotChange(stack1, stack);
-			}
-			else if(index != 2 && index != 1 && index != 0) 
-			{		
-				Slot slot1 = (Slot)this.inventorySlots.get(index + 1);
+			} else if (index != 2 && index != 1 && index != 0) {
+				Slot slot1 = this.inventorySlots.get(index + 1);
 				
 				if(!AlloyingFurnaceRecipes.getInstance().getAlloyingResult(stack1, slot1.getStack()).isEmpty())
 				{

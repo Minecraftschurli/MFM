@@ -7,12 +7,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemHoe;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.*;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ITickable;
@@ -21,12 +16,12 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class TileEntityAlloyingFurnace extends TileEntity implements IInventory, ITickable{
-	private NonNullList<ItemStack> inventory = NonNullList.<ItemStack>withSize(4, ItemStack.EMPTY);
+	private NonNullList<ItemStack> inventory = NonNullList.withSize(4, ItemStack.EMPTY);
 	private String customName;
 
 	private int burnTime;
@@ -75,7 +70,7 @@ public class TileEntityAlloyingFurnace extends TileEntity implements IInventory,
 	@Override
 	public ItemStack getStackInSlot(int index)
 	{
-		return (ItemStack)this.inventory.get(index);
+		return this.inventory.get(index);
 	}
 
 	@Override
@@ -93,14 +88,14 @@ public class TileEntityAlloyingFurnace extends TileEntity implements IInventory,
 	@Override
 	public void setInventorySlotContents(int index, ItemStack stack) 
 	{
-		ItemStack itemstack = (ItemStack)this.inventory.get(index);
+		ItemStack itemstack = this.inventory.get(index);
 		boolean flag = !stack.isEmpty() && stack.isItemEqual(itemstack) && ItemStack.areItemStackTagsEqual(stack, itemstack);
 		this.inventory.set(index, stack);
 
 		if(stack.getCount() > this.getInventoryStackLimit()) stack.setCount(this.getInventoryStackLimit());
 		if(index == 0 && index + 1 == 1 && !flag)
 		{
-			ItemStack stack1 = (ItemStack)this.inventory.get(index + 1);
+			ItemStack stack1 = this.inventory.get(index + 1);
 			this.totalCookTime = this.getCookTime(stack, stack1);
 			this.cookTime = 0;
 			this.markDirty();
@@ -111,12 +106,12 @@ public class TileEntityAlloyingFurnace extends TileEntity implements IInventory,
 	public void readFromNBT(NBTTagCompound compound)
 	{
 		super.readFromNBT(compound);
-		this.inventory = NonNullList.<ItemStack>withSize(this.getSizeInventory(), ItemStack.EMPTY);
+		this.inventory = NonNullList.withSize(this.getSizeInventory(), ItemStack.EMPTY);
 		ItemStackHelper.loadAllItems(compound, this.inventory);
 		this.burnTime = compound.getInteger("BurnTime");
 		this.cookTime = compound.getInteger("CookTime");
 		this.totalCookTime = compound.getInteger("CookTimeTotal");
-		this.currentBurnTime = getItemBurnTime((ItemStack)this.inventory.get(2));
+		this.currentBurnTime = getItemBurnTime(this.inventory.get(2));
 
 		if(compound.hasKey("CustomName", 8)) this.setCustomName(compound.getString("CustomName"));
 	}
@@ -162,9 +157,9 @@ public class TileEntityAlloyingFurnace extends TileEntity implements IInventory,
 
 		if(!this.world.isRemote) 
 		{
-			ItemStack stack = (ItemStack)this.inventory.get(2);
+			ItemStack stack = this.inventory.get(2);
 
-			if(this.isActive() || !stack.isEmpty() && !((((ItemStack)this.inventory.get(0)).isEmpty()) || ((ItemStack)this.inventory.get(1)).isEmpty())) 
+			if (this.isActive() || !stack.isEmpty() && !((this.inventory.get(0).isEmpty()) || this.inventory.get(1).isEmpty()))
 			{
 				if(!this.isActive() && this.canSmelt()) 
 				{
@@ -195,7 +190,7 @@ public class TileEntityAlloyingFurnace extends TileEntity implements IInventory,
 					if(this.cookTime == this.totalCookTime) 
 					{
 						this.cookTime = 0;
-						this.totalCookTime = this.getCookTime((ItemStack)this.inventory.get(0), (ItemStack)this.inventory.get(1));
+						this.totalCookTime = this.getCookTime(this.inventory.get(0), this.inventory.get(1));
 						this.smeltItem();
 						flag1 = true;
 					}
@@ -222,14 +217,14 @@ public class TileEntityAlloyingFurnace extends TileEntity implements IInventory,
 
 	private boolean canSmelt() 
 	{
-		if(((ItemStack)this.inventory.get(0)).isEmpty() || ((ItemStack)this.inventory.get(1)).isEmpty()) return false;
+		if (this.inventory.get(0).isEmpty() || this.inventory.get(1).isEmpty()) return false;
 		else 
 		{
-			ItemStack result = AlloyingFurnaceRecipes.getInstance().getAlloyingResult((ItemStack)this.inventory.get(0), (ItemStack)this.inventory.get(1));	
+			ItemStack result = AlloyingFurnaceRecipes.getInstance().getAlloyingResult(this.inventory.get(0), this.inventory.get(1));
 			if(result.isEmpty()) return false;
 			else
 			{
-				ItemStack output = (ItemStack)this.inventory.get(3);
+				ItemStack output = this.inventory.get(3);
 				if(output.isEmpty()) return true;
 				if(!output.isItemEqual(result)) return false;
 				int res = output.getCount() + result.getCount();
@@ -242,10 +237,10 @@ public class TileEntityAlloyingFurnace extends TileEntity implements IInventory,
 	{
 		if(this.canSmelt()) 
 		{
-			ItemStack input1 = (ItemStack)this.inventory.get(0);
-			ItemStack input2 = (ItemStack)this.inventory.get(1);
+			ItemStack input1 = this.inventory.get(0);
+			ItemStack input2 = this.inventory.get(1);
 			ItemStack result = AlloyingFurnaceRecipes.getInstance().getAlloyingResult(input1, input2);
-			ItemStack output = (ItemStack)this.inventory.get(3);
+			ItemStack output = this.inventory.get(3);
 
 			if(output.isEmpty()) this.inventory.set(3, result.copy());
 			else if(output.getItem() == result.getItem()) output.grow(result.getCount());
@@ -280,7 +275,7 @@ public class TileEntityAlloyingFurnace extends TileEntity implements IInventory,
 			if (item == Item.getItemFromBlock(Blocks.SAPLING)) return 100;
 			if (item == Items.BLAZE_ROD) return 2400;
 
-			return GameRegistry.getFuelValue(fuel);
+			return ForgeEventFactory.getItemBurnTime(fuel);
 		}
 	}
 
@@ -292,7 +287,7 @@ public class TileEntityAlloyingFurnace extends TileEntity implements IInventory,
 	@Override
 	public boolean isUsableByPlayer(EntityPlayer player) 
 	{
-		return this.world.getTileEntity(this.pos) != this ? false : player.getDistanceSq((double)this.pos.getX() + 0.5D, (double)this.pos.getY() + 0.5D, (double)this.pos.getZ() + 0.5D) <= 64.0D;
+		return this.world.getTileEntity(this.pos) == this && player.getDistanceSq((double) this.pos.getX() + 0.5D, (double) this.pos.getY() + 0.5D, (double) this.pos.getZ() + 0.5D) <= 64.0D;
 	}
 
 	@Override

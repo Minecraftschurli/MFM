@@ -1,7 +1,5 @@
 package minecraftschurli.mfm.objects.blocks;
 
-import java.util.Random;
-
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.ItemInit;
@@ -9,16 +7,14 @@ import minecraftschurli.mfm.util.interfaces.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
-import net.minecraftforge.oredict.OreDictionary;
+
+import java.util.Random;
 
 public class OreBase extends Block implements IHasModel 
 {
@@ -34,21 +30,21 @@ public class OreBase extends Block implements IHasModel
     private final String oreDictName;
 
     /**
-	 * 
-	 * @param name
-	 * @param material
-	 * @param dimension
-	 * @param veinSize
-	 * @param rarity
-	 * @param minHeight
-	 * @param maxHeight
-	 * @param exp
-	 * @param baseBlock
-	 * @param hardness
-	 * @param resistance
-	 * @param toolClass
-	 * @param level
-	 * @param item
+     *
+     * @param name The name of the Ore
+     * @param material The material of the Ore
+     * @param dimension The dimension the Ore generates in
+     * @param veinSize The size of the Ore vein
+     * @param rarity The rarity of the Ore
+     * @param minHeight The minimum height the Ore spawns at
+     * @param maxHeight The maximum height the Ore spawns at
+     * @param exp The experience the Ore drops when harvested
+     * @param baseBlock The base of the Ore
+     * @param hardness The block hardness
+     * @param resistance The explosion resistance of the Ore
+     * @param toolClass The tool class the Ore can be broken with
+     * @param level The harvest level of the Ore
+     * @param item The Item that drops from the Ore
 	 */
 	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, int exp, Block baseBlock, float hardness, float resistance, String toolClass, int level, ItemStack item, String oreDict)
 	{
@@ -73,23 +69,22 @@ public class OreBase extends Block implements IHasModel
         BlockInit.ORES.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
-	
-	/**
-	 * 
-	 * @param name
-	 * @param material
-	 * @param dimension
-	 * @param veinSize
-	 * @param rarity
-	 * @param minHeight
-	 * @param maxHeight
-	 * @param exp
-	 * @param hardness
-	 * @param resistance
-	 * @param toolClass
-	 * @param level
-	 * @param item
-	 */
+
+    /**
+     * @param name       The name of the Ore
+     * @param material   The material of the Ore
+     * @param dimension  The dimension the Ore generates in
+     * @param veinSize   The size of the Ore vein
+     * @param rarity     The rarity of the Ore
+     * @param minHeight  The minimum height the Ore spawns at
+     * @param maxHeight  The maximum height the Ore spawns at
+     * @param exp        The experience the Ore drops when harvested
+     * @param hardness   The block hardness
+     * @param resistance The explosion resistance of the Ore
+     * @param toolClass  The tool class the Ore can be broken with
+     * @param level      The harvest level of the Ore
+     * @param item       The Item that drops from the Ore
+     */
 	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, int exp, float hardness, float resistance, String toolClass, int level, ItemStack item, String oreDict)
 	{
         super(material);
@@ -113,22 +108,21 @@ public class OreBase extends Block implements IHasModel
         BlockInit.ORES.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
-	
-	/**
-	 * 
-	 * @param name
-	 * @param material
-	 * @param dimension
-	 * @param veinSize
-	 * @param rarity
-	 * @param minHeight
-	 * @param maxHeight
-	 * @param baseBlock
-	 * @param hardness
-	 * @param resistance
-	 * @param toolClass
-	 * @param level
-	 */
+
+    /**
+     * @param name       The name of the Ore
+     * @param material   The material of the Ore
+     * @param dimension  The dimension the Ore generates in
+     * @param veinSize   The size of the Ore vein
+     * @param rarity     The rarity of the Ore
+     * @param minHeight  The minimum height the Ore spawns at
+     * @param maxHeight  The maximum height the Ore spawns at
+     * @param baseBlock  The base of the Ore
+     * @param hardness   The block hardness
+     * @param resistance The explosion resistance of the Ore
+     * @param toolClass  The tool class the Ore can be broken with
+     * @param level      The harvest level of the Ore
+     */
 	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, Block baseBlock, float hardness, float resistance, String toolClass, int level, String oreDict)
 	{
         super(material);
@@ -152,21 +146,20 @@ public class OreBase extends Block implements IHasModel
         BlockInit.ORES.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
     }
-	
-	/**
-	 * 
-	 * @param name
-	 * @param material
-	 * @param dimension
-	 * @param veinSize
-	 * @param rarity
-	 * @param minHeight
-	 * @param maxHeight
-	 * @param hardness
-	 * @param resistance
-	 * @param toolClass
-	 * @param level
-	 */
+
+    /**
+     * @param name       The name of the Ore
+     * @param material   The material of the Ore
+     * @param dimension  The dimension the Ore generates in
+     * @param veinSize   The size of the Ore vein
+     * @param rarity     The rarity of the Ore
+     * @param minHeight  The minimum height the Ore spawns at
+     * @param maxHeight  The maximum height the Ore spawns at
+     * @param hardness   The block hardness
+     * @param resistance The explosion resistance of the Ore
+     * @param toolClass  The tool class the Ore can be broken with
+     * @param level      The harvest level of the Ore
+     */
 	public OreBase(String name, Material material, int dimension, int veinSize, int rarity, int minHeight, int maxHeight, float hardness, float resistance, String toolClass, int level, String oreDict)
 	{
         super(material);
@@ -243,10 +236,9 @@ public class OreBase extends Block implements IHasModel
     {
         return (Item.getItemFromBlock(this) != this.getItemDropped(this.getDefaultState(),random,0)) ? 1 + random.nextInt(2) : 1;
     }
-	
-    public int quantityDroppedWithBonus(int fortune, Random random)
-    {
-        if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped((IBlockState)this.getBlockState().getValidStates().iterator().next(), random, fortune))
+
+    public int quantityDroppedWithBonus(int fortune, Random random) {
+        if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped(this.getBlockState().getValidStates().iterator().next(), random, fortune))
         {
             int i = random.nextInt(fortune + 2) - 1;
 

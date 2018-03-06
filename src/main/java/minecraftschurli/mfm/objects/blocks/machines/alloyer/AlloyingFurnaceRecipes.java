@@ -1,23 +1,20 @@
 package minecraftschurli.mfm.objects.blocks.machines.alloyer;
 
-import java.util.Map;
-import java.util.Map.Entry;
-
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
-
-import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.ItemInit;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class AlloyingFurnaceRecipes 
 {
 	private static final AlloyingFurnaceRecipes INSTANCE = new AlloyingFurnaceRecipes();
-	private final Table<ItemStack, ItemStack, ItemStack> smeltingList = HashBasedTable.<ItemStack, ItemStack, ItemStack>create();
-	private final Map<ItemStack, Float> experienceList = Maps.<ItemStack, Float>newHashMap();
+    private final Table<ItemStack, ItemStack, ItemStack> smeltingList = HashBasedTable.create();
+    private final Map<ItemStack, Float> experienceList = Maps.newHashMap();
 	
 	public static AlloyingFurnaceRecipes getInstance()
 	{
@@ -29,12 +26,12 @@ public class AlloyingFurnaceRecipes
 		registerDefaultRecipes();
 	}
 
-	
-	public void addAlloyingRecipe(ItemStack input1, ItemStack input2, ItemStack result, float experience) 
+
+    public void addAlloyingRecipe(ItemStack input1, ItemStack input2, ItemStack result, float experience)
 	{
 		if(getAlloyingResult(input1, input2) != ItemStack.EMPTY) return;
 		this.smeltingList.put(input1, input2, result);
-		this.experienceList.put(result, Float.valueOf(experience));
+        this.experienceList.put(result, experience);
 	}
 	
 	private void registerDefaultRecipes()
@@ -47,13 +44,13 @@ public class AlloyingFurnaceRecipes
 	{
 		for(Entry<ItemStack, Map<ItemStack, ItemStack>> entry : this.smeltingList.columnMap().entrySet()) 
 		{
-			if(this.compareItemStacks(input1, (ItemStack)entry.getKey())) 
+            if (this.compareItemStacks(input1, entry.getKey()))
 			{
 				for(Entry<ItemStack, ItemStack> ent : entry.getValue().entrySet()) 
 				{
-					if(this.compareItemStacks(input2, (ItemStack)ent.getKey())) 
+                    if (this.compareItemStacks(input2, ent.getKey()))
 					{
-						return (ItemStack)ent.getValue();
+                        return ent.getValue();
 					}
 				}
 			}
@@ -75,9 +72,9 @@ public class AlloyingFurnaceRecipes
 	{
 		for (Entry<ItemStack, Float> entry : this.experienceList.entrySet()) 
 		{
-			if(this.compareItemStacks(stack, (ItemStack)entry.getKey())) 
+            if (this.compareItemStacks(stack, entry.getKey()))
 			{
-				return ((Float)entry.getValue()).floatValue();
+                return entry.getValue().floatValue();
 			}
 		}
 		return 0.0F;

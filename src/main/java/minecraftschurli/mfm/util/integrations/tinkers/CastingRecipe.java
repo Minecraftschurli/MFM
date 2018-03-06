@@ -1,15 +1,12 @@
 package minecraftschurli.mfm.util.integrations.tinkers;
 
-import jline.internal.Nullable;
 import minecraftschurli.mfm.util.misc.List;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.mantle.util.RecipeMatch;
-import slimeknights.tconstruct.common.TinkerOredict;
 import slimeknights.tconstruct.library.smeltery.ICastingRecipe;
 
 import java.util.Objects;
