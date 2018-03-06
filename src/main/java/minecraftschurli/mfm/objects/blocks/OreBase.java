@@ -12,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
 
 import java.util.Random;
 
@@ -223,7 +222,7 @@ public class OreBase extends Block implements IHasModel
 	@Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) 
 	{
-		return  item != null ? item.getItem() : Item.getItemFromBlock(this);
+        return this.item != null ? item.getItem() : Item.getItemFromBlock(this);
     }
 	
 	@Override
@@ -252,11 +251,19 @@ public class OreBase extends Block implements IHasModel
             return this.quantityDropped(random);
         }
     }
-    
+
     @Override
-    public int getExpDrop(IBlockState state, IBlockAccess world, BlockPos pos, int fortune) 
+    public int getExpDrop(IBlockState state, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune)
     {
-    	return Item.getItemFromBlock(this)==this.getItemDropped(state, null, fortune)?this.exp:0;
+        if (this.getItemDropped(state, RANDOM, fortune) != Item.getItemFromBlock(this)) {
+            return 1 + RANDOM.nextInt(5);
+        }
+        return 0;
+    }
+
+    @Override
+    public boolean isToolEffective(String type, IBlockState state) {
+        return type != null && type.equals(this.getHarvestTool(state));
     }
 
 }
