@@ -1,5 +1,6 @@
 package minecraftschurli.mfm.util.integrations.tinkers;
 
+import jline.internal.Nullable;
 import minecraftschurli.mfm.util.misc.List;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -11,28 +12,30 @@ import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.common.TinkerOredict;
 import slimeknights.tconstruct.library.smeltery.ICastingRecipe;
 
+import java.util.Objects;
+
 import static slimeknights.tconstruct.library.materials.Material.VALUE_Ingot;
 
 public class CastingRecipe extends slimeknights.tconstruct.library.smeltery.CastingRecipe implements ICastingRecipe
 {
     private boolean basin;
 
-    public CastingRecipe(ItemStack output, Fluid fluid, int amount)
+    CastingRecipe(ItemStack output, Fluid fluid, int amount)
     {
         super(output, fluid, amount, calcCooldownTime(fluid, amount));
 
         basin = true;
 
-        TinkersInit.CASTING_RECIPES.add(this);
+        TinkersInit.CASTING_RECIPES.addE(this);
     }
 
-    public CastingRecipe(ItemStack output, RecipeMatch cast, Fluid fluid, int amount)
+    CastingRecipe(ItemStack output, RecipeMatch cast, Fluid fluid, int amount)
     {
         super(output, cast, new FluidStack(fluid, amount), calcCooldownTime(fluid, amount), false, false);
 
         basin = false;
 
-        TinkersInit.CASTING_RECIPES.add(this);
+        TinkersInit.CASTING_RECIPES.addE(this);
     }
 
     public boolean isBasin() {
@@ -58,15 +61,16 @@ public class CastingRecipe extends slimeknights.tconstruct.library.smeltery.Cast
                 "sign_head","cross_guard","tough_binding","hand_guard","knife_blade","shard","kama_head","shovel_head",
                 "pick_head","scythe_head","excavator_head","wide_guard","bow_limb","broad_axe_head","sword_blade",
                 "sharpening_kit","binding","arrow_head"};
+
         for (int i = 0; i < casts.length; i++)
         {
             nbt = new NBTTagCompound();
             nbt.setString("Material",material);
-            ItemStack result = new ItemStack(Item.getByNameOrId("tconstruct:"+casts[i]));
+            ItemStack result = new ItemStack(Objects.requireNonNull(Item.getByNameOrId("tconstruct:" + casts[i])));
             result.setTagCompound(nbt);
             nbt = new NBTTagCompound();
             nbt.setString("PartType","tconstruct:"+casts[i]);
-            ItemStack cast = new ItemStack(Item.getByNameOrId("tconstruct:cast"));
+            ItemStack cast = new ItemStack(Objects.requireNonNull(Item.getByNameOrId("tconstruct:cast")));
             cast.setTagCompound(nbt);
             castingRecipeList.addE(new CastingRecipe(result,RecipeMatch.ofNBT(cast,
                     (int)((VALUE_Ingot)*valueMultiplicator(i))),
