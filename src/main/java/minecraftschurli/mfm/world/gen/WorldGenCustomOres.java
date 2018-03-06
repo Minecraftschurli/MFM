@@ -1,15 +1,10 @@
 package minecraftschurli.mfm.world.gen;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.objects.blocks.OreBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
@@ -18,6 +13,10 @@ import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class WorldGenCustomOres implements IWorldGenerator 
 {
 	private List<WorldGenerator> ores;
@@ -25,8 +24,8 @@ public class WorldGenCustomOres implements IWorldGenerator
 	
 	public WorldGenCustomOres() 
 	{
-		ores = new ArrayList<WorldGenerator>();
-		data = new ArrayList<int[]>();
+		ores = new ArrayList<>();
+		data = new ArrayList<>();
 		
 		for (OreBase ore : BlockInit.ORES) {
 			addOreToGenerate(ore.getDefaultState(), ore.getBaseBlock(), ore.getVeinSize(), ore.getDimension(), ore.getRarity(), ore.getMinHeight(), ore.getMaxHeight());

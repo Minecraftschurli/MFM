@@ -1,6 +1,5 @@
 package minecraftschurli.mfm.objects.items;
 
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class ItemStanium extends ItemBase 

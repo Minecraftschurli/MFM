@@ -1,7 +1,6 @@
 package minecraftschurli.mfm.objects.armor.kanadium;
 
 import minecraftschurli.mfm.objects.armor.ArmorBase;
-import minecraftschurli.mfm.objects.armor.vulcanium.SetVulcanium;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;

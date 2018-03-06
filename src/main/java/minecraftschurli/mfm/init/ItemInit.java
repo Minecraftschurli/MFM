@@ -1,8 +1,5 @@
 package minecraftschurli.mfm.init;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import minecraftschurli.mfm.objects.armor.godium.BootsGodium;
 import minecraftschurli.mfm.objects.armor.godium.ChestplateGodium;
 import minecraftschurli.mfm.objects.armor.godium.HelmetGodium;
@@ -24,11 +21,10 @@ import minecraftschurli.mfm.objects.armor.vulcanium.ChestplateVulcanium;
 import minecraftschurli.mfm.objects.armor.vulcanium.HelmetVulcanium;
 import minecraftschurli.mfm.objects.armor.vulcanium.LeggingsVulcanium;
 import minecraftschurli.mfm.objects.food.AppleGodium;
-import minecraftschurli.mfm.objects.items.ItemWhirlwind;
 import minecraftschurli.mfm.objects.items.ItemBase;
 import minecraftschurli.mfm.objects.items.ItemStanium;
+import minecraftschurli.mfm.objects.items.ItemWhirlwind;
 import minecraftschurli.mfm.objects.tools.axe.AxeBase;
-import minecraftschurli.mfm.objects.tools.sword.SwordBase;
 import minecraftschurli.mfm.objects.tools.sword.SwordVulcanium;
 import minecraftschurli.mfm.util.Reference;
 import net.minecraft.init.SoundEvents;
@@ -37,6 +33,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.common.util.EnumHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ItemInit {
 	

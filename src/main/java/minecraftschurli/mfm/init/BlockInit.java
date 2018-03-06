@@ -1,19 +1,16 @@
 package minecraftschurli.mfm.init;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import minecraftschurli.mfm.objects.blocks.BlockBase;
 import minecraftschurli.mfm.objects.blocks.OreBase;
 import minecraftschurli.mfm.objects.blocks.machines.alloyer.BlockAlloyingFurnace;
 import minecraftschurli.mfm.objects.blocks.machines.staniumsmelter.BlockStaniumSmelter;
-import minecraftschurli.mfm.util.Reference;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BlockInit {
 	

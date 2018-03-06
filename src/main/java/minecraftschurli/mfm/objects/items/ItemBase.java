@@ -2,11 +2,8 @@ package minecraftschurli.mfm.objects.items;
 
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.ItemInit;
-import minecraftschurli.mfm.proxy.ClientProxy;
-import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import net.minecraft.item.Item;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemBase extends Item implements IHasModel {
     public final String oreDictName;

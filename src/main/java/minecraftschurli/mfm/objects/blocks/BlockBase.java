@@ -6,10 +6,8 @@ import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockBase extends Block implements IHasModel
 {

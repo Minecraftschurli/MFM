@@ -5,10 +5,6 @@ import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.util.handlers.RegistryHandler;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.tconstruct.library.TinkerRegistry;
-import slimeknights.tconstruct.library.materials.HandleMaterialStats;
-import slimeknights.tconstruct.library.materials.HeadMaterialStats;
-import slimeknights.tconstruct.library.materials.Material;
-import slimeknights.tconstruct.tools.TinkerMaterials;
 
 public class TinkersIntegration
 {

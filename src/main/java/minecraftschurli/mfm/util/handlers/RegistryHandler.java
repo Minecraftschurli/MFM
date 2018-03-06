@@ -6,7 +6,10 @@ import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.objects.blocks.BlockBase;
 import minecraftschurli.mfm.objects.items.ItemBase;
-import minecraftschurli.mfm.util.integrations.tinkers.*;
+import minecraftschurli.mfm.util.integrations.tinkers.CastingRecipe;
+import minecraftschurli.mfm.util.integrations.tinkers.MeltingRecipe;
+import minecraftschurli.mfm.util.integrations.tinkers.TinkersInit;
+import minecraftschurli.mfm.util.integrations.tinkers.TinkersMaterial;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import minecraftschurli.mfm.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
@@ -20,14 +23,9 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
-import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.*;
-import slimeknights.tconstruct.library.smeltery.Cast;
 import slimeknights.tconstruct.library.smeltery.ICastingRecipe;
-
-import static slimeknights.tconstruct.library.materials.Material.VALUE_Block;
-import static slimeknights.tconstruct.library.materials.Material.VALUE_Ingot;
 
 @EventBusSubscriber
 public class RegistryHandler {

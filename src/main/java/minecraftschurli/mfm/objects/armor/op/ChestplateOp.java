@@ -1,11 +1,6 @@
 package minecraftschurli.mfm.objects.armor.op;
 
-import java.util.UUID;
-
-import javax.annotation.Nullable;
-
 import com.google.common.collect.Multimap;
-
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
@@ -18,14 +13,12 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.IItemPropertyGetter;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemElytra;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
@@ -33,6 +26,9 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import javax.annotation.Nullable;
+import java.util.UUID;
 
 public class ChestplateOp extends ItemElytra implements SetOp, IHasModel  {
 	
@@ -110,11 +106,11 @@ public class ChestplateOp extends ItemElytra implements SetOp, IHasModel  {
         {
             playerIn.setItemStackToSlot(entityequipmentslot, itemstack.copy());
             itemstack.setCount(0);
-            return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, itemstack);
+            return new ActionResult<>(EnumActionResult.SUCCESS, itemstack);
         }
         else
         {
-            return new ActionResult<ItemStack>(EnumActionResult.FAIL, itemstack);
+            return new ActionResult<>(EnumActionResult.FAIL, itemstack);
         }
     }
     
@@ -147,9 +143,10 @@ public class ChestplateOp extends ItemElytra implements SetOp, IHasModel  {
     /**
      * Gets a map of item attribute modifiers, used by ItemSword to increase hit damage.
      */
-    public Multimap<String, AttributeModifier> getItemAttributeModifiers(EntityEquipmentSlot equipmentSlot)
+    @Override
+    public Multimap<String, AttributeModifier> getAttributeModifiers(EntityEquipmentSlot equipmentSlot, ItemStack stack)
     {
-        Multimap<String, AttributeModifier> multimap = super.getItemAttributeModifiers(equipmentSlot);
+        Multimap<String, AttributeModifier> multimap = super.getAttributeModifiers(equipmentSlot, stack);
 
         if (equipmentSlot == this.armorType)
         {

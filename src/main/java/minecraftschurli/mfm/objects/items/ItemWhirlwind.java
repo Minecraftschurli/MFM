@@ -1,32 +1,18 @@
 package minecraftschurli.mfm.objects.items;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-
-import minecraftschurli.mfm.Main;
-import minecraftschurli.mfm.objects.armor.op.HelmetOp;
 import minecraftschurli.mfm.objects.armor.op.SetOp;
-import net.minecraft.client.Minecraft;
-import net.minecraft.command.ICommand;
-import net.minecraft.command.ICommandManager;
-import net.minecraft.command.ICommandSender;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class ItemWhirlwind extends ItemBase 
 {
@@ -66,7 +52,7 @@ public class ItemWhirlwind extends ItemBase
         double fling = check >= checkMin ? 2F : 1F;
         AxisAlignedBB aabb = new AxisAlignedBB(coordX + radius, coordY + 3, coordZ + radius, coordX - radius, coordY - 3, coordZ - radius);
         List<Entity> eList = world.getEntitiesWithinAABBExcludingEntity(player,aabb);
-        EntityLiving el = null;
+		EntityLiving el;
         for (Entity e : eList) 
         {
         	if (e instanceof EntityLiving)
