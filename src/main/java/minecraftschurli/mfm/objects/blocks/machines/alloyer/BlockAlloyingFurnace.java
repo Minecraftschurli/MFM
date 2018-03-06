@@ -2,6 +2,7 @@ package minecraftschurli.mfm.objects.blocks.machines.alloyer;
 
 import java.util.Random;
 
+import mcp.MethodsReturnNonnullByDefault;
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.objects.blocks.BlockBase;
@@ -67,7 +68,7 @@ public class BlockAlloyingFurnace extends BlockBase implements ITileEntityProvid
             IBlockState south = worldIn.getBlockState(pos.south());
             IBlockState west = worldIn.getBlockState(pos.west());
             IBlockState east = worldIn.getBlockState(pos.east());
-            EnumFacing face = (EnumFacing)state.getValue(FACING);
+            EnumFacing face = state.getValue(FACING);
 
             if (face == EnumFacing.NORTH && north.isFullBlock() && !south.isFullBlock()) face = EnumFacing.SOUTH;
             else if (face == EnumFacing.SOUTH && south.isFullBlock() && !north.isFullBlock()) face = EnumFacing.NORTH;
@@ -121,17 +122,17 @@ public class BlockAlloyingFurnace extends BlockBase implements ITileEntityProvid
 	
 	@Override
 	public IBlockState withRotation(IBlockState state, Rotation rot) {
-		return state.withProperty(FACING, rot.rotate((EnumFacing)state.getValue(FACING)));
+		return state.withProperty(FACING, rot.rotate(state.getValue(FACING)));
 	}
 	
 	@Override
 	public IBlockState withMirror(IBlockState state, Mirror mirrorIn) {
-		return state.withRotation(mirrorIn.toRotation((EnumFacing)state.getValue(FACING)));
+		return state.withRotation(mirrorIn.toRotation(state.getValue(FACING)));
 	}
 	
 	@Override
 	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, new IProperty[] {ACTIVE,FACING});
+		return new BlockStateContainer(this, ACTIVE,FACING);
 	}
 	
 	@Override
@@ -145,7 +146,7 @@ public class BlockAlloyingFurnace extends BlockBase implements ITileEntityProvid
 	
 	@Override
 	public int getMetaFromState(IBlockState state) {
-		return ((EnumFacing)state.getValue(FACING)).getIndex();
+		return state.getValue(FACING).getIndex();
 	}
 
 }
