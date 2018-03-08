@@ -2,7 +2,7 @@ package minecraftschurli.mfm.util.integrations.tinkers;
 
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.oredict.OreDictionary;
-import slimeknights.tconstruct.library.materials.*;
+import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.ITrait;
 
 import java.util.List;
@@ -20,8 +20,7 @@ public class TinkersMaterial
     {
 
         this.material = new Material(name, color);
-        this.material.setRenderInfo(color);
-        System.out.println(this.material.renderInfo.toString());
+        this.material.setRenderInfo(new slimeknights.tconstruct.library.client.MaterialRenderInfo.Default(color));
         this.matStat = matStat;
         this.oreDictSuffix = suffix;
 
