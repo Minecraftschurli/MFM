@@ -30,8 +30,8 @@ public class BlockInit {
 			new Material(MapColor.NETHERRACK), -1, 8, 11,10, 100, 20,
 			40, "pickaxe", 5,"Vulcanium");
 	public static final Block ORE_NETHER_STANIUM = new OreBase("ore_nether_stanium",
-			new Material(MapColor.NETHERRACK), -1, 10, 20, 10, 110, 18,
-			30, "pickaxe", 2,"Stanium");
+            new Material(MapColor.NETHERRACK), -1, 10, 20, 10, 110, 1, 18F,
+            30F, "pickaxe", 2, new ItemStack(ItemInit.GEM_STANIUM), "Stanium");
 	public static final Block ORE_OVERWORLD_KANDIUM = new OreBase("ore_overworld_kandium",
 			new Material(MapColor.STONE), 0, 8, 4, 4, 10, 18, 45,
 			"pickaxe", 3,"Kandium");

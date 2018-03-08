@@ -7,12 +7,14 @@ import minecraftschurli.mfm.util.interfaces.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 
+import java.util.Objects;
 import java.util.Random;
 
 public class OreBase extends Block implements IHasModel 
@@ -253,10 +255,17 @@ public class OreBase extends Block implements IHasModel
     }
 
     @Override
+    public boolean canHarvestBlock(net.minecraft.world.IBlockAccess world, BlockPos pos, EntityPlayer player) {
+        IBlockState state = world.getBlockState(pos);
+        ItemStack stack = player.getHeldItemMainhand();
+        return (stack.getItem().getHarvestLevel(stack, Objects.requireNonNull(this.getHarvestTool(state)), player, state) >= this.getHarvestLevel(state)) && (!stack.isEmpty()) && (net.minecraftforge.common.ForgeHooks.canHarvestBlock(this, player, world, pos));
+    }
+
+    @Override
     public int getExpDrop(IBlockState state, net.minecraft.world.IBlockAccess world, BlockPos pos, int fortune)
     {
-        if (this.getItemDropped(state, RANDOM, fortune) != Item.getItemFromBlock(this)) {
-            return 1 + RANDOM.nextInt(5);
+        if (this.getItemDropped(state, RANDOM, fortune) != Item.getItemFromBlock(this) && this.item != null) {
+            return RANDOM.nextInt(this.exp);
         }
         return 0;
     }

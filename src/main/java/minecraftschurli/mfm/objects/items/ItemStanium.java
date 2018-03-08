@@ -5,9 +5,8 @@ import net.minecraft.item.ItemStack;
 public class ItemStanium extends ItemBase 
 {
 
-	public ItemStanium(String name) 
-	{
-		super(name);
+	public ItemStanium() {
+		super("gem_stanium", "gemStanium");
 	}
 	
 	@Override

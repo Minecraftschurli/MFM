@@ -77,7 +77,7 @@ public class ItemInit {
 	
 	//Gems
 	public static final Item GEM_SEADIAMOND = new ItemBase("gem_seadiamond","gemSeadiamond");
-	public static final Item GEM_STANIUM = new ItemStanium("item_stanium");
+	public static final Item GEM_STANIUM = new ItemStanium();
 	public static final Item GEM_CRYSTAL = new ItemBase("gem_crystal","gemCrystal");
 
     //Tools
