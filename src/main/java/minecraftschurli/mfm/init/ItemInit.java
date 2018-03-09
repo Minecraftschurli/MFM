@@ -1,9 +1,6 @@
 package minecraftschurli.mfm.init;
 
-import minecraftschurli.mfm.objects.armor.godium.BootsGodium;
-import minecraftschurli.mfm.objects.armor.godium.ChestplateGodium;
-import minecraftschurli.mfm.objects.armor.godium.HelmetGodium;
-import minecraftschurli.mfm.objects.armor.godium.LeggingsGodium;
+import minecraftschurli.mfm.objects.armor.godium.ArmorGodium;
 import minecraftschurli.mfm.objects.armor.kanadium.BootsKanadium;
 import minecraftschurli.mfm.objects.armor.kanadium.ChestplateKanadium;
 import minecraftschurli.mfm.objects.armor.kanadium.HelmetKanadium;
@@ -49,7 +46,7 @@ public class ItemInit {
 	public static final ArmorMaterial ARMOR_KANADIUM = EnumHelper.addArmorMaterial("armor_kanadium", Reference.MODID + ":kanadium", 40, new int[]{3,6,8,3}, 30, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.0F);
 	public static final ArmorMaterial ARMOR_GODIUM = EnumHelper.addArmorMaterial("armor_godium", Reference.MODID + ":godium", 100, new int[]{12, 24, 32, 12}, 80, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 8.0F);
 
-		//Tool
+    //Tool
 	public static final ToolMaterial TOOL_VULCANIUM = EnumHelper.addToolMaterial("tool_vulcanium", 5,1561,8.0F,3.0F,40);
 	public static final ToolMaterial TOOL_KANDIUM = EnumHelper.addToolMaterial("tool_kandium", 4,1561,8.0F,3.0F,25);
 	public static final ToolMaterial TOOL_KANADIUM = EnumHelper.addToolMaterial("tool_kanadium", 4,1561,8.0F,3.0F,30);
@@ -131,9 +128,9 @@ public class ItemInit {
 	public static final Item BOOTS_KANADIUM = new BootsKanadium("boots_kanadium",ARMOR_KANADIUM, 1, EntityEquipmentSlot.FEET);
 	
 		//Armor God
-	public static final Item HELMET_GODIUM = new HelmetGodium("helmet_godium", ARMOR_GODIUM, 1, EntityEquipmentSlot.HEAD);
-	public static final Item CHESTPLATE_GODIUM = new ChestplateGodium("chestplate_godium", ARMOR_GODIUM, 1, EntityEquipmentSlot.CHEST);
-	public static final Item LEGGINGS_GODIUM = new LeggingsGodium("leggings_godium",ARMOR_GODIUM, 2, EntityEquipmentSlot.LEGS);
-	public static final Item BOOTS_GODIUM = new BootsGodium("boots_godium",ARMOR_GODIUM, 1, EntityEquipmentSlot.FEET);
+        public static final Item HELMET_GODIUM = new ArmorGodium("helmet_godium", 1, EntityEquipmentSlot.HEAD);
+    public static final Item CHESTPLATE_GODIUM = new ArmorGodium("chestplate_godium", 1, EntityEquipmentSlot.CHEST);
+    public static final Item LEGGINGS_GODIUM = new ArmorGodium("leggings_godium", 2, EntityEquipmentSlot.LEGS);
+    public static final Item BOOTS_GODIUM = new ArmorGodium("boots_godium", 1, EntityEquipmentSlot.FEET);
 
 }
