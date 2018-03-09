@@ -5,6 +5,7 @@ import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.objects.armor.ArmorBase;
+import minecraftschurli.mfm.util.interfaces.IArmorSet;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 import static minecraftschurli.mfm.init.ItemInit.ARMOR_GODIUM;
 
 @Mod.EventBusSubscriber
-public class ArmorGodium extends ArmorBase {
+public class ArmorGodium extends ArmorBase implements IArmorSet {
 
     public final EntityEquipmentSlot slot;
 
@@ -35,7 +36,7 @@ public class ArmorGodium extends ArmorBase {
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
 
-        if (isSetEquipped(player.getArmorInventoryList())) {
+        if (isCompleteSetEquipped(player.getArmorInventoryList())) {
             player.setAir(300);
             player.getFoodStats().addStats(20, 20F);
             if (player.isBurning()) {
@@ -52,7 +53,8 @@ public class ArmorGodium extends ArmorBase {
         }
     }
 
-    private boolean isSetEquipped(Iterable<ItemStack> armor) {
+    @Override
+    public boolean isCompleteSetEquipped(Iterable<ItemStack> armor) {
         for (ItemStack armorPiece : armor) {
             if (!(armorPiece.getItem() instanceof ArmorGodium)) {
                 return false;
