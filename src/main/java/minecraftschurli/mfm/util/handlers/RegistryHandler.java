@@ -80,8 +80,7 @@ public class RegistryHandler {
                 FluidRegistry.addBucketForFluid(fluid); // add a bucket for the fluid
                 try {
                     event.getRegistry().register(new BlockFluidClassic(fluid, net.minecraft.block.material.Material.LAVA));
-                } catch (Exception e) {
-                    e.addSuppressed(e);
+                } catch (Exception ignored) {
                 }
             }
 
