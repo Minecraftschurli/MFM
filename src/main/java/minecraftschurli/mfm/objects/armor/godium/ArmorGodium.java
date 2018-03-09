@@ -56,6 +56,6 @@ public class ArmorGodium extends ArmorBase {
     @Override
     @SideOnly(Side.CLIENT)
     public boolean hasEffect(ItemStack par1ItemStack) {
-        return false;
+        return true;
     }
 }
