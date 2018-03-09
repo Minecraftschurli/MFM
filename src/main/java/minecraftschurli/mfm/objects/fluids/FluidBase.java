@@ -9,25 +9,31 @@ import java.awt.*;
 
 public class FluidBase extends Fluid
 {
-    public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing, Color color)
+    FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing, Color color)
     {
         super(fluidName,still,flowing,color);
 
-        FluidInit.FLUIDS.add(this);
+        setUnlocalizedName(fluidName);
+
+        FluidInit.FLUIDS.addE(this);
     }
 
     FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing, int color)
     {
         super(fluidName,still,flowing,color);
 
-        FluidInit.FLUIDS.add(this);
+        setUnlocalizedName(fluidName);
+
+        FluidInit.FLUIDS.addE(this);
     }
 
-    public FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing)
+    FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing)
     {
         super(fluidName,still,flowing);
 
-        FluidInit.FLUIDS.add(this);
+        setUnlocalizedName(fluidName);
+
+        FluidInit.FLUIDS.addE(this);
     }
 
 

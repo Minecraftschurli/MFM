@@ -16,6 +16,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -63,9 +64,11 @@ public class RegistryHandler {
         }
 
 		TileEntityHandler.registerTileEntities();
-	}
 
-    public static void onFluidRegister()
+        onFluidRegister(event);
+    }
+
+    private static void onFluidRegister(RegistryEvent.Register<Block> event)
     {
         Fluid fluid;
         for (int i=0;i<FluidInit.FLUIDS.size();i++)
@@ -75,7 +78,11 @@ public class RegistryHandler {
             {
                 FluidRegistry.registerFluid(fluid); // fluid has to be registered
                 FluidRegistry.addBucketForFluid(fluid); // add a bucket for the fluid
-                //BlockInit.BLOCKS.add(new BlockFluidClassic(fluid, Material.LAVA));
+                try {
+                    event.getRegistry().register(new BlockFluidClassic(fluid, net.minecraft.block.material.Material.LAVA));
+                } catch (Exception e) {
+                    e.addSuppressed(e);
+                }
             }
 
         }

@@ -12,15 +12,14 @@ import static slimeknights.tconstruct.library.materials.Material.VALUE_Gem;
 public class TinkersMaterial
 {
 
-    public final Material material;
-    public final MaterialStats matStat;
-    private final String oreDictSuffix;
+    public Material material;
+    public MaterialStats matStat;
+    private String oreDictSuffix;
 
     TinkersMaterial(String name, int color, String suffix, boolean part,boolean cast, Fluid fluid, MaterialStats matStat, List<ITrait> traits, List<String> deps)
     {
 
         this.material = new Material(name, color);
-        this.material.setRenderInfo(new slimeknights.tconstruct.library.client.MaterialRenderInfo.Default(color));
         this.matStat = matStat;
         this.oreDictSuffix = suffix;
 
@@ -51,6 +50,8 @@ public class TinkersMaterial
         this.material.setCastable(cast);
         this.material.setCraftable(part);
         this.material.setVisible();
+
+        this.material.setRenderInfo(new slimeknights.tconstruct.library.client.MaterialRenderInfo.Default(color));
 
         TinkersInit.MATERIALS.addE(this);
     }
