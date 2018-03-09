@@ -3,10 +3,11 @@ buildscript {
         jcenter()
         maven { url = "http://files.minecraftforge.net/maven" }
 
+
+
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-
 
     }
 }
@@ -14,7 +15,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.0"
+version = "1.1"
 group = "MinecrsftschurlisMods" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "MFM"
 
@@ -36,6 +37,14 @@ minecraft {
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
 }
 
+repositories {
+    maven {
+        name = "CoFH Maven"
+        url = "http://maven.covers1624.net"
+    }
+}
+
+
 dependencies {
 
 
@@ -49,6 +58,8 @@ dependencies {
     //compile 'com.googlecode.efficient-java-matrix-library:ejml:0.24' // adds ejml to the dev env
     // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
     //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+
+    deobfCompile "cofh:RedstoneFlux:1.12-2.0.1.2:universal"
 
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings
