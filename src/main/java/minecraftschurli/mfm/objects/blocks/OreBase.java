@@ -67,8 +67,7 @@ public class OreBase extends Block implements IHasModel
         this.oreDictName = "block"+oreDict;
 
         BlockInit.BLOCKS.add(this);
-        BlockInit.ORES.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
     }
 
     /**
@@ -106,8 +105,7 @@ public class OreBase extends Block implements IHasModel
         this.oreDictName = "ore"+oreDict;
 
         BlockInit.BLOCKS.add(this);
-        BlockInit.ORES.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
     }
 
     /**
@@ -144,8 +142,7 @@ public class OreBase extends Block implements IHasModel
         this.oreDictName = "ore"+oreDict;
 
         BlockInit.BLOCKS.add(this);
-        BlockInit.ORES.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
     }
 
     /**
@@ -181,8 +178,7 @@ public class OreBase extends Block implements IHasModel
         this.oreDictName = "ore"+oreDict;
 
 		BlockInit.BLOCKS.add(this);
-        BlockInit.ORES.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(this.getRegistryName()));
+        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
     }
 	
 	public int getDimension() 
@@ -275,4 +271,8 @@ public class OreBase extends Block implements IHasModel
         return type != null && type.equals(this.getHarvestTool(state));
     }
 
+    public OreBase setGeneratable() {
+        BlockInit.ORES.add(this);
+        return this;
+    }
 }

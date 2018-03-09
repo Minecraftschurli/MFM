@@ -22,6 +22,7 @@ import minecraftschurli.mfm.objects.items.ItemBase;
 import minecraftschurli.mfm.objects.items.ItemStanium;
 import minecraftschurli.mfm.objects.items.ItemWhirlwind;
 import minecraftschurli.mfm.objects.tools.axe.AxeBase;
+import minecraftschurli.mfm.objects.tools.sword.SwordGodium;
 import minecraftschurli.mfm.objects.tools.sword.SwordVulcanium;
 import minecraftschurli.mfm.util.Reference;
 import net.minecraft.init.SoundEvents;
@@ -50,8 +51,7 @@ public class ItemInit {
 	public static final ToolMaterial TOOL_VULCANIUM = EnumHelper.addToolMaterial("tool_vulcanium", 5,1561,8.0F,3.0F,40);
 	public static final ToolMaterial TOOL_KANDIUM = EnumHelper.addToolMaterial("tool_kandium", 4,1561,8.0F,3.0F,25);
 	public static final ToolMaterial TOOL_KANADIUM = EnumHelper.addToolMaterial("tool_kanadium", 4,1561,8.0F,3.0F,30);
-	public static final ToolMaterial TOOL_GODIUM = EnumHelper.addToolMaterial("tool_godium", 4,1561,8.0F,3.0F,80);
-	
+    public static final ToolMaterial TOOL_GODIUM = EnumHelper.addToolMaterial("tool_godium", 32, 9999, 9999F, -3.0F, 200);
 	//Items
 	public static final Item ITEM_WHIRLEWIND = new ItemWhirlwind();
 	public static final Item ITEM_CORE = new ItemBase("item_core");
@@ -90,17 +90,17 @@ public class ItemInit {
     public static final Item SHOVEL_KANDIUM =
     public static final Item PICKAXE_KANDIUM =
 
-            //Kanadium
-        public static final Item AXE_KANADIUM =
+        //Kanadium
+    public static final Item AXE_KANADIUM =
         public static final Item SWORD_KANADIUM =
         public static final Item SHOVEL_KANADIUM =
         public static final Item PICKAXE_KANADIUM =
 
-            //Godium
-        public static final Item AXE_GODIUM =
-        public static final Item SWORD_GODIUM =
-        public static final Item SHOVEL_GODIUM =
-        public static final Item PICKAXE_GODIUM =
+        //Godium
+    public static final Item AXE_GODIUM =*/
+    public static final Item SWORD_GODIUM = new SwordGodium();
+    /*public static final Item SHOVEL_GODIUM =
+    public static final Item PICKAXE_GODIUM =
     */
     //Armor
 		//Armor Op
