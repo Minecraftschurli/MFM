@@ -16,7 +16,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = Reference.MCVERSION)
+@Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.MAJOR_MOD_VERSION, acceptedMinecraftVersions = Reference.MCVERSION)
 public class Main 
 {
 	

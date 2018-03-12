@@ -8,10 +8,12 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
+import java.util.Objects;
+
 public class ChestplateKanadium extends ArmorBase implements SetKanadium 
 {
 
-	public ChestplateKanadium(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) 
+	public ChestplateKanadium(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
 	{
 		super(name, materialIn, renderIndexIn, equipmentSlotIn);
 	}
@@ -33,7 +35,8 @@ public class ChestplateKanadium extends ArmorBase implements SetKanadium
 				break;
 			}
 		}
-		if(check==4)player.addPotionEffect(new PotionEffect(Potion.getPotionById(11), 5, 0, false, false));
+		if (check == 4)
+			player.addPotionEffect(new PotionEffect(Objects.requireNonNull(Potion.getPotionById(11)), 5, 0, false, false));
 	}
 
 }

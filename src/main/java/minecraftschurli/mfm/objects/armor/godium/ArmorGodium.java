@@ -9,6 +9,7 @@ import minecraftschurli.mfm.util.interfaces.IArmorSet;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
@@ -51,6 +52,11 @@ public class ArmorGodium extends ArmorBase implements IArmorSet {
                 player.removePotionEffect(potion.getPotion());
             }
         }
+    }
+
+    @Override
+    public EnumRarity getRarity(ItemStack stack) {
+        return ItemInit.LEGENDARY_RARITY;
     }
 
     @Override

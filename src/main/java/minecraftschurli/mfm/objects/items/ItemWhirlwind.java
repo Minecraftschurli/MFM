@@ -14,7 +14,8 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-public class ItemWhirlwind extends ItemBase 
+@SuppressWarnings("NullableProblems")
+public class ItemWhirlwind extends ItemBase
 {
 
 	public ItemWhirlwind() 
@@ -58,12 +59,12 @@ public class ItemWhirlwind extends ItemBase
         	if (e instanceof EntityLiving)
         	{
         		el = (EntityLiving) e;
-        		if (el != null && el.onGround && !el.isDead)
+				if (el.onGround && !el.isDead)
         			el.addVelocity(0, fling, 0);
         	}
         }
-		
-		return new ActionResult(EnumActionResult.PASS, itemstack);
+
+		return new ActionResult<>(EnumActionResult.PASS, itemstack);
     }
 	
 }

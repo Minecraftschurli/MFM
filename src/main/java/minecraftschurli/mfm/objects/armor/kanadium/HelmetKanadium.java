@@ -6,7 +6,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 public class HelmetKanadium extends ArmorBase implements SetKanadium
 {
 
-	public HelmetKanadium(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) 
+	public HelmetKanadium(String name, ArmorMaterial materialIn, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn)
 	{
 		super(name, materialIn, renderIndexIn, equipmentSlotIn);
 	}

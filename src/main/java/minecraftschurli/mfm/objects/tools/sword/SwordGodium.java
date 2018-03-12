@@ -5,6 +5,7 @@ import minecraftschurli.mfm.objects.armor.godium.ArmorGodium;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EnumHand;
@@ -24,22 +25,17 @@ public class SwordGodium extends SwordBase {
         if (victim instanceof EntityPlayer) {
             EntityPlayer pvp = (EntityPlayer) victim;
             if (ArmorGodium.isInfinite(pvp)) {
-                //if(Belmont.isVampire(pvp))
-                //    victim.attackEntityFrom(new DamageSourceInfinitySword(player).setFireDamage().setDamageBypassesArmor(), 4.0F);
-                //else
                 victim.attackEntityFrom(new DamageSourceGodiumSword(player).setDamageBypassesArmor(), 4.0F);
                 return true;
             }
-            if (pvp.getHeldItem(EnumHand.MAIN_HAND) != ItemStack.EMPTY && pvp.getHeldItem(EnumHand.MAIN_HAND).getItem() == ItemInit.SWORD_GODIUM && pvp.isHandActive()) {
+            if (pvp.getHeldItem(EnumHand.MAIN_HAND) != ItemStack.EMPTY && ((pvp.getHeldItem(EnumHand.MAIN_HAND).getItem() == ItemInit.SHIELD_GODIUM && pvp.isHandActive()) || (pvp.getHeldItem(EnumHand.OFF_HAND).getItem() == ItemInit.SHIELD_GODIUM && pvp.isHandActive()))) {
                 return true;
             }
         }
 
         victim.getCombatTracker().trackDamage(new DamageSourceGodiumSword(player), victim.getHealth(), victim.getHealth());
         victim.setHealth(0);
-        //if(Belmont.isVampire(victim))
-        //    victim.onDeath(new EntityDamageSource("infinity", player).setFireDamage());
-        //else
+        victim.setDead();
         victim.onDeath(new EntityDamageSource("infinity", player));
         return true;
     }
@@ -59,6 +55,10 @@ public class SwordGodium extends SwordBase {
                 s = s + "." + rando;
             }
             return new TextComponentTranslation(s, entity.getDisplayName(), itemstack.getDisplayName());
+        }
+
+        public EnumRarity getRarity(ItemStack stack) {
+            return ItemInit.LEGENDARY_RARITY;
         }
 
         @Override
