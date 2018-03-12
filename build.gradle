@@ -15,7 +15,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "1.12.2-0.0.1.4"
+version = "1.12.2-0.0.1.5"
 group = "MinecrsftschurlisMods" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "MFM"
 
@@ -60,7 +60,7 @@ dependencies {
     //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
 
     //deobfCompile "cofh:RedstoneFlux:1.12-2.0.1+:universal"
-    
+
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings
     //deobfCompile 'com.mod-buildcraft:buildcraft:6.0.8:dev'
