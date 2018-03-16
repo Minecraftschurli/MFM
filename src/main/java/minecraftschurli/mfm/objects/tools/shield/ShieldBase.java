@@ -2,6 +2,7 @@ package minecraftschurli.mfm.objects.tools.shield;
 
 import minecraftschurli.mfm.objects.items.ItemBase;
 import minecraftschurli.mfm.util.misc.CombinedMaterial.ShieldMaterial;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemStack;
@@ -9,6 +10,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
 
 public class ShieldBase extends ItemBase {
     private ShieldMaterial material;
@@ -40,6 +43,11 @@ public class ShieldBase extends ItemBase {
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
         return repair.getItem() == this.material.getRepairItemStack().getItem() || super.getIsRepairable(toRepair, repair);
+    }
+
+    @Override
+    public boolean isShield(ItemStack stack, @Nullable EntityLivingBase entity) {
+        return true;
     }
 
 }

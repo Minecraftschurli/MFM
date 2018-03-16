@@ -16,7 +16,7 @@ public class CommonProxy
 	
 	public void registerVariantRenderer(Item item, int meta, String filename, String id) 
 	{
-		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation((new ResourceLocation(Reference.MODID, filename)), id));
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation((new ResourceLocation(Reference.MOD_ID, filename)), id));
 	}
 
 }

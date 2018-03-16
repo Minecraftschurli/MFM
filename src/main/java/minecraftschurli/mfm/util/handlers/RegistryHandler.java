@@ -4,7 +4,6 @@ import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
-import minecraftschurli.mfm.objects.blocks.BlockBase;
 import minecraftschurli.mfm.objects.items.ItemBase;
 import minecraftschurli.mfm.util.integrations.tinkers.CastingRecipe;
 import minecraftschurli.mfm.util.integrations.tinkers.MeltingRecipe;
@@ -52,7 +51,7 @@ public class RegistryHandler {
 	public static void onBlockRegister(RegistryEvent.Register<Block> event)
 	{
 		event.getRegistry().registerAll(BlockInit.BLOCKS.toArray(new Block[0]));
-        for (Block block:BlockInit.BLOCKS)
+        /*for (Block block:BlockInit.BLOCKS)
         {
             if(block instanceof BlockBase)
             {
@@ -61,7 +60,7 @@ public class RegistryHandler {
                     OreDictionary.registerOre(((BlockBase) block).oreDictName,block);
                 }
             }
-        }
+        }*/
 
 		TileEntityHandler.registerTileEntities();
 

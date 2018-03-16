@@ -1,4 +1,4 @@
-package minecraftschurli.mfm.objects.food;
+package minecraftschurli.mfm.objects.items.food;
 
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.ItemInit;

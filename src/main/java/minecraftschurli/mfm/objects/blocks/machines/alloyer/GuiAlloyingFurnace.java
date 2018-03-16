@@ -7,8 +7,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiAlloyingFurnace extends GuiContainer {
-	
-	private static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MODID + ":textures/gui/alloying_furnace.png");
+
+    private static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MOD_ID + ":textures/gui/alloying_furnace.png");
 	private final InventoryPlayer player;
 	private final TileEntityAlloyingFurnace tileentity;
 	

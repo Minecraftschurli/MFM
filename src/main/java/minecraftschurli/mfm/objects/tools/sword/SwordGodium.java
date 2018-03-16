@@ -15,7 +15,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 public class SwordGodium extends SwordBase {
 
     public SwordGodium() {
-        super("sword_godium", ItemInit.TOOL_GODIUM);
+        super("sword_godium", ItemInit.GODIUM.getTOOL_MATERIAL());
     }
 
     public boolean hitEntity(ItemStack stack, EntityLivingBase victim, EntityLivingBase player) {

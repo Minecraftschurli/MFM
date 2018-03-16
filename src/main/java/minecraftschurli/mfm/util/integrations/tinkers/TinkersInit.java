@@ -24,8 +24,8 @@ public class TinkersInit
     public static final List<MeltingRecipe> MELTING_RECIPES = new List<>();
 
     public static final TinkersMaterial MATERIAL_VULCANIUM = new TinkersMaterial("vulcanium",new Color(222,155,0,255).getRGB(),"Vulcanium",
-            false,true, FluidInit.FLUID_VULCANIUM, new MaterialStats(0,0,0,0,
-            0,0,0,0,0,0,0,0),
+            false, true, FluidInit.FLUID_VULCANIUM, new MaterialStats(900, 6, 100, 300,
+            0, 5.5F, 1.5F, 7, 1.2F, 8.5F, 9, 0),
             (new List<>().addE(TinkerTraits.autosmelt).addE(TinkerTraits.superheat).addE(TinkerTraits.flammable)),
             (new List<>().addE(MaterialTypes.HEAD).addE(null).addE(null)));
 

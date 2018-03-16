@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "normal": {
+      "model": "mfm:godium_refiner_controller"
+    }
+  }
+}

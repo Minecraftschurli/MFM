@@ -1,4 +1,4 @@
-package minecraftschurli.mfm.objects.food;
+package minecraftschurli.mfm.objects.items.food;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

@@ -7,8 +7,8 @@ import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
 public class GuiStaniumSmelter extends GuiContainer {
-	
-	private static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MODID + ":textures/gui/stanium_smelter.png");
+
+    private static final ResourceLocation TEXTURES = new ResourceLocation(Reference.MOD_ID + ":textures/gui/stanium_smelter.png");
 	private final InventoryPlayer player;
 	private final TileEntityStaniumSmelter tileentity;
 	

@@ -9,26 +9,49 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class CombinedMaterial {
-    public final ArmorMaterial ARMOR_MATERIAL;
-    public final ToolMaterial TOOL_MATERIAL;
-    public final CombinedMaterial.ShieldMaterial SHIELD_MATERIAL;
+    private ArmorMaterial ARMOR_MATERIAL;
+    private ToolMaterial TOOL_MATERIAL;
+    private CombinedMaterial.ShieldMaterial SHIELD_MATERIAL;
 
     public CombinedMaterial(String name, Item repairItem, int armorDurability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness, int harvestLevel, int toolDurability, float efficiency, float damage) {
-        this.ARMOR_MATERIAL = EnumHelper.addArmorMaterial("armor_" + name, Reference.MODID + ":" + name, armorDurability, reductionAmounts, enchantability, soundOnEquip, toughness).setRepairItem(new ItemStack(repairItem));
-        this.TOOL_MATERIAL = EnumHelper.addToolMaterial("tool_" + name, harvestLevel, toolDurability, efficiency, damage, enchantability).setRepairItem(new ItemStack(repairItem));
-        this.SHIELD_MATERIAL = new ShieldMaterial(enchantability, toolDurability, 0).setRepairItem(new ItemStack(repairItem));
+        this.addARMOR_MATERIAL(EnumHelper.addArmorMaterial("armor_" + name, Reference.MOD_ID + ":" + name, armorDurability, reductionAmounts, enchantability, soundOnEquip, toughness).setRepairItem(new ItemStack(repairItem)));
+        this.addTOOL_MATERIAL(EnumHelper.addToolMaterial("tool_" + name, harvestLevel, toolDurability, efficiency, damage, enchantability).setRepairItem(new ItemStack(repairItem)));
     }
 
     public CombinedMaterial(String name, Item repairItem, int armorDurability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness, int harvestLevel, int toolDurability, float efficiency, float damage, int shieldBlockTime) {
-        this.ARMOR_MATERIAL = EnumHelper.addArmorMaterial("armor_" + name, Reference.MODID + ":" + name, armorDurability, reductionAmounts, enchantability, soundOnEquip, toughness).setRepairItem(new ItemStack(repairItem));
-        this.TOOL_MATERIAL = EnumHelper.addToolMaterial("tool_" + name, harvestLevel, toolDurability, efficiency, damage, enchantability).setRepairItem(new ItemStack(repairItem));
-        this.SHIELD_MATERIAL = new ShieldMaterial(enchantability, toolDurability, shieldBlockTime).setRepairItem(new ItemStack(repairItem));
+        this.addARMOR_MATERIAL(EnumHelper.addArmorMaterial("armor_" + name, Reference.MOD_ID + ":" + name, armorDurability, reductionAmounts, enchantability, soundOnEquip, toughness).setRepairItem(new ItemStack(repairItem)));
+        this.addTOOL_MATERIAL(EnumHelper.addToolMaterial("tool_" + name, harvestLevel, toolDurability, efficiency, damage, enchantability).setRepairItem(new ItemStack(repairItem)));
+        this.addSHIELD_MATERIAL(new ShieldMaterial(enchantability, toolDurability, shieldBlockTime).setRepairItem(new ItemStack(repairItem)));
     }
 
     public CombinedMaterial(ArmorMaterial armorMaterial, ToolMaterial toolMaterial, ShieldMaterial shieldMaterial) {
         this.ARMOR_MATERIAL = armorMaterial;
         this.TOOL_MATERIAL = toolMaterial;
         this.SHIELD_MATERIAL = shieldMaterial;
+    }
+
+    public ArmorMaterial getARMOR_MATERIAL() {
+        return ARMOR_MATERIAL;
+    }
+
+    public void addARMOR_MATERIAL(ArmorMaterial ARMOR_MATERIAL) {
+        this.ARMOR_MATERIAL = ARMOR_MATERIAL;
+    }
+
+    public ToolMaterial getTOOL_MATERIAL() {
+        return TOOL_MATERIAL;
+    }
+
+    public void addTOOL_MATERIAL(ToolMaterial TOOL_MATERIAL) {
+        this.TOOL_MATERIAL = TOOL_MATERIAL;
+    }
+
+    public ShieldMaterial getSHIELD_MATERIAL() {
+        return SHIELD_MATERIAL;
+    }
+
+    public void addSHIELD_MATERIAL(ShieldMaterial SHIELD_MATERIAL) {
+        this.SHIELD_MATERIAL = SHIELD_MATERIAL;
     }
 
     public class ShieldMaterial {

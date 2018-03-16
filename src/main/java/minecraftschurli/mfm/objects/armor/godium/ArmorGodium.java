@@ -21,16 +21,15 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
 
-import static minecraftschurli.mfm.init.ItemInit.ARMOR_GODIUM;
-
 @Mod.EventBusSubscriber
 public class ArmorGodium extends ArmorBase implements IArmorSet {
 
     public final EntityEquipmentSlot slot;
 
     public ArmorGodium(String name, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn) {
-        super(name, ARMOR_GODIUM, renderIndexIn, equipmentSlotIn);
+        super(name, ItemInit.GODIUM.getARMOR_MATERIAL(), renderIndexIn, equipmentSlotIn);
         this.slot = equipmentSlotIn;
+        setMaxDamage(-1);
     }
 
     @SuppressWarnings("rawtypes")

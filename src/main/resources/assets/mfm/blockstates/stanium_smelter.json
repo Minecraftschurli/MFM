@@ -1,0 +1,34 @@
+{
+  "variants": {
+    "active=false,facing=north": {
+      "model": "mfm:stanium_smelter"
+    },
+    "active=false,facing=east": {
+      "model": "mfm:stanium_smelter",
+      "y": 90
+    },
+    "active=false,facing=south": {
+      "model": "mfm:stanium_smelter",
+      "y": 180
+    },
+    "active=false,facing=west": {
+      "model": "mfm:stanium_smelter",
+      "y": 270
+    },
+    "active=true,facing=north": {
+      "model": "mfm:stanium_smelter"
+    },
+    "active=true,facing=east": {
+      "model": "mfm:stanium_smelter",
+      "y": 90
+    },
+    "active=true,facing=south": {
+      "model": "mfm:stanium_smelter",
+      "y": 180
+    },
+    "active=true,facing=west": {
+      "model": "mfm:stanium_smelter",
+      "y": 270
+    }
+  }
+}

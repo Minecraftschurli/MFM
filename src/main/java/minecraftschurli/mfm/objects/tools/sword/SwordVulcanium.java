@@ -9,7 +9,7 @@ public class SwordVulcanium extends SwordBase
 {
     public SwordVulcanium()
     {
-        super("sword_vulcanium", ItemInit.VULCANIUM.TOOL_MATERIAL);
+        super("sword_vulcanium", ItemInit.VULCANIUM.getTOOL_MATERIAL());
     }
 
     @Override
