@@ -34,11 +34,11 @@ import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.util.EnumHelper;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class ItemInit {
-	
-	public static final List<Item> ITEMS = new ArrayList<>();
+
+    public static final java.util.List<Item> ITEMS = new ArrayList<>();
 
 
     public static EnumRarity LEGENDARY_RARITY = EnumHelper.addRarity("LEGENDARY", TextFormatting.GOLD, "LEGENDARY");
@@ -82,6 +82,9 @@ public class ItemInit {
     public static final Item GEM_CRYSTAL = new ItemBase("gem_crystal", "gemCrystal");
     public static final Item GEM_STANIUM = new ItemStanium();
     public static final Item GEM_SEADIAMOND = new ItemBase("gem_seadiamond", "gemSeadiamond");
+
+    //Dusts
+    public static final Item DUST_MYSTIC = new ItemBase("dust_mystic", "dustMystic");
 
     //Food
     public static final Item FOOD_APPLE_GODIUM = new AppleGodium();
