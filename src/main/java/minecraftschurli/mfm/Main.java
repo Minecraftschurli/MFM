@@ -30,7 +30,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
                 Reference.MINOR_API_MOD_VERSION +
                 "." +
                 Reference.PATCH_VERSION,
-        acceptedMinecraftVersions = Reference.MC_VERSION, dependencies = "after:tconstruct"
+        acceptedMinecraftVersions = Reference.MC_VERSION, dependencies = "after:tconstruct, after:thermalfoundation"
 )
 
 public class Main 

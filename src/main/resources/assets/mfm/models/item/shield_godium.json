@@ -1,0 +1,14 @@
+{
+  "parent": "mfm:shield",
+  "textures": {
+    "layer0": "mfm:shield_godium"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1
+      },
+      "model": "mfm:shield_godium_blocking"
+    }
+  ]
+}
