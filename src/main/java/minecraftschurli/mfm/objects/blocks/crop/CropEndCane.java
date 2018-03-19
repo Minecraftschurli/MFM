@@ -14,9 +14,9 @@ import net.minecraft.world.World;
 import javax.annotation.Nonnull;
 import java.util.Random;
 
-public class EndCane extends CropCaneBase {
-    public EndCane() {
-        super("endcane");
+public class CropEndCane extends CropCaneBase {
+    public CropEndCane() {
+        super("crop_endcane");
     }
 
     @SuppressWarnings({"NullableProblems", "StatementWithEmptyBody"})

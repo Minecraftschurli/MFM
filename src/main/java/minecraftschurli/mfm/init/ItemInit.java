@@ -1,6 +1,7 @@
 package minecraftschurli.mfm.init;
 
 import minecraftschurli.mfm.objects.armor.godium.ArmorGodium;
+import minecraftschurli.mfm.objects.armor.horsearmor.HorseArmorBase;
 import minecraftschurli.mfm.objects.armor.kanadium.BootsKanadium;
 import minecraftschurli.mfm.objects.armor.kanadium.ChestplateKanadium;
 import minecraftschurli.mfm.objects.armor.kanadium.HelmetKanadium;
@@ -43,7 +44,7 @@ public class ItemInit {
 
     public static EnumRarity LEGENDARY_RARITY = EnumHelper.addRarity("LEGENDARY", TextFormatting.GOLD, "LEGENDARY");
 
-    /*TODO Tools: Kandium, Kanadium, Godium
+    /*TODO Tools: Kandium, Kanadium
 
 
         Kandium
@@ -57,8 +58,6 @@ public class ItemInit {
     public static final Item SWORD_KANADIUM;
     public static final Item SHOVEL_KANADIUM;
     public static final Item PICKAXE_KANADIUM;
-
-        Godium
 
     */
 
@@ -145,13 +144,13 @@ public class ItemInit {
 
     //Godium
     //Material
-    public static final CombinedMaterial GODIUM = new CombinedMaterial("godium", INGOT_GODIUM, 100, new int[]{12, 24, 32, 12}, 80, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 8.0F, 32, 9999, 9999F, -3.0F, 10);
+    public static final CombinedMaterial GODIUM = new CombinedMaterial("godium", INGOT_GODIUM, 100, new int[]{12, 24, 32, 12}, 80, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 8.0F, 32, 9999, 9999F, -3.0F, 10, 64);
     //Tools
     public static final Item SWORD_GODIUM = new SwordGodium();
     public static final Item AXE_GODIUM = new AxeBase("axe_godium", GODIUM.getTOOL_MATERIAL(), 30F, 100F);
     public static final Item SHOVEL_GODIUM = new ShovelBase("shovel_godium", GODIUM.getTOOL_MATERIAL());
     public static final Item PICKAXE_GODIUM = new PickaxeBase("pickaxe_godium", GODIUM.getTOOL_MATERIAL());
-    //public static final Item HORSE_ARMOR_GODIUM;
+    public static final Item HORSE_ARMOR_GODIUM = new HorseArmorBase("horsearmor_godium", GODIUM.getHORSE_ARMOR_TYPE());
     public static final Item SHIELD_GODIUM = new ShieldGodium();
     //Armor
     public static final Item BOOTS_GODIUM = new ArmorGodium("boots_godium", 1, EntityEquipmentSlot.FEET);

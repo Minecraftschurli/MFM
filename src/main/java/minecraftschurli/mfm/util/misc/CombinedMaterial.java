@@ -1,6 +1,7 @@
 package minecraftschurli.mfm.util.misc;
 
 import minecraftschurli.mfm.util.Reference;
+import net.minecraft.entity.passive.HorseArmorType;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -9,25 +10,39 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.common.util.EnumHelper;
 
 public class CombinedMaterial {
+    private final String name;
+    private HorseArmorType HORSE_ARMOR_TYPE;
     private ArmorMaterial ARMOR_MATERIAL;
     private ToolMaterial TOOL_MATERIAL;
     private CombinedMaterial.ShieldMaterial SHIELD_MATERIAL;
 
     public CombinedMaterial(String name, Item repairItem, int armorDurability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness, int harvestLevel, int toolDurability, float efficiency, float damage) {
+        this.name = name;
         this.addARMOR_MATERIAL(EnumHelper.addArmorMaterial("armor_" + name, Reference.MOD_ID + ":" + name, armorDurability, reductionAmounts, enchantability, soundOnEquip, toughness).setRepairItem(new ItemStack(repairItem)));
         this.addTOOL_MATERIAL(EnumHelper.addToolMaterial("tool_" + name, harvestLevel, toolDurability, efficiency, damage, enchantability).setRepairItem(new ItemStack(repairItem)));
     }
 
     public CombinedMaterial(String name, Item repairItem, int armorDurability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness, int harvestLevel, int toolDurability, float efficiency, float damage, int shieldBlockTime) {
+        this.name = name;
         this.addARMOR_MATERIAL(EnumHelper.addArmorMaterial("armor_" + name, Reference.MOD_ID + ":" + name, armorDurability, reductionAmounts, enchantability, soundOnEquip, toughness).setRepairItem(new ItemStack(repairItem)));
         this.addTOOL_MATERIAL(EnumHelper.addToolMaterial("tool_" + name, harvestLevel, toolDurability, efficiency, damage, enchantability).setRepairItem(new ItemStack(repairItem)));
         this.addSHIELD_MATERIAL(new ShieldMaterial(enchantability, toolDurability, shieldBlockTime).setRepairItem(new ItemStack(repairItem)));
     }
 
-    public CombinedMaterial(ArmorMaterial armorMaterial, ToolMaterial toolMaterial, ShieldMaterial shieldMaterial) {
-        this.ARMOR_MATERIAL = armorMaterial;
-        this.TOOL_MATERIAL = toolMaterial;
-        this.SHIELD_MATERIAL = shieldMaterial;
+    public CombinedMaterial(String name, Item repairItem, int armorDurability, int[] reductionAmounts, int enchantability, SoundEvent soundOnEquip, float toughness, int harvestLevel, int toolDurability, float efficiency, float damage, int shieldBlockTime, int horseArmorProtection) {
+        this.name = name;
+        this.addARMOR_MATERIAL(EnumHelper.addArmorMaterial("armor_" + name, Reference.MOD_ID + ":" + name, armorDurability, reductionAmounts, enchantability, soundOnEquip, toughness).setRepairItem(new ItemStack(repairItem)));
+        this.addTOOL_MATERIAL(EnumHelper.addToolMaterial("tool_" + name, harvestLevel, toolDurability, efficiency, damage, enchantability).setRepairItem(new ItemStack(repairItem)));
+        this.addSHIELD_MATERIAL(new ShieldMaterial(enchantability, toolDurability, shieldBlockTime).setRepairItem(new ItemStack(repairItem)));
+        this.addHorseArmor("horsearmor_" + name, horseArmorProtection);
+    }
+
+    public void addHorseArmor(String name, int horseArmorProtection) {
+        this.HORSE_ARMOR_TYPE = EnumHelper.addHorseArmor(name, Reference.MOD_ID + ":textures/models/horsearmor/" + name + ".png", horseArmorProtection);
+    }
+
+    public HorseArmorType getHORSE_ARMOR_TYPE() {
+        return HORSE_ARMOR_TYPE != null ? HORSE_ARMOR_TYPE : HorseArmorType.NONE;
     }
 
     public ArmorMaterial getARMOR_MATERIAL() {

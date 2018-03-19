@@ -3,6 +3,7 @@ package minecraftschurli.mfm.objects.items;
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.util.interfaces.IHasModel;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSnow;
@@ -24,7 +25,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class ItemEndCane extends ItemBlockSpecial {
+public class ItemEndCane extends ItemBlockSpecial implements IHasModel {
 
     public ItemEndCane() {
         super(BlockInit.CROP_ENDCANE);
@@ -74,5 +75,10 @@ public class ItemEndCane extends ItemBlockSpecial {
         } else {
             return EnumActionResult.FAIL;
         }
+    }
+
+    @Override
+    public void registerModels() {
+        Main.proxy.registerItemRenderer(this, 0, "inventory");
     }
 }

@@ -1,7 +1,7 @@
 {
   "variants": {
     "normal": {
-      "model": "mfm:endcane"
+      "model": "mfm:crop_endcane"
     }
   }
 }
