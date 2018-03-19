@@ -33,6 +33,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.fml.common.Loader;
 
 import java.util.ArrayList;
 
@@ -93,7 +94,8 @@ public class ItemInit {
     public static final Item ENDCANE = new ItemEndCane();
 
     //Misc
-    public static final Item WRENCH = new ItemWrench();
+    public static final Item WRENCH = Loader.isModLoaded("thermalfoundation") ? cofh.thermalfoundation.init.TFItems.itemWrench : new ItemWrench();
+    public static final Item DEBUG_ITEM = new ItemDebug();
     public static final Item ITEM_WHIRLEWIND = new ItemWhirlwind();
 
     //Op
