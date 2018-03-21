@@ -19,7 +19,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = Reference.MOD_ID,
         name = Reference.NAME,
         version = Reference.MC_VERSION_STRING + "-" + Reference.MAJOR_MOD_VERSION + "." + Reference.MAJOR_API_VERSION + "." + Reference.MINOR_API_MOD_VERSION + "." + Reference.PATCH_VERSION,
-        acceptedMinecraftVersions = Reference.MC_VERSION, dependencies = "after:tconstruct, after:thermalfoundation"
+		acceptedMinecraftVersions = Reference.MC_VERSION, dependencies = "after:tconstruct;after:thermalfoundation"
 )
 public class Main 
 {

@@ -1,15 +1,8 @@
 package minecraftschurli.mbu;
 
-import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
-
-@Mod(modid = "mbu", name = "Map Building Utils", version = "1.0", acceptedMinecraftVersions = "[1.12.2]")
+//@Mod(modid = "mbu", name = "Map Building Utils", version = "1.0", acceptedMinecraftVersions = "[1.12.2]")
 public class MapBuildingUtils {
-    public static final CreativeTabs CREATIVETAB2 = new CreativeTabs("mapBuildingUtils") {
+    /*public static final CreativeTabs CREATIVETAB2 = new CreativeTabs("mapBuildingUtils") {
         @Override
         public ItemStack getTabIconItem() {
             return new ItemStack(Blocks.COMMAND_BLOCK);
@@ -29,5 +22,5 @@ public class MapBuildingUtils {
         Blocks.STRUCTURE_VOID.setCreativeTab(CREATIVETAB2);
         Blocks.BARRIER.setCreativeTab(CREATIVETAB2);
     }
-
+*/
 }
