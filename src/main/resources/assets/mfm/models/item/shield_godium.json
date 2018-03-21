@@ -1,5 +1,5 @@
 {
-  "parent": "mfm:shield",
+  "parent": "mfm:item/shield",
   "textures": {
     "layer0": "mfm:shield_godium"
   },
@@ -8,7 +8,7 @@
       "predicate": {
         "blocking": 1
       },
-      "model": "mfm:shield_godium_blocking"
+      "model": "mfm:item/shield_godium_blocking"
     }
   ]
 }
