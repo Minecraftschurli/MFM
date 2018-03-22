@@ -14,11 +14,18 @@ public class TinkersIntegration
 
     public TinkersIntegration integrate()
     {
-        RegistryHandler.onTinkersRegister();
+        RegistryHandler.onTinkersRegister(false);
         TinkerRegistry.registerSmelteryFuel(new FluidStack(FluidInit.FLUID_STANIUM,1),10000);
 
         return this;
     }
 
     public void close() { INSTANCE = null; }
+
+    public TinkersIntegration integrateWithShieldMaterials() {
+        RegistryHandler.onTinkersRegister(true);
+        TinkerRegistry.registerSmelteryFuel(new FluidStack(FluidInit.FLUID_STANIUM, 1), 10000);
+
+        return this;
+    }
 }

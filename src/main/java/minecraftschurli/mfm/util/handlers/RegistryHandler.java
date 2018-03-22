@@ -1,5 +1,6 @@
 package minecraftschurli.mfm.util.handlers;
 
+import lance5057.tDefense.core.materials.ShieldMaterialStats;
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.FluidInit;
@@ -87,20 +88,30 @@ public class RegistryHandler {
 
     }
 
-    public static void onTinkersRegister()
+    public static void onTinkersRegister(boolean tD)
     {
         for (int i = 0; i < TinkersInit.MATERIALS.size(); i++)
         {
             TinkersMaterial mat = (TinkersMaterial)TinkersInit.MATERIALS.get(i);
             slimeknights.tconstruct.library.materials.Material material = mat.material;
-            TinkerRegistry.addMaterialStats(material,
-                    new HeadMaterialStats(mat.matStat.getHeadDurability(), mat.matStat.getMiningSpeed(), mat.matStat.getAttackDamage(), mat.matStat.getMiningLevel()),
-                    new HandleMaterialStats(mat.matStat.getHandleModifier(), mat.matStat.getHandleDurability()),
-                    new ExtraMaterialStats(mat.matStat.getExtraDurability()),
-                    new BowMaterialStats(mat.matStat.getDrawspeed(), mat.matStat.getRange(), mat.matStat.getBonusDamage()),
-                    new ArrowShaftMaterialStats(mat.matStat.getArrowShaftModifier(),mat.matStat.getBonusAmmo())
-            );
-
+            if (tD) {
+                TinkerRegistry.addMaterialStats(material,
+                        new HeadMaterialStats(mat.matStat.getHeadDurability(), mat.matStat.getMiningSpeed(), mat.matStat.getAttackDamage(), mat.matStat.getMiningLevel()),
+                        new HandleMaterialStats(mat.matStat.getHandleModifier(), mat.matStat.getHandleDurability()),
+                        new ExtraMaterialStats(mat.matStat.getExtraDurability()),
+                        new BowMaterialStats(mat.matStat.getDrawspeed(), mat.matStat.getRange(), mat.matStat.getBonusDamage()),
+                        new ArrowShaftMaterialStats(mat.matStat.getArrowShaftModifier(), mat.matStat.getBonusAmmo()),
+                        new ShieldMaterialStats(mat.matStat.getShieldDurability(), mat.matStat.getShieldBlocking())
+                );
+            } else {
+                TinkerRegistry.addMaterialStats(material,
+                        new HeadMaterialStats(mat.matStat.getHeadDurability(), mat.matStat.getMiningSpeed(), mat.matStat.getAttackDamage(), mat.matStat.getMiningLevel()),
+                        new HandleMaterialStats(mat.matStat.getHandleModifier(), mat.matStat.getHandleDurability()),
+                        new ExtraMaterialStats(mat.matStat.getExtraDurability()),
+                        new BowMaterialStats(mat.matStat.getDrawspeed(), mat.matStat.getRange(), mat.matStat.getBonusDamage()),
+                        new ArrowShaftMaterialStats(mat.matStat.getArrowShaftModifier(), mat.matStat.getBonusAmmo())
+                );
+            }
             TinkerRegistry.addMaterial(material);
         }
         for (int i = 0; i < TinkersInit.CASTING_RECIPES.size(); i++)
@@ -125,6 +136,7 @@ public class RegistryHandler {
             MeltingRecipe recipe = (MeltingRecipe) TinkersInit.MELTING_RECIPES.get(i);
             TinkerRegistry.registerMelting(recipe);
         }
+
     }
 	
 	@SubscribeEvent

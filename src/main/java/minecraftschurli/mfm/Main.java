@@ -18,8 +18,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 @Mod(modid = Reference.MOD_ID,
         name = Reference.NAME,
-        version = Reference.MC_VERSION_STRING + "-" + Reference.MAJOR_MOD_VERSION + "." + Reference.MAJOR_API_VERSION + "." + Reference.MINOR_API_MOD_VERSION + "." + Reference.PATCH_VERSION,
-        acceptedMinecraftVersions = Reference.MC_VERSION, dependencies = "after:tconstruct; after:thermalfoundation"
+        version = Reference.MC_VERSION_STRING + "-" + Reference.MAJOR_MOD_VERSION + "." + Reference.MAJOR_API_VERSION + "." + Reference.MINOR_API_MOD_VERSION + "." + Reference.PATCH_VERSION + Reference.TYPE,
+        acceptedMinecraftVersions = Reference.MC_VERSION, dependencies = "after:tconstruct; before:tinkersdefense; after:thermalfoundation"
 )
 public class Main 
 {
@@ -44,7 +44,11 @@ public class Main
 	    RegistryHandler.initRegistries();
         if(Loader.isModLoaded("tconstruct"))
         {
-            TinkersIntegration.INSTANCE.integrate().close();
+            if (Loader.isModLoaded("tinkersdefense")) {
+                TinkersIntegration.INSTANCE.integrateWithShieldMaterials().close();
+            } else {
+                TinkersIntegration.INSTANCE.integrate().close();
+            }
         }
 	}
 	
