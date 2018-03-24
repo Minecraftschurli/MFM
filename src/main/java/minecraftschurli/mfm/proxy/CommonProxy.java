@@ -1,6 +1,7 @@
 package minecraftschurli.mfm.proxy;
 
 import minecraftschurli.mfm.util.Reference;
+import minecraftschurli.mfm.util.interfaces.IObjModel;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -11,7 +12,7 @@ public class CommonProxy
 
 	public void registerItemRenderer(Item item, int meta, String id) 
 	{
-		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
+        ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName() + (item instanceof IObjModel ? ".obj" : ""), id));
 	}
 	
 	public void registerVariantRenderer(Item item, int meta, String filename, String id) 
