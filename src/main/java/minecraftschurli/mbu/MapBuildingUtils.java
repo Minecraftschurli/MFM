@@ -2,10 +2,10 @@ package minecraftschurli.mbu;
 
 //@net.minecraftforge.fml.common.Mod(modid = "mbu", name = "Map Building Utils", version = "1.0", acceptedMinecraftVersions = "[1.12.2]")
 public class MapBuildingUtils {
-    /*public static final net.minecraft.creativetab.CreativeTabs CREATIVETAB = new CreativeTabs("mapBuildingUtils") {
+    /*public static final net.minecraft.creativetab.CreativeTabs CREATIVETAB = new net.minecraft.creativetab.CreativeTabs("mapBuildingUtils") {
         @Override
-        public ItemStack getTabIconItem() {
-            return new ItemStack(net.minecraft.init.Blocks.COMMAND_BLOCK);
+        public net.minecraft.item.ItemStack getTabIconItem() {
+            return new net.minecraft.item.ItemStack(net.minecraft.init.Blocks.COMMAND_BLOCK);
         }
     };
 
