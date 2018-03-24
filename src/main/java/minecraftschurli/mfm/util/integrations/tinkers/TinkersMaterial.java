@@ -2,10 +2,9 @@ package minecraftschurli.mfm.util.integrations.tinkers;
 
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.oredict.OreDictionary;
+import org.apache.commons.lang3.tuple.Pair;
 import slimeknights.tconstruct.library.materials.Material;
 import slimeknights.tconstruct.library.traits.ITrait;
-
-import java.util.List;
 
 import static slimeknights.tconstruct.library.materials.Material.VALUE_Gem;
 
@@ -16,7 +15,8 @@ public class TinkersMaterial
     public MaterialStats matStat;
     private String oreDictSuffix;
 
-    TinkersMaterial(String name, int color, String suffix, boolean part,boolean cast, Fluid fluid, MaterialStats matStat, List<ITrait> traits, List<String> deps)
+    @SafeVarargs
+    TinkersMaterial(String name, int color, String suffix, boolean part, boolean cast, Fluid fluid, MaterialStats matStat, Pair<ITrait, String>... traits)
     {
 
         this.material = new Material(name, color);
@@ -33,10 +33,10 @@ public class TinkersMaterial
         ITrait trait;
         String dep;
 
-        for (int i = 0; i < traits.size(); i++)
+        for (Pair<ITrait, String> t : traits)
         {
-            trait = traits.get(i);
-            dep = deps.get(i);
+            trait = t.getLeft();
+            dep = t.getRight();
             if (dep != null)
             {
                 this.material.addTrait(trait, dep);

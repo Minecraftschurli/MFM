@@ -4,48 +4,50 @@ import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.util.misc.List;
+import minecraftschurli.mfm.util.misc.Pair;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fluids.FluidStack;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.smeltery.ICastingRecipe;
-import slimeknights.tconstruct.tools.TinkerTraits;
 
 import java.awt.*;
 
 import static slimeknights.tconstruct.library.materials.Material.*;
 
-@SuppressWarnings("unchecked")
+@SuppressWarnings({"unchecked", "ConfusingArgumentToVarargsMethod"})
 public class TinkersInit
 {
     public static final List<TinkersMaterial> MATERIALS = new List<>();
     public static final List<ICastingRecipe> CASTING_RECIPES = new List<>();
     public static final List<MeltingRecipe> MELTING_RECIPES = new List<>();
+    public static final String NONE = null;
 
-    public static final TinkersMaterial MATERIAL_VULCANIUM = new TinkersMaterial("vulcanium",new Color(222,155,0,255).getRGB(),"Vulcanium",
-            false, true, FluidInit.FLUID_VULCANIUM, new MaterialStats(900, 6, 100, 300,
-            0, 5.5F, 1.5F, 7, 1.2F, 8.5F, 9, 0, 900, 33),
-            (new List<>().addE(TinkerTraits.autosmelt).addE(TinkerTraits.superheat).addE(TinkerTraits.flammable)),
-            (new List<>().addE(MaterialTypes.HEAD).addE(null).addE(null)));
+    public static final TinkersMaterial MATERIAL_VULCANIUM = new TinkersMaterial("vulcanium",
+            new Color(222, 155, 0, 255).getRGB(), "Vulcanium", false, true,
+            FluidInit.FLUID_VULCANIUM, new MaterialStats(900, 6, 100,
+            300, 10, 5.5F, 1.5F, 7, 1.2F, 8.5F,
+            9, 1, 900, 33),
+            new Pair<>(TraitsAndModifires.liquidizing, MaterialTypes.HEAD), new Pair<>(TraitsAndModifires.vulcanic, NONE));
 
-    public static final TinkersMaterial MATERIAL_KANDIUM = new TinkersMaterial("kandium",new Color(0,228,199,255).getRGB(),"Kandium",
-            false,true, FluidInit.FLUID_KANDIUM, new MaterialStats(0,0,0,0,
-            0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-            (new List<>()),
-            (new List<>()));
+
+    public static final TinkersMaterial MATERIAL_KANDIUM = new TinkersMaterial("kandium",
+            new Color(0, 228, 199, 255).getRGB(), "Kandium", false, true,
+            FluidInit.FLUID_KANDIUM, new MaterialStats(0, 0, 0, 0,
+            0, 0, 0, 0, 0, 0, 0,
+            0, 0, 0),
+            null);
 
     public static final TinkersMaterial MATERIAL_KANADIUM = new TinkersMaterial("kanadium",new Color(0,119,255,255).getRGB(),"Kanadium",
             false,true, FluidInit.FLUID_KANADIUM, new MaterialStats(0,0,0,0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-            (new List<>()),
-            (new List<>()));
+            null);
 
     public static final TinkersMaterial MATERIAL_CRYSTAL = new TinkersMaterial("crystal",new Color(240,255,255,255).getRGB(),"Crystal",
             true,false, null, new MaterialStats(0,0,0,0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-            (new List<>()),
-            (new List<>()));
+            null);
 
     public static final CastingRecipe CASTING_BLOCK_VULCANIUM = new CastingRecipe(new ItemStack(BlockInit.BLOCK_VULCANIUM),
             FluidInit.FLUID_VULCANIUM,VALUE_Block);
