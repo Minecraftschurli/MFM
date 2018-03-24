@@ -9,10 +9,10 @@ import slimeknights.tconstruct.library.utils.TagUtil;
 
 import java.awt.*;
 
-public class Godlike extends AbstractTrait {
-    public static Godlike INSTANCE = new Godlike();
+public class TraitGodlike extends AbstractTrait {
+    public static TraitGodlike INSTANCE = new TraitGodlike();
 
-    public Godlike() {
+    public TraitGodlike() {
         super("godlike", new Color(222, 220, 14).getRGB());
     }
 
