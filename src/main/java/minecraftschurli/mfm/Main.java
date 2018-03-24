@@ -54,7 +54,6 @@ public class Main
 	public static void postInit(FMLPostInitializationEvent event)
 	{
         RegistryHandler.postInitRegistries();
-
     }
 
 }

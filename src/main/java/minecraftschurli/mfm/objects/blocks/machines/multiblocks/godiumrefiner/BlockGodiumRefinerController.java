@@ -151,7 +151,7 @@ public class BlockGodiumRefinerController extends BlockBase implements IMultiblo
         BlockPos multiblockMiddlePos = controllerPos.offset(facing.getOpposite());
         BlockPos cornerPos = new BlockPos(multiblockMiddlePos.getX() - 1, multiblockMiddlePos.getY() - 1, multiblockMiddlePos.getZ() - 1);
         EnumFacing.Axis axis = facing.getAxis();
-        EnumFacing stairFacing = axis == EnumFacing.Axis.X ? (world.getBlockState(controllerPos).getValue(FACING) == EnumFacing.WEST ? facing.rotateY() : facing.rotateY().getOpposite()) : (world.getBlockState(controllerPos).getValue(FACING) == EnumFacing.SOUTH ? facing.rotateY() : facing.rotateY().getOpposite());
+        EnumFacing stairFacing = axis == EnumFacing.Axis.X ? (world.getBlockState(controllerPos).getValue(FACING) == EnumFacing.WEST ? facing.rotateY() : facing.rotateY().getOpposite()) : (world.getBlockState(controllerPos).getValue(FACING) == EnumFacing.NORTH ? facing.rotateY() : facing.rotateY().getOpposite());
 
         IBlockState stairBottom1 = Blocks.BRICK_STAIRS.getDefaultState()
                 .withProperty(BlockStairs.HALF, BlockStairs.EnumHalf.TOP)

@@ -6,6 +6,7 @@ import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
 import minecraftschurli.mfm.objects.items.ItemBase;
+import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.integrations.tinkers.CastingRecipe;
 import minecraftschurli.mfm.util.integrations.tinkers.MeltingRecipe;
 import minecraftschurli.mfm.util.integrations.tinkers.TinkersInit;
@@ -15,6 +16,7 @@ import minecraftschurli.mfm.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fluids.BlockFluidClassic;
 import net.minecraftforge.fluids.Fluid;
@@ -142,6 +144,7 @@ public class RegistryHandler {
 	@SubscribeEvent
 	public static void onModelRegister(ModelRegistryEvent event)
 	{
+        OBJLoader.INSTANCE.addDomain(Reference.MOD_ID + ":models/block");
 		for(Item item : ItemInit.ITEMS)
 		{	
 			if (item instanceof IHasModel) 
