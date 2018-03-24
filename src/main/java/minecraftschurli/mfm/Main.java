@@ -16,10 +16,8 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = Reference.MOD_ID,
-        name = Reference.NAME,
-        version = Reference.VERSION_STRING,
-        acceptedMinecraftVersions = Reference.MC_VERSION, dependencies = "after:tconstruct; before:tinkersdefense; after:thermalfoundation"
+@Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION_STRING,
+        acceptedMinecraftVersions = Reference.MC_VERSION, dependencies = Reference.DEPENDENCIES
 )
 public class Main 
 {

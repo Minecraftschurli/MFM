@@ -92,7 +92,7 @@ public class RegistryHandler {
     {
         for (int i = 0; i < TinkersInit.MATERIALS.size(); i++)
         {
-            TinkersMaterial mat = (TinkersMaterial)TinkersInit.MATERIALS.get(i);
+            TinkersMaterial mat = TinkersInit.MATERIALS.get(i);
             slimeknights.tconstruct.library.materials.Material material = mat.material;
             if (tD) {
                 TinkerRegistry.addMaterialStats(material,
@@ -116,7 +116,7 @@ public class RegistryHandler {
         }
         for (int i = 0; i < TinkersInit.CASTING_RECIPES.size(); i++)
         {
-            ICastingRecipe recipe = (ICastingRecipe) TinkersInit.CASTING_RECIPES.get(i);
+            ICastingRecipe recipe = TinkersInit.CASTING_RECIPES.get(i);
             if(recipe instanceof CastingRecipe)
             {
 
@@ -133,7 +133,7 @@ public class RegistryHandler {
         }
         for (int i = 0; i < TinkersInit.MELTING_RECIPES.size(); i++)
         {
-            MeltingRecipe recipe = (MeltingRecipe) TinkersInit.MELTING_RECIPES.get(i);
+            MeltingRecipe recipe = TinkersInit.MELTING_RECIPES.get(i);
             TinkerRegistry.registerMelting(recipe);
         }
 

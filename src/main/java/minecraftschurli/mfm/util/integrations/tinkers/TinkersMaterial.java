@@ -15,7 +15,6 @@ public class TinkersMaterial
     public MaterialStats matStat;
     private String oreDictSuffix;
 
-    @SafeVarargs
     TinkersMaterial(String name, int color, String suffix, boolean part, boolean cast, Fluid fluid, MaterialStats matStat, Pair<ITrait, String>... traits)
     {
 
@@ -37,13 +36,12 @@ public class TinkersMaterial
         {
             trait = t.getLeft();
             dep = t.getRight();
-            if (dep != null)
-            {
-                this.material.addTrait(trait, dep);
-            }
-            else
-            {
-                this.material.addTrait(trait);
+            if (trait != null) {
+                if (dep != null) {
+                    this.material.addTrait(trait, dep);
+                } else {
+                    this.material.addTrait(trait);
+                }
             }
         }
 
@@ -51,9 +49,7 @@ public class TinkersMaterial
         this.material.setCraftable(part);
         this.material.setVisible();
 
-        this.material.setRenderInfo(new slimeknights.tconstruct.library.client.MaterialRenderInfo.Default(color));
-
-        TinkersInit.MATERIALS.addE(this);
+        TinkersInit.MATERIALS.add(this);
     }
 
     public String getOreDictSuffix() {

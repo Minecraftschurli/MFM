@@ -1,5 +1,6 @@
 package minecraftschurli.mfm.objects.blocks.machines.multiblocks.godiumrefiner;
 
+import cofh.core.util.helpers.BlockHelper;
 import mcp.MethodsReturnNonnullByDefault;
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.BlockInit;
@@ -31,6 +32,7 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Loader;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -51,6 +53,7 @@ public class BlockGodiumRefinerController extends BlockBase implements IMultiblo
     public BlockGodiumRefinerController() {
         super("godium_refiner_controller", Material.ROCK);
         setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH).withProperty(ACTIVE, false).withProperty(MULTIBLOCK_FORMED, false));
+        if (Loader.isModLoaded("cofhcore")) BlockHelper.rotateType[Block.getIdFromBlock(this)] = 0;
     }
 
     @MethodsReturnNonnullByDefault

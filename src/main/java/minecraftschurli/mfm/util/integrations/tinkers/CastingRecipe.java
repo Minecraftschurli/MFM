@@ -23,7 +23,7 @@ public class CastingRecipe extends slimeknights.tconstruct.library.smeltery.Cast
 
         basin = true;
 
-        TinkersInit.CASTING_RECIPES.addE(this);
+        TinkersInit.CASTING_RECIPES.add(this);
     }
 
     CastingRecipe(ItemStack output, RecipeMatch cast, Fluid fluid, int amount)
@@ -32,7 +32,7 @@ public class CastingRecipe extends slimeknights.tconstruct.library.smeltery.Cast
 
         basin = false;
 
-        TinkersInit.CASTING_RECIPES.addE(this);
+        TinkersInit.CASTING_RECIPES.add(this);
     }
 
     public boolean isBasin() {

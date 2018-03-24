@@ -3,7 +3,6 @@ package minecraftschurli.mfm.util.integrations.tinkers;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
-import minecraftschurli.mfm.util.misc.List;
 import minecraftschurli.mfm.util.misc.Pair;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,15 +12,17 @@ import slimeknights.tconstruct.library.materials.MaterialTypes;
 import slimeknights.tconstruct.library.smeltery.ICastingRecipe;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import static slimeknights.tconstruct.library.materials.Material.*;
 
 @SuppressWarnings({"unchecked", "ConfusingArgumentToVarargsMethod"})
 public class TinkersInit
 {
-    public static final List<TinkersMaterial> MATERIALS = new List<>();
-    public static final List<ICastingRecipe> CASTING_RECIPES = new List<>();
-    public static final List<MeltingRecipe> MELTING_RECIPES = new List<>();
+    public static final List<TinkersMaterial> MATERIALS = new ArrayList<>();
+    public static final List<ICastingRecipe> CASTING_RECIPES = new ArrayList<>();
+    public static final List<MeltingRecipe> MELTING_RECIPES = new ArrayList<>();
     public static final String NONE = null;
 
     public static final TinkersMaterial MATERIAL_VULCANIUM = new TinkersMaterial("vulcanium",
@@ -37,17 +38,17 @@ public class TinkersInit
             FluidInit.FLUID_KANDIUM, new MaterialStats(0, 0, 0, 0,
             0, 0, 0, 0, 0, 0, 0,
             0, 0, 0),
-            null);
+            new Pair<>(null, null));
 
     public static final TinkersMaterial MATERIAL_KANADIUM = new TinkersMaterial("kanadium",new Color(0,119,255,255).getRGB(),"Kanadium",
             false,true, FluidInit.FLUID_KANADIUM, new MaterialStats(0,0,0,0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-            null);
+            new Pair<>(null, null));
 
     public static final TinkersMaterial MATERIAL_CRYSTAL = new TinkersMaterial("crystal",new Color(240,255,255,255).getRGB(),"Crystal",
             true,false, null, new MaterialStats(0,0,0,0,
             0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-            null);
+            new Pair<>(null, null));
 
     public static final CastingRecipe CASTING_BLOCK_VULCANIUM = new CastingRecipe(new ItemStack(BlockInit.BLOCK_VULCANIUM),
             FluidInit.FLUID_VULCANIUM,VALUE_Block);

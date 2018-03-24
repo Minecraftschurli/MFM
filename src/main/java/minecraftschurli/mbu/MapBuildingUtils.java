@@ -1,26 +1,26 @@
 package minecraftschurli.mbu;
 
-//@Mod(modid = "mbu", name = "Map Building Utils", version = "1.0", acceptedMinecraftVersions = "[1.12.2]")
+//@net.minecraftforge.fml.common.Mod(modid = "mbu", name = "Map Building Utils", version = "1.0", acceptedMinecraftVersions = "[1.12.2]")
 public class MapBuildingUtils {
-    /*public static final CreativeTabs CREATIVETAB2 = new CreativeTabs("mapBuildingUtils") {
+    /*public static final net.minecraft.creativetab.CreativeTabs CREATIVETAB = new CreativeTabs("mapBuildingUtils") {
         @Override
         public ItemStack getTabIconItem() {
-            return new ItemStack(Blocks.COMMAND_BLOCK);
+            return new ItemStack(net.minecraft.init.Blocks.COMMAND_BLOCK);
         }
     };
 
-    @Mod.Instance("mbu")
+    @net.minecraftforge.fml.common.Mod.Instance("mbu")
     public static MapBuildingUtils instance;
 
-    @Mod.EventHandler
-    public static void postInit(FMLPostInitializationEvent event) {
-        Item.getByNameOrId("command_block_minecart").setCreativeTab(CREATIVETAB2);
-        Blocks.COMMAND_BLOCK.setCreativeTab(CREATIVETAB2);
-        Blocks.CHAIN_COMMAND_BLOCK.setCreativeTab(CREATIVETAB2);
-        Blocks.REPEATING_COMMAND_BLOCK.setCreativeTab(CREATIVETAB2);
-        Blocks.STRUCTURE_BLOCK.setCreativeTab(CREATIVETAB2);
-        Blocks.STRUCTURE_VOID.setCreativeTab(CREATIVETAB2);
-        Blocks.BARRIER.setCreativeTab(CREATIVETAB2);
+    @net.minecraftforge.fml.common.Mod.EventHandler
+    public static void postInit(net.minecraftforge.fml.common.event.FMLPostInitializationEvent event) {
+        net.minecraft.item.Item.getByNameOrId("command_block_minecart").setCreativeTab(CREATIVETAB);
+        net.minecraft.init.Blocks.COMMAND_BLOCK.setCreativeTab(CREATIVETAB);
+        net.minecraft.init.Blocks.CHAIN_COMMAND_BLOCK.setCreativeTab(CREATIVETAB);
+        net.minecraft.init.Blocks.REPEATING_COMMAND_BLOCK.setCreativeTab(CREATIVETAB);
+        net.minecraft.init.Blocks.STRUCTURE_BLOCK.setCreativeTab(CREATIVETAB);
+        net.minecraft.init.Blocks.STRUCTURE_VOID.setCreativeTab(CREATIVETAB);
+        net.minecraft.init.Blocks.BARRIER.setCreativeTab(CREATIVETAB);
     }
 */
 }

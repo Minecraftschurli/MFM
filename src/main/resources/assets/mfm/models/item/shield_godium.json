@@ -1,7 +1,7 @@
 {
   "parent": "mfm:item/shield",
   "textures": {
-    "layer0": "mfm:shield_godium"
+    "layer0": "mfm:items/shield_godium"
   },
   "overrides": [
     {
