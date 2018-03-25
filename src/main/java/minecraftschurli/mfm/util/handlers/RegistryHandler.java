@@ -161,8 +161,7 @@ public class RegistryHandler {
 		}
 	}
 
-    @SubscribeEvent
-    public static void onCraftingRegister() {
+    public static void registerRecipes() {
         RecipeHandler.addStandardRecipes();
     }
 	

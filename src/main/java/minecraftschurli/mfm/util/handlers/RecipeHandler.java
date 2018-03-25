@@ -19,7 +19,8 @@ import net.minecraftforge.registries.GameData;
 
 public class RecipeHandler {
     public static void addStandardRecipes() {
-        //block
+
+        /* block */
         RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1));
         RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_KANADIUM, 1), cloneStack(ItemInit.INGOT_KANADIUM, 1));
         RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_KANDIUM, 1), cloneStack(ItemInit.INGOT_KANDIUM, 1));
@@ -28,13 +29,25 @@ public class RecipeHandler {
         RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_STANIUM, 1), cloneStack(ItemInit.GEM_STANIUM, 1));
         RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1));
 
-        //nugget
+        /* nugget */
         RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(ItemInit.NUGGET_VULCANIUM, 1));
         RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_KANADIUM, 1), cloneStack(ItemInit.NUGGET_KANADIUM, 1));
         RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_KANDIUM, 1), cloneStack(ItemInit.NUGGET_KANDIUM, 1));
         RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_OP, 1), cloneStack(ItemInit.NUGGET_OP, 1));
 
-        //armor
+        /*  */
+        RecipeHelper.addAxeRecipe(cloneStack(ItemInit.AXE_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.PICKAXE_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.SHOVEL_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.SWORD_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(Items.STICK, 1));
+
+        RecipeHelper.addAxeRecipe(cloneStack(ItemInit.AXE_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.PICKAXE_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.SHOVEL_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.SWORD_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HORSE_ARMOR_GODIUM, 1), "H  ", "CWI", "L L", 'H', cloneStack(ItemInit.HELMET_GODIUM, 1), 'C', cloneStack(ItemInit.CHESTPLATE_GODIUM, 1), 'L', cloneStack(ItemInit.LEGGINGS_GODIUM, 1), 'I', cloneStack(ItemInit.INGOT_GODIUM, 1), 'W', "wool");
+
+        /* armor */
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.BOOTS_OP, 1), "I I", "ICI", 'I', cloneStack(ItemInit.INGOT_OP, 1), 'C', cloneStack(ItemInit.ITEM_CORE, 1));
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.LEGGINGS_OP, 1), "III", "ICI", "I I", 'I', cloneStack(ItemInit.INGOT_OP, 1), 'C', cloneStack(ItemInit.ITEM_CORE, 1));
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.CHESTPLATE_OP, 1), "ICI", "IEI", "III", 'I', cloneStack(ItemInit.INGOT_OP, 1), 'C', cloneStack(ItemInit.ITEM_CORE, 1), 'E', cloneStack(Items.ELYTRA, 1));
@@ -60,12 +73,13 @@ public class RecipeHandler {
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.CHESTPLATE_GODIUM, 1), "I I", "VOK", "III", 'I', cloneStack(ItemInit.INGOT_GODIUM, 1), 'V', cloneStack(ItemInit.CHESTPLATE_VULCANIUM, 1), 'O', cloneStack(ItemInit.CHESTPLATE_OP, 1), 'K', cloneStack(ItemInit.CHESTPLATE_KANADIUM, 1));
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HELMET_GODIUM, 1), "III", "I I", 'I', cloneStack(ItemInit.INGOT_GODIUM, 1));
 
-        //
+        /*  */
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.GEM_SEADIAMOND, 1), " S ", "SDS", " S ", 'S', cloneStack(Items.PRISMARINE_SHARD, 1), 'D', cloneStack(Items.DIAMOND, 1));
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.ITEM_CORE, 1), " D ", "DND", " D ", 'N', cloneStack(Items.NETHER_STAR, 1), 'D', cloneStack(Blocks.DIAMOND_BLOCK, 1));
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.ITEM_WHIRLEWIND, 1), "CL ", "L L", " LI", 'C', cloneStack(ItemInit.ITEM_CORE, 1), 'I', cloneStack(ItemInit.INGOT_OP, 1), 'L', cloneStack(Items.LEATHER, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.SHIELD_GODIUM, 1), "III", "ISI", " I ", 'I', cloneStack(ItemInit.INGOT_GODIUM, 1), 'S', cloneStack(Items.SHIELD, 1));
 
-        //smelting
+        /* smelting */
         RecipeHelper.addSmelting(BlockInit.ORE_OVERWORLD_KANDIUM, cloneStack(ItemInit.INGOT_KANDIUM, 1), 1F);
         RecipeHelper.addSmelting(BlockInit.ORE_NETHER_VULCANIUM, cloneStack(ItemInit.INGOT_VULCANIUM, 1), 1F);
         RecipeHelper.addSmelting(BlockInit.ORE_OVERWORLD_CRYSTAL, cloneStack(ItemInit.GEM_CRYSTAL, 1), 1F);
@@ -204,6 +218,49 @@ public class RecipeHandler {
 
             addSmallStorageRecipe(one, four_ore);
             addSmallReverseStorageRecipe(four, one_ore);
+        }
+
+        /* TOOLS */
+        public static void addAxeRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {
+
+            addShapedRecipe(axe, "XX ", "XS ", " S ", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
+            addShapedRecipe(axe, " XX", " SX", " S ", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
+        }
+
+        public static void addAxeRecipe(ItemStack axe, String headMat, String handleMat) {
+
+            addShapedRecipe(axe, "XX ", "XS ", " S ", 'X', headMat, 'S', handleMat);
+            addShapedRecipe(axe, " XX", " SX", " S ", 'X', headMat, 'S', handleMat);
+        }
+
+        public static void addPickaxeRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {
+
+            addShapedRecipe(axe, "XXX", " S ", " S ", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
+        }
+
+        public static void addPickaxeRecipe(ItemStack axe, String headMat, String handleMat) {
+
+            addShapedRecipe(axe, "XXX", " S ", " S ", 'X', headMat, 'S', handleMat);
+        }
+
+        public static void addSwordRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {
+
+            addShapedRecipe(axe, " X ", " X ", " S ", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
+        }
+
+        public static void addSwordRecipe(ItemStack axe, String headMat, String handleMat) {
+
+            addShapedRecipe(axe, " X ", " X ", " S ", 'X', headMat, 'S', handleMat);
+        }
+
+        public static void addShovelRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {
+
+            addShapedRecipe(axe, " X ", " S ", " S ", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
+        }
+
+        public static void addShovelRecipe(ItemStack axe, String headMat, String handleMat) {
+
+            addShapedRecipe(axe, " X ", " S ", " S ", 'X', headMat, 'S', handleMat);
         }
 
         /* HELPERS */
