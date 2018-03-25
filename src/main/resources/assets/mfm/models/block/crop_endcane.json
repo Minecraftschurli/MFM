@@ -1,6 +1,12 @@
 {
-  "parent": "mfm:block/tinted_cross",
+  "parent": "block/tinted_cross",
+  "textures": {
+    "cross": "blocks/reeds"
+  }
+}
+/*{
+  "parent": "block/tinted_cross",
   "textures": {
     "cross": "mfm:blocks/crop_endcane"
   }
-}
+}*/

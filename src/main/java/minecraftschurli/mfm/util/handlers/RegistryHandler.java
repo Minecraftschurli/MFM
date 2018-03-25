@@ -160,6 +160,11 @@ public class RegistryHandler {
 			}
 		}
 	}
+
+    @SubscribeEvent
+    public static void onCraftingRegister() {
+        RecipeHandler.addStandardRecipes();
+    }
 	
 	public static void preInitRegistries()
 	{

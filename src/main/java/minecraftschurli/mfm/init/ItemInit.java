@@ -94,7 +94,7 @@ public class ItemInit {
     public static final Item ENDCANE = new ItemEndCane();
 
     //Misc
-    public static final Item WRENCH = Loader.isModLoaded("thermalfoundation") ? cofh.thermalfoundation.init.TFItems.itemWrench : new ItemWrench();
+    public static final Item WRENCH = Loader.isModLoaded("thermalfoundation") ? cofh.thermalfoundation.init.TFItems.itemWrench.addItem(10, "wrench10").getItem() : new ItemWrench();
     public static final Item DEBUG_ITEM = new ItemDebug();
     public static final Item ITEM_WHIRLEWIND = new ItemWhirlwind();
 
@@ -146,7 +146,7 @@ public class ItemInit {
 
     //Godium
     //Material
-    public static final CombinedMaterial GODIUM = new CombinedMaterial("godium", INGOT_GODIUM, 100, new int[]{12, 24, 32, 12}, 80, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 8.0F, 32, 9999, 9999F, -3.0F, 10, 64);
+    public static final CombinedMaterial GODIUM = new CombinedMaterial("godium", INGOT_GODIUM, 100, new int[]{12, 24, 32, 12}, 80, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 8.0F, 32, 9999, 9999F, -3.0F, 100, 64);
     //Tools
     public static final Item SWORD_GODIUM = new SwordGodium();
     public static final Item AXE_GODIUM = new AxeBase("axe_godium", GODIUM.getTOOL_MATERIAL(), 30F, 100F);

@@ -28,7 +28,7 @@ public class BlockInit {
 	public static final Block BLOCK_STANIUM = new BlockBase("block_stanium",Material.IRON,"Stanium");
 	public static final Block BLOCK_CRYSTAL = new BlockBase("block_crystal",Material.IRON,"Crystal");
     public static final Block BLOCK_GODIUM = new BlockBase("block_godium", Material.IRON, "Godium");
-    public static final Block GREENSCREEN = new BlockBase("greenscreen", Material.ROCK).setLightLevel(15f).setResistance(6000000.0F);
+    public static final Block GREENSCREEN = new BlockBase("greenscreen", Material.ROCK).setLightLevel(1.0F).setResistance(6000000.0F);
 
 	//Ores
 	public static final Block ORE_NETHER_VULCANIUM = new OreBase("ore_nether_vulcanium",
