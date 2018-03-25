@@ -3,18 +3,16 @@ package minecraftschurli.mfm.util.handlers;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.ItemInit;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraft.item.crafting.ShapelessRecipes;
+import net.minecraft.item.crafting.*;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
-import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.GameData;
@@ -22,26 +20,57 @@ import net.minecraftforge.registries.GameData;
 public class RecipeHandler {
     public static void addStandardRecipes() {
         //block
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(BlockInit.BLOCK_VULCANIUM), new ItemStack(ItemInit.INGOT_VULCANIUM));
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(BlockInit.BLOCK_KANADIUM), new ItemStack(ItemInit.INGOT_KANADIUM));
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(BlockInit.BLOCK_KANDIUM), new ItemStack(ItemInit.INGOT_KANDIUM));
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(BlockInit.BLOCK_OP), new ItemStack(ItemInit.INGOT_OP));
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(BlockInit.BLOCK_CRYSTAL), new ItemStack(ItemInit.GEM_CRYSTAL));
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(BlockInit.BLOCK_STANIUM), new ItemStack(ItemInit.GEM_STANIUM));
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(BlockInit.BLOCK_GODIUM), new ItemStack(ItemInit.INGOT_GODIUM));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_KANADIUM, 1), cloneStack(ItemInit.INGOT_KANADIUM, 1));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_KANDIUM, 1), cloneStack(ItemInit.INGOT_KANDIUM, 1));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_OP, 1), cloneStack(ItemInit.INGOT_OP, 1));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_CRYSTAL, 1), cloneStack(ItemInit.GEM_CRYSTAL, 1));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_STANIUM, 1), cloneStack(ItemInit.GEM_STANIUM, 1));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1));
 
         //nugget
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(ItemInit.INGOT_VULCANIUM), new ItemStack(ItemInit.NUGGET_VULCANIUM));
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(ItemInit.INGOT_KANADIUM), new ItemStack(ItemInit.NUGGET_KANADIUM));
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(ItemInit.INGOT_KANDIUM), new ItemStack(ItemInit.NUGGET_KANDIUM));
-        RecipeHelper.addTwoWayStorageRecipe(new ItemStack(ItemInit.INGOT_OP), new ItemStack(ItemInit.NUGGET_OP));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(ItemInit.NUGGET_VULCANIUM, 1));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_KANADIUM, 1), cloneStack(ItemInit.NUGGET_KANADIUM, 1));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_KANDIUM, 1), cloneStack(ItemInit.NUGGET_KANDIUM, 1));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_OP, 1), cloneStack(ItemInit.NUGGET_OP, 1));
+
+        //armor
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.BOOTS_OP, 1), "I I", "ICI", 'I', cloneStack(ItemInit.INGOT_OP, 1), 'C', cloneStack(ItemInit.ITEM_CORE, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.LEGGINGS_OP, 1), "III", "ICI", "I I", 'I', cloneStack(ItemInit.INGOT_OP, 1), 'C', cloneStack(ItemInit.ITEM_CORE, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.CHESTPLATE_OP, 1), "ICI", "IEI", "III", 'I', cloneStack(ItemInit.INGOT_OP, 1), 'C', cloneStack(ItemInit.ITEM_CORE, 1), 'E', cloneStack(Items.ELYTRA, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HELMET_OP, 1), "III", "ICI", 'I', cloneStack(ItemInit.INGOT_OP, 1), 'C', cloneStack(ItemInit.ITEM_CORE, 1));
+
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.BOOTS_VULCANIUM, 1), "I I", "I I", 'I', cloneStack(ItemInit.INGOT_VULCANIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.LEGGINGS_VULCANIUM, 1), "III", "I I", "I I", 'I', cloneStack(ItemInit.INGOT_VULCANIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.CHESTPLATE_VULCANIUM, 1), "I I", "ISI", "III", 'I', cloneStack(ItemInit.INGOT_VULCANIUM, 1), 'S', cloneStack(ItemInit.GEM_STANIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HELMET_VULCANIUM, 1), "III", "I I", 'I', cloneStack(ItemInit.INGOT_VULCANIUM, 1));
+
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.BOOTS_KANDIUM, 1), "I I", "I I", 'I', cloneStack(ItemInit.INGOT_KANDIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.LEGGINGS_KANDIUM, 1), "III", "I I", "I I", 'I', cloneStack(ItemInit.INGOT_KANDIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.CHESTPLATE_KANDIUM, 1), "I I", "III", "III", 'I', cloneStack(ItemInit.INGOT_KANDIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HELMET_KANDIUM, 1), "III", "I I", 'I', cloneStack(ItemInit.INGOT_KANDIUM, 1));
+
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.BOOTS_KANADIUM, 1), "I I", "I I", 'I', cloneStack(ItemInit.INGOT_KANADIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.LEGGINGS_KANADIUM, 1), "III", "I I", "I I", 'I', cloneStack(ItemInit.INGOT_KANADIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.CHESTPLATE_KANADIUM, 1), "I I", "IKI", "III", 'I', cloneStack(ItemInit.INGOT_KANADIUM, 1), 'K', cloneStack(ItemInit.CHESTPLATE_KANDIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HELMET_KANADIUM, 1), "III", "I I", 'I', cloneStack(ItemInit.INGOT_KANADIUM, 1));
+
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.BOOTS_GODIUM, 1), "I I", "I I", 'I', cloneStack(ItemInit.INGOT_GODIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.LEGGINGS_GODIUM, 1), "III", "I I", "I I", 'I', cloneStack(ItemInit.INGOT_GODIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.CHESTPLATE_GODIUM, 1), "I I", "VOK", "III", 'I', cloneStack(ItemInit.INGOT_GODIUM, 1), 'V', cloneStack(ItemInit.CHESTPLATE_VULCANIUM, 1), 'O', cloneStack(ItemInit.CHESTPLATE_OP, 1), 'K', cloneStack(ItemInit.CHESTPLATE_KANADIUM, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HELMET_GODIUM, 1), "III", "I I", 'I', cloneStack(ItemInit.INGOT_GODIUM, 1));
+
+        //
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.GEM_SEADIAMOND, 1), " S ", "SDS", " S ", 'S', cloneStack(Items.PRISMARINE_SHARD, 1), 'D', cloneStack(Items.DIAMOND, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.ITEM_CORE, 1), " D ", "DND", " D ", 'N', cloneStack(Items.NETHER_STAR, 1), 'D', cloneStack(Blocks.DIAMOND_BLOCK, 1));
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.ITEM_WHIRLEWIND, 1), "CL ", "L L", " LI", 'C', cloneStack(ItemInit.ITEM_CORE, 1), 'I', cloneStack(ItemInit.INGOT_OP, 1), 'L', cloneStack(Items.LEATHER, 1));
 
         //smelting
-        RecipeHelper.addSmelting(BlockInit.ORE_OVERWORLD_KANDIUM, new ItemStack(ItemInit.INGOT_KANDIUM, 1), 1F);
-        RecipeHelper.addSmelting(BlockInit.ORE_NETHER_VULCANIUM, new ItemStack(ItemInit.INGOT_VULCANIUM, 1), 1F);
-        RecipeHelper.addSmelting(BlockInit.ORE_OVERWORLD_CRYSTAL, new ItemStack(ItemInit.GEM_CRYSTAL, 1), 1F);
-        RecipeHelper.addSmelting(BlockInit.ORE_END_CRYSTAL, new ItemStack(ItemInit.GEM_CRYSTAL, 1), 1F);
-        RecipeHelper.addSmelting(BlockInit.ORE_NETHER_STANIUM, new ItemStack(ItemInit.GEM_STANIUM, 1), 1F);
+        RecipeHelper.addSmelting(BlockInit.ORE_OVERWORLD_KANDIUM, cloneStack(ItemInit.INGOT_KANDIUM, 1), 1F);
+        RecipeHelper.addSmelting(BlockInit.ORE_NETHER_VULCANIUM, cloneStack(ItemInit.INGOT_VULCANIUM, 1), 1F);
+        RecipeHelper.addSmelting(BlockInit.ORE_OVERWORLD_CRYSTAL, cloneStack(ItemInit.GEM_CRYSTAL, 1), 1F);
+        RecipeHelper.addSmelting(BlockInit.ORE_END_CRYSTAL, cloneStack(ItemInit.GEM_CRYSTAL, 1), 1F);
+        RecipeHelper.addSmelting(BlockInit.ORE_NETHER_STANIUM, cloneStack(ItemInit.GEM_STANIUM, 1), 1F);
     }
 
     public static ItemStack cloneStack(Item item, int stackSize) {
@@ -212,18 +241,15 @@ public class RecipeHandler {
 
         /* SMELTING */
         static void addSmelting(Block input, ItemStack output, float xp) {
-
-            GameRegistry.addSmelting(input, output, xp);
+            FurnaceRecipes.instance().addSmeltingRecipeForBlock(input, output, xp);
         }
 
         static void addSmelting(Item input, ItemStack output, float xp) {
-
-            GameRegistry.addSmelting(input, output, xp);
+            FurnaceRecipes.instance().addSmelting(input, output, xp);
         }
 
         static void addSmelting(ItemStack input, ItemStack output, float xp) {
-
-            GameRegistry.addSmelting(input, output, xp);
+            FurnaceRecipes.instance().addSmeltingRecipe(input, output, xp);
         }
 
         public static void addSmelting(ItemStack input, ItemStack output) {
