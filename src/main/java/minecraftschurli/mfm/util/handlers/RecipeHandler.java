@@ -38,13 +38,13 @@ public class RecipeHandler {
         /*  */
         RecipeHelper.addAxeRecipe(cloneStack(ItemInit.AXE_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(Items.STICK, 1));
         RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.PICKAXE_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(Items.STICK, 1));
-        RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.SHOVEL_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(Items.STICK, 1));
-        RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.SWORD_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addShovelRecipe(cloneStack(ItemInit.SHOVEL_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addSwordRecipe(cloneStack(ItemInit.SWORD_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(Items.STICK, 1));
 
         RecipeHelper.addAxeRecipe(cloneStack(ItemInit.AXE_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
         RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.PICKAXE_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
-        RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.SHOVEL_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
-        RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.SWORD_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addShovelRecipe(cloneStack(ItemInit.SHOVEL_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
+        RecipeHelper.addSwordRecipe(cloneStack(ItemInit.SWORD_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HORSE_ARMOR_GODIUM, 1), "H  ", "CWI", "L L", 'H', cloneStack(ItemInit.HELMET_GODIUM, 1), 'C', cloneStack(ItemInit.CHESTPLATE_GODIUM, 1), 'L', cloneStack(ItemInit.LEGGINGS_GODIUM, 1), 'I', cloneStack(ItemInit.INGOT_GODIUM, 1), 'W', "wool");
 
         /* armor */

@@ -1,7 +1,7 @@
 package minecraftschurli.mfm.init;
 
 import minecraftschurli.mfm.objects.armor.godium.ArmorGodium;
-import minecraftschurli.mfm.objects.armor.horsearmor.HorseArmorBase;
+import minecraftschurli.mfm.objects.armor.horsearmor.HorseArmorGodium;
 import minecraftschurli.mfm.objects.armor.kanadium.BootsKanadium;
 import minecraftschurli.mfm.objects.armor.kanadium.ChestplateKanadium;
 import minecraftschurli.mfm.objects.armor.kanadium.HelmetKanadium;
@@ -152,7 +152,7 @@ public class ItemInit {
     public static final Item AXE_GODIUM = new AxeBase("axe_godium", GODIUM.getTOOL_MATERIAL(), 30F, 100F);
     public static final Item SHOVEL_GODIUM = new ShovelBase("shovel_godium", GODIUM.getTOOL_MATERIAL());
     public static final Item PICKAXE_GODIUM = new PickaxeBase("pickaxe_godium", GODIUM.getTOOL_MATERIAL());
-    public static final Item HORSE_ARMOR_GODIUM = new HorseArmorBase("horsearmor_godium", GODIUM.getHORSE_ARMOR_TYPE());
+    public static final Item HORSE_ARMOR_GODIUM = new HorseArmorGodium();
     public static final Item SHIELD_GODIUM = new ShieldGodium();
     //Armor
     public static final Item BOOTS_GODIUM = new ArmorGodium("boots_godium", 1, EntityEquipmentSlot.FEET);
