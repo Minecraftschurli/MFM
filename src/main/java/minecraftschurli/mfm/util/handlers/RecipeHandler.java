@@ -3,8 +3,10 @@ package minecraftschurli.mfm.util.handlers;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.ItemInit;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockColored;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.*;
@@ -45,7 +47,7 @@ public class RecipeHandler {
         RecipeHelper.addPickaxeRecipe(cloneStack(ItemInit.PICKAXE_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
         RecipeHelper.addShovelRecipe(cloneStack(ItemInit.SHOVEL_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
         RecipeHelper.addSwordRecipe(cloneStack(ItemInit.SWORD_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1), cloneStack(Items.STICK, 1));
-        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HORSE_ARMOR_GODIUM, 1), "H  ", "CWI", "L L", 'H', cloneStack(ItemInit.HELMET_GODIUM, 1), 'C', cloneStack(ItemInit.CHESTPLATE_GODIUM, 1), 'L', cloneStack(ItemInit.LEGGINGS_GODIUM, 1), 'I', cloneStack(ItemInit.INGOT_GODIUM, 1), 'W', "wool");
+        RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HORSE_ARMOR_GODIUM, 1), "H  ", "CWI", "L L", 'H', cloneStack(ItemInit.HELMET_GODIUM, 1), 'C', cloneStack(ItemInit.CHESTPLATE_GODIUM, 1), 'L', cloneStack(ItemInit.LEGGINGS_GODIUM, 1), 'I', cloneStack(ItemInit.INGOT_GODIUM, 1), 'W', cloneStack(Blocks.WOOL.getDefaultState().withProperty(BlockColored.COLOR, EnumDyeColor.RED).getBlock(), 1));
 
         /* armor */
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.BOOTS_OP, 1), "I I", "ICI", 'I', cloneStack(ItemInit.INGOT_OP, 1), 'C', cloneStack(ItemInit.ITEM_CORE, 1));
