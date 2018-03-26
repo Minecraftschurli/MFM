@@ -43,7 +43,6 @@ public class RegistryHandler {
             {
                 if (((ItemBase) item).oreDictName != null)
                 {
-
                     OreDictionary.registerOre(((ItemBase) item).oreDictName,item);
                 }
             }
@@ -89,6 +88,7 @@ public class RegistryHandler {
         }
 
     }
+
 
     public static void onTinkersRegister(boolean tD)
     {

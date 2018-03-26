@@ -27,7 +27,6 @@ import minecraftschurli.mfm.objects.tools.shovel.ShovelBase;
 import minecraftschurli.mfm.objects.tools.sword.SwordGodium;
 import minecraftschurli.mfm.objects.tools.sword.SwordVulcanium;
 import minecraftschurli.mfm.util.misc.CombinedMaterial;
-import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
@@ -35,7 +34,6 @@ import net.minecraft.item.Item;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.Loader;
-import net.minecraftforge.oredict.OreDictionary;
 
 import java.util.ArrayList;
 
@@ -96,7 +94,6 @@ public class ItemInit {
     public static final Item ITEM_CORE = new ItemBase("item_core");
     public static final Item ENDCANE = new ItemEndCane();
     public static final Item HANDLE = new ItemBase("item_handle");
-    public static final Item ROD_IRON = OreDictionary.doesOreNameExist("rodIron") ? OreDictionary.getOres("rodIron").get(0).getItem() : new ItemBase("rod_iron", "rodIron");
 
     //Misc
     public static final Item WRENCH = Loader.isModLoaded("thermalfoundation") ? cofh.thermalfoundation.init.TFItems.itemWrench.addItem(10, "wrench10").getItem() : new ItemWrench();
@@ -139,9 +136,9 @@ public class ItemInit {
     public static final CombinedMaterial VULCANIUM = new CombinedMaterial("vulcanium", INGOT_VULCANIUM, 40, new int[]{3, 6, 8, 3}, 40, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 2.0F, 5, 1561, 8.0F, 3.0F);
     //Tools
     public static final Item SWORD_VULCANIUM = new SwordVulcanium();
-    public static final Item AXE_VULCANIUM = new AxeBase("axe_vulcanium", VULCANIUM.getTOOL_MATERIAL(), 10F, 0F, Items.STICK);
-    public static final Item SHOVEL_VULCANIUM = new ShovelBase("shovel_vulcanium", VULCANIUM.getTOOL_MATERIAL(), Items.STICK);
-    public static final Item PICKAXE_VULCANIUM = new PickaxeBase("pickaxe_vulcanium", VULCANIUM.getTOOL_MATERIAL(), Items.STICK);
+    public static final Item AXE_VULCANIUM = new AxeBase("axe_vulcanium", VULCANIUM.getTOOL_MATERIAL(), 10F, 0F, "stickWood");
+    public static final Item SHOVEL_VULCANIUM = new ShovelBase("shovel_vulcanium", VULCANIUM.getTOOL_MATERIAL(), "stickWood");
+    public static final Item PICKAXE_VULCANIUM = new PickaxeBase("pickaxe_vulcanium", VULCANIUM.getTOOL_MATERIAL(), "stickWood");
     //Armor
     public static final Item BOOTS_VULCANIUM = new BootsVulcanium("boots_vulcanium", VULCANIUM.getARMOR_MATERIAL(), 1, EntityEquipmentSlot.FEET);
     public static final Item LEGGINGS_VULCANIUM = new LeggingsVulcanium("leggings_vulcanium", VULCANIUM.getARMOR_MATERIAL(), 2, EntityEquipmentSlot.LEGS);
@@ -154,9 +151,9 @@ public class ItemInit {
     public static final CombinedMaterial GODIUM = new CombinedMaterial("godium", INGOT_GODIUM, 100, new int[]{12, 24, 32, 12}, 80, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 8.0F, 32, 9999, 9999F, -3.0F, 100, 64);
     //Tools
     public static final Item SWORD_GODIUM = new SwordGodium();
-    public static final Item AXE_GODIUM = new AxeBase("axe_godium", GODIUM.getTOOL_MATERIAL(), 30F, 100F, ROD_IRON);//OreDictionary.getOres("rodIron").get(0).getItem()
-    public static final Item SHOVEL_GODIUM = new ShovelBase("shovel_godium", GODIUM.getTOOL_MATERIAL(), ROD_IRON);
-    public static final Item PICKAXE_GODIUM = new PickaxeBase("pickaxe_godium", GODIUM.getTOOL_MATERIAL(), ROD_IRON);
+    public static final Item AXE_GODIUM = new AxeBase("axe_godium", GODIUM.getTOOL_MATERIAL(), 30F, 100F, "stickIron");//OreDictionary.getOres("rodIron").get(0).getItem()
+    public static final Item SHOVEL_GODIUM = new ShovelBase("shovel_godium", GODIUM.getTOOL_MATERIAL(), "stickIron");
+    public static final Item PICKAXE_GODIUM = new PickaxeBase("pickaxe_godium", GODIUM.getTOOL_MATERIAL(), "stickIron");
     public static final Item HORSE_ARMOR_GODIUM = new HorseArmorGodium();
     public static final Item SHIELD_GODIUM = new ShieldGodium();
     //Armor
