@@ -76,7 +76,7 @@ public class ItemInit {
     public static final Item INGOT_OP = new ItemBase("ingot_op", "ingotOp");
     public static final Item INGOT_OP_BASE = new ItemBase("ingot_op_base", "ingotOpBase");
     public static final Item INGOT_GODIUM = new ItemBase("ingot_godium", "ingotGodium");
-    public static final Item INGOT_GODIUM_RAW = new ItemBase("ingot_godium_raw");
+    public static final Item INGOT_GODIUM_RAW = new ItemBase("ingot_godium_raw", "ingotGodiumRaw");
 
     //Gems
     public static final Item GEM_CRYSTAL = new ItemBase("gem_crystal", "gemCrystal");
