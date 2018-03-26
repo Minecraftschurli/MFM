@@ -218,14 +218,14 @@ public class RecipeHandler {
         /* TOOLS */
         public static void addAxeRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {
 
-            addShapedRecipe(axe, "XX ", "XS ", " S ", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
-            addShapedRecipe(axe, " XX", " SX", " S ", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
+            addShapedRecipe(axe, "XX", "XS", " S", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
+            addShapedRecipe(axe, "XX", "SX", "S ", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
         }
 
         public static void addAxeRecipe(ItemStack axe, String headMat, String handleMat) {
 
-            addShapedRecipe(axe, "XX ", "XS ", " S ", 'X', headMat, 'S', handleMat);
-            addShapedRecipe(axe, " XX", " SX", " S ", 'X', headMat, 'S', handleMat);
+            addShapedOreRecipe(axe, "XX", "XS", " S", 'X', headMat, 'S', handleMat);
+            addShapedOreRecipe(axe, "XX", "SX", "S ", 'X', headMat, 'S', handleMat);
         }
 
         public static void addPickaxeRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {
@@ -235,7 +235,7 @@ public class RecipeHandler {
 
         public static void addPickaxeRecipe(ItemStack axe, String headMat, String handleMat) {
 
-            addShapedRecipe(axe, "XXX", " S ", " S ", 'X', headMat, 'S', handleMat);
+            addShapedOreRecipe(axe, "XXX", " S ", " S ", 'X', headMat, 'S', handleMat);
         }
 
         public static void addSwordRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {
@@ -245,17 +245,17 @@ public class RecipeHandler {
 
         public static void addSwordRecipe(ItemStack axe, String headMat, String handleMat) {
 
-            addShapedRecipe(axe, "X", "X", "S", 'X', headMat, 'S', handleMat);
+            addShapedOreRecipe(axe, "X", "X", "S", 'X', headMat, 'S', handleMat);
         }
 
         public static void addShovelRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {
 
-            addShapedRecipe(axe, " X ", " S ", " S ", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
+            addShapedRecipe(axe, "X", "S", "S", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
         }
 
         public static void addShovelRecipe(ItemStack axe, String headMat, String handleMat) {
 
-            addShapedRecipe(axe, " X ", " S ", " S ", 'X', headMat, 'S', handleMat);
+            addShapedOreRecipe(axe, "X", "S", "S", 'X', headMat, 'S', handleMat);
         }
 
         /* HELPERS */
