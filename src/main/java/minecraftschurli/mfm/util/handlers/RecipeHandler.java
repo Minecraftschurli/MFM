@@ -240,12 +240,12 @@ public class RecipeHandler {
 
         public static void addSwordRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {
 
-            addShapedRecipe(axe, " X ", " X ", " S ", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
+            addShapedRecipe(axe, "X", "X", "S", 'X', cloneStack(headMat, 1), 'S', cloneStack(handleMat, 1));
         }
 
         public static void addSwordRecipe(ItemStack axe, String headMat, String handleMat) {
 
-            addShapedRecipe(axe, " X ", " X ", " S ", 'X', headMat, 'S', handleMat);
+            addShapedRecipe(axe, "X", "X", "S", 'X', headMat, 'S', handleMat);
         }
 
         public static void addShovelRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {

@@ -96,6 +96,7 @@ public class ItemInit {
     public static final Item ITEM_CORE = new ItemBase("item_core");
     public static final Item ENDCANE = new ItemEndCane();
     public static final Item HANDLE = new ItemBase("item_handle");
+    public static final Item ROD_IRON = OreDictionary.doesOreNameExist("rodIron") ? OreDictionary.getOres("rodIron").get(0).getItem() : new ItemBase("rod_iron", "rodIron");
 
     //Misc
     public static final Item WRENCH = Loader.isModLoaded("thermalfoundation") ? cofh.thermalfoundation.init.TFItems.itemWrench.addItem(10, "wrench10").getItem() : new ItemWrench();
@@ -153,9 +154,9 @@ public class ItemInit {
     public static final CombinedMaterial GODIUM = new CombinedMaterial("godium", INGOT_GODIUM, 100, new int[]{12, 24, 32, 12}, 80, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 8.0F, 32, 9999, 9999F, -3.0F, 100, 64);
     //Tools
     public static final Item SWORD_GODIUM = new SwordGodium();
-    public static final Item AXE_GODIUM = new AxeBase("axe_godium", GODIUM.getTOOL_MATERIAL(), 30F, 100F, OreDictionary.getOres("rodIron").get(0).getItem());
-    public static final Item SHOVEL_GODIUM = new ShovelBase("shovel_godium", GODIUM.getTOOL_MATERIAL(), OreDictionary.getOres("rodIron").get(0).getItem());
-    public static final Item PICKAXE_GODIUM = new PickaxeBase("pickaxe_godium", GODIUM.getTOOL_MATERIAL(), OreDictionary.getOres("rodIron").get(0).getItem());
+    public static final Item AXE_GODIUM = new AxeBase("axe_godium", GODIUM.getTOOL_MATERIAL(), 30F, 100F, ROD_IRON);//OreDictionary.getOres("rodIron").get(0).getItem()
+    public static final Item SHOVEL_GODIUM = new ShovelBase("shovel_godium", GODIUM.getTOOL_MATERIAL(), ROD_IRON);
+    public static final Item PICKAXE_GODIUM = new PickaxeBase("pickaxe_godium", GODIUM.getTOOL_MATERIAL(), ROD_IRON);
     public static final Item HORSE_ARMOR_GODIUM = new HorseArmorGodium();
     public static final Item SHIELD_GODIUM = new ShieldGodium();
     //Armor
