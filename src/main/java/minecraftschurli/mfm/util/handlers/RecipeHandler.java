@@ -67,7 +67,7 @@ public class RecipeHandler {
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HELMET_GODIUM, 1), "III", "I I", 'I', cloneStack(ItemInit.INGOT_GODIUM, 1));
 
         /*  */
-        RecipeHelper.addShapedOreRecipe(cloneStack(ItemInit.HANDLE, 1), "I ", "RI", 'R', "rodIron", 'I', "ingotIron");
+        RecipeHelper.addShapedOreRecipe(cloneStack(ItemInit.HANDLE, 1), "I ", "RI", 'R', "stickIron", 'I', "ingotIron");
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.GEM_FIRE, 1), " S ", "SGS", " S ", 'S', cloneStack(ItemInit.GEM_STANIUM, 1), 'G', cloneStack(ItemInit.GEM_CRYSTAL, 1));
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.GEM_SEADIAMOND, 1), " S ", "SDS", " S ", 'S', cloneStack(Items.PRISMARINE_SHARD, 1), 'D', cloneStack(Items.DIAMOND, 1));
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.ITEM_CORE, 1), " D ", "DND", " D ", 'N', cloneStack(Items.NETHER_STAR, 1), 'D', cloneStack(Blocks.DIAMOND_BLOCK, 1));
