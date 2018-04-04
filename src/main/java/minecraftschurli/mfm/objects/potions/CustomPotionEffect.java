@@ -24,4 +24,9 @@ public class CustomPotionEffect extends Potion {
     public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier) {
         effectProvider.performEffect(entityLivingBaseIn, amplifier);
     }
+
+    @Override
+    public boolean isReady(int duration, int amplifier) {
+        return true;
+    }
 }

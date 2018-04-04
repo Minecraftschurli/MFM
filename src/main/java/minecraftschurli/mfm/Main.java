@@ -48,6 +48,7 @@ public class Main
                 TinkersIntegration.INSTANCE.integrate().close();
             }
         }
+		RegistryHandler.registerPotionsX();
 	}
 	
 	@EventHandler

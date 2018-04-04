@@ -21,7 +21,7 @@ public class Test extends MagicApple implements IHasEffect {
 
     @Override
     public void applyEffects(EntityPlayer player) {
-        player.addPotionEffect(new PotionEffect(PotionInit.BLEEDING, 200, 1, true, true));
-        player.addPotionEffect(new PotionEffect(PotionInit.SLOWFALL, 200, 1, true, true));
+        player.addPotionEffect(new PotionEffect(PotionInit.BLEEDING, 2000, 1, true, true));
+        player.addPotionEffect(new PotionEffect(PotionInit.SLOWFALL, 2000, 1, true, true));
     }
 }

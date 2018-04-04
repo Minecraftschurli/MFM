@@ -163,8 +163,13 @@ public class RegistryHandler {
 		}
 	}
 
+    public static void registerPotionsX() {
+
+    }
+
     @SubscribeEvent
     public void registerPotions(RegistryEvent.Register<Potion> event) {
+        System.out.println("Potions:");
         event.getRegistry().registerAll(PotionInit.POTIONS.toArray(new Potion[0]));
         for (Potion potion : PotionInit.POTIONS) {
             System.out.println(potion.toString());
