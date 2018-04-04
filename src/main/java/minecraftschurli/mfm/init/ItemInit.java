@@ -20,6 +20,7 @@ import minecraftschurli.mfm.objects.armor.vulcanium.HelmetVulcanium;
 import minecraftschurli.mfm.objects.armor.vulcanium.LeggingsVulcanium;
 import minecraftschurli.mfm.objects.items.*;
 import minecraftschurli.mfm.objects.items.food.AppleGodium;
+import minecraftschurli.mfm.objects.items.food.Test;
 import minecraftschurli.mfm.objects.tools.axe.AxeBase;
 import minecraftschurli.mfm.objects.tools.pickaxe.PickaxeBase;
 import minecraftschurli.mfm.objects.tools.shield.ShieldGodium;
@@ -42,7 +43,7 @@ public class ItemInit {
 
     public static final java.util.List<Item> ITEMS = new ArrayList<>();
 
-
+    public static EnumRarity CRAP_RARITY = EnumHelper.addRarity("CRAP", TextFormatting.ITALIC, "CRAP");
     public static EnumRarity LEGENDARY_RARITY = EnumHelper.addRarity("LEGENDARY", TextFormatting.GOLD, "LEGENDARY");
 
     /*TODO Tools: Kandium, Kanadium
@@ -68,6 +69,7 @@ public class ItemInit {
     public static final Item NUGGET_KANDIUM = new ItemBase("nugget_kandium", "nuggetKandium");
     public static final Item NUGGET_VULCANIUM = new ItemBase("nugget_vulcanium", "nuggetVulcanium");
     public static final Item NUGGET_OP = new ItemBase("nugget_op", "nuggetOp");
+    public static final Item NUGGET_GODIUM = new ItemBase("nugget_godium", "nuggetGodium");
 
     //Ingots
     public static final Item INGOT_KANADIUM = new ItemBase("ingot_kanadium", "ingotKanadium");
@@ -89,6 +91,7 @@ public class ItemInit {
 
     //Food
     public static final Item FOOD_APPLE_GODIUM = new AppleGodium();
+    public static final Item TEST = new Test();
 
     //Crafting Items
     public static final Item ITEM_CORE = new ItemBase("item_core");
@@ -154,6 +157,7 @@ public class ItemInit {
     public static final Item AXE_GODIUM = new AxeBase("axe_godium", GODIUM.getTOOL_MATERIAL(), 30F, 100F, "stickIron");//OreDictionary.getOres("rodIron").get(0).getItem()
     public static final Item SHOVEL_GODIUM = new ShovelBase("shovel_godium", GODIUM.getTOOL_MATERIAL(), "stickIron");
     public static final Item PICKAXE_GODIUM = new PickaxeBase("pickaxe_godium", GODIUM.getTOOL_MATERIAL(), "stickIron");
+    //    public static final List<ImmutablePair<String,Item>> TOOLS_GODIUM = createToolList(SWORD_GODIUM,SHOVEL_GODIUM,AXE_GODIUM,PICKAXE_GODIUM);
     public static final Item HORSE_ARMOR_GODIUM = new HorseArmorGodium();
     public static final Item SHIELD_GODIUM = new ShieldGodium();
     //Armor
@@ -162,4 +166,8 @@ public class ItemInit {
     public static final Item CHESTPLATE_GODIUM = new ArmorGodium("chestplate_godium", 1, EntityEquipmentSlot.CHEST);
     public static final Item HELMET_GODIUM = new ArmorGodium("helmet_godium", 1, EntityEquipmentSlot.HEAD);
 
+    /*@SuppressWarnings("unchecked")
+    private static List<ImmutablePair<String,Item>> createToolList(Item sword,Item shovel,Item axe,Item pickaxe){
+        return new List<ImmutablePair<String,Item>>().addE(new ImmutablePair<>("sword",sword)).addE(new ImmutablePair<>("shovel",shovel)).addE(new ImmutablePair<>("axe",axe)).addE(new ImmutablePair<>("pickaxe",pickaxe));
+    }*/
 }

@@ -2,7 +2,7 @@ package minecraftschurli.mfm.init;
 
 import minecraftschurli.mfm.objects.blocks.BlockBase;
 import minecraftschurli.mfm.objects.blocks.OreBase;
-import minecraftschurli.mfm.objects.blocks.crop.CropEndCane;
+import minecraftschurli.mfm.objects.blocks.crop.CropCaneBase;
 import minecraftschurli.mfm.objects.blocks.machines.alloyer.BlockAlloyingFurnace;
 import minecraftschurli.mfm.objects.blocks.machines.multiblocks.godiumrefiner.BlockGodiumRefinerController;
 import minecraftschurli.mfm.objects.blocks.machines.staniumsmelter.BlockStaniumSmelter;
@@ -60,5 +60,5 @@ public class BlockInit {
 	public static final Block GODIUM_REFINER_CONTROLLER = new BlockGodiumRefinerController();
 
 
-	public static final Block CROP_ENDCANE = new CropEndCane();
+    public static final Block CROP_ENDCANE = new CropCaneBase("crop_endcane", ItemInit.ENDCANE, 4, Blocks.END_STONE.getDefaultState());
 }

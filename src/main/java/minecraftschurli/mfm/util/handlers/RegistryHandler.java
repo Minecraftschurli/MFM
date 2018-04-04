@@ -5,6 +5,7 @@ import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.FluidInit;
 import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.init.PotionInit;
 import minecraftschurli.mfm.objects.items.ItemBase;
 import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.integrations.tinkers.CastingRecipe;
@@ -15,6 +16,7 @@ import minecraftschurli.mfm.util.interfaces.IHasModel;
 import minecraftschurli.mfm.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.potion.Potion;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -160,6 +162,14 @@ public class RegistryHandler {
 			}
 		}
 	}
+
+    @SubscribeEvent
+    public void registerPotions(RegistryEvent.Register<Potion> event) {
+        event.getRegistry().registerAll(PotionInit.POTIONS.toArray(new Potion[0]));
+        for (Potion potion : PotionInit.POTIONS) {
+            System.out.println(potion.toString());
+        }
+    }
 
     public static void registerRecipes() {
         RecipeHandler.addStandardRecipes();

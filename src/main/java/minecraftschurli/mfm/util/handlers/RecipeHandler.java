@@ -2,6 +2,7 @@ package minecraftschurli.mfm.util.handlers;
 
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.util.misc.MaterialTripplet;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockColored;
 import net.minecraft.init.Blocks;
@@ -23,19 +24,15 @@ public class RecipeHandler {
     public static void addStandardRecipes() {
 
         /* block */
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_VULCANIUM, 1), cloneStack(ItemInit.INGOT_VULCANIUM, 1));
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_KANADIUM, 1), cloneStack(ItemInit.INGOT_KANADIUM, 1));
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_KANDIUM, 1), cloneStack(ItemInit.INGOT_KANDIUM, 1));
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_OP, 1), cloneStack(ItemInit.INGOT_OP, 1));
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_CRYSTAL, 1), cloneStack(ItemInit.GEM_CRYSTAL, 1));
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_STANIUM, 1), cloneStack(ItemInit.GEM_STANIUM, 1));
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_GODIUM, 1), cloneStack(ItemInit.INGOT_GODIUM, 1));
+        RecipeHelper.addMaterialStorageRecipe(new MaterialTripplet(BlockInit.BLOCK_VULCANIUM, ItemInit.INGOT_VULCANIUM, ItemInit.NUGGET_VULCANIUM));
+        RecipeHelper.addMaterialStorageRecipe(new MaterialTripplet(BlockInit.BLOCK_KANADIUM, ItemInit.INGOT_KANADIUM, ItemInit.NUGGET_KANADIUM));
+        RecipeHelper.addMaterialStorageRecipe(new MaterialTripplet(BlockInit.BLOCK_KANDIUM, ItemInit.INGOT_KANDIUM, ItemInit.NUGGET_KANDIUM));
+        RecipeHelper.addMaterialStorageRecipe(new MaterialTripplet(BlockInit.BLOCK_OP, ItemInit.INGOT_OP, ItemInit.NUGGET_OP));
+        RecipeHelper.addMaterialStorageRecipe(new MaterialTripplet(BlockInit.BLOCK_GODIUM, ItemInit.INGOT_GODIUM, ItemInit.NUGGET_GODIUM));
 
-        /* nugget */
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_VULCANIUM, 1), cloneStack(ItemInit.NUGGET_VULCANIUM, 1));
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_KANADIUM, 1), cloneStack(ItemInit.NUGGET_KANADIUM, 1));
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_KANDIUM, 1), cloneStack(ItemInit.NUGGET_KANDIUM, 1));
-        RecipeHelper.addTwoWayStorageRecipe(cloneStack(ItemInit.INGOT_OP, 1), cloneStack(ItemInit.NUGGET_OP, 1));
+        RecipeHelper.addSmallTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_CRYSTAL, 1), cloneStack(ItemInit.GEM_CRYSTAL, 1));
+        RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_STANIUM, 1), cloneStack(ItemInit.GEM_STANIUM, 1));
+
 
         /*  */
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HORSE_ARMOR_GODIUM, 1), "H  ", "CWI", "L L", 'H', cloneStack(ItemInit.HELMET_GODIUM, 1), 'C', cloneStack(ItemInit.CHESTPLATE_GODIUM, 1), 'L', cloneStack(ItemInit.LEGGINGS_GODIUM, 1), 'I', cloneStack(ItemInit.INGOT_GODIUM, 1), 'W', cloneStack(Blocks.WOOL.getDefaultState().withProperty(BlockColored.COLOR, EnumDyeColor.RED).getBlock(), 1));
@@ -215,6 +212,11 @@ public class RecipeHandler {
             addSmallReverseStorageRecipe(four, one_ore);
         }
 
+        public static void addMaterialStorageRecipe(MaterialTripplet mat) {
+            addTwoWayStorageRecipe(cloneStack(mat.getBlock(), 1), cloneStack(mat.getIngot(), 1));
+            addTwoWayStorageRecipe(cloneStack(mat.getIngot(), 1), cloneStack(mat.getNugget(), 1));
+        }
+
         /* TOOLS */
         public static void addAxeRecipe(ItemStack axe, ItemStack headMat, ItemStack handleMat) {
 
@@ -257,6 +259,25 @@ public class RecipeHandler {
 
             addShapedOreRecipe(axe, "X", "S", "S", 'X', headMat, 'S', handleMat);
         }
+
+
+        /*public static void addCommonToolRecipes(List<ImmutablePair<String,Item>> tools, ItemStack headMat, ItemStack handleMat) {
+            for (Pair<String,Item> p : tools) {
+                switch (p.getLeft()){
+                    case "shovel":  addShovelRecipe(cloneStack(p.getRight(),1),headMat,handleMat);
+                    break;
+                    case "pickaxe": addPickaxeRecipe(cloneStack(p.getRight(),1),headMat,handleMat);
+                    break;
+                    case "axe" :    addAxeRecipe(cloneStack(p.getRight(),1),headMat,handleMat);
+                    break;
+                    case "sword":   addSwordRecipe(cloneStack(p.getRight(),1),headMat,handleMat);
+                    break;
+                    default:break;
+                }
+            }
+
+
+        }*/
 
         /* HELPERS */
         static ResourceLocation getNameForRecipe(ItemStack output) {
