@@ -20,6 +20,7 @@ import minecraftschurli.mfm.objects.armor.vulcanium.HelmetVulcanium;
 import minecraftschurli.mfm.objects.armor.vulcanium.LeggingsVulcanium;
 import minecraftschurli.mfm.objects.items.*;
 import minecraftschurli.mfm.objects.items.food.AppleGodium;
+import minecraftschurli.mfm.objects.items.food.FoodBase;
 import minecraftschurli.mfm.objects.items.food.Test;
 import minecraftschurli.mfm.objects.tools.axe.AxeBase;
 import minecraftschurli.mfm.objects.tools.pickaxe.PickaxeBase;
@@ -28,6 +29,7 @@ import minecraftschurli.mfm.objects.tools.shovel.ShovelBase;
 import minecraftschurli.mfm.objects.tools.sword.SwordGodium;
 import minecraftschurli.mfm.objects.tools.sword.SwordVulcanium;
 import minecraftschurli.mfm.util.misc.CombinedMaterial;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.EnumRarity;
@@ -102,6 +104,12 @@ public class ItemInit {
     public static final Item WRENCH = Loader.isModLoaded("thermalfoundation") ? cofh.thermalfoundation.init.TFItems.itemWrench.addItem(10, "wrench10").getItem() : new ItemWrench();
     public static final Item DEBUG_ITEM = new ItemDebug();
     public static final Item ITEM_WHIRLEWIND = new ItemWhirlwind();
+
+    public static final Item BANDAGES = new FoodBase("bandages", 0, 0, false).setMaxStackSize(5).setCreativeTab(CreativeTabs.COMBAT);
+    public static final Item MEDKIT = new FoodBase("medkit", 0, 0, false).setMaxStackSize(3).setCreativeTab(CreativeTabs.COMBAT);
+
+    //Potions
+
 
     //Op
     //Material

@@ -4,3 +4,5 @@ item.helmet_op.name=Op Helmet
 item.chestplate_op.name=Op Chestplate
 item.leggings_op.name=Op Leggings
 item.boots_op.name=Op Boots
+
+death.attack.bleeding=%1$s bled to death
