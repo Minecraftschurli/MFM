@@ -17,6 +17,8 @@ import minecraftschurli.mfm.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionType;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -169,11 +171,15 @@ public class RegistryHandler {
 
     @SubscribeEvent
     public void registerPotions(RegistryEvent.Register<Potion> event) {
-        System.out.println("Potions:");
         event.getRegistry().registerAll(PotionInit.POTIONS.toArray(new Potion[0]));
-        for (Potion potion : PotionInit.POTIONS) {
-            System.out.println(potion.toString());
-        }
+    }
+
+    @SubscribeEvent
+    public void registerPotionTypes(RegistryEvent.Register<PotionType> event) {
+        event.getRegistry().register(new PotionType("bleeding", new PotionEffect(PotionInit.BLEEDING, 3600, 0)).setRegistryName(Reference.MOD_ID, "bleeding"));
+        event.getRegistry().register(new PotionType("bleeding", new PotionEffect(PotionInit.BLEEDING, 9600, 0)).setRegistryName(Reference.MOD_ID, "long_bleeding"));
+        event.getRegistry().register(new PotionType("bleeding", new PotionEffect(PotionInit.BLEEDING, 1800, 1)).setRegistryName(Reference.MOD_ID, "strong_bleeding"));
+        event.getRegistry().register(new PotionType(new PotionEffect(PotionInit.SLOWFALL, 3600, 0)).setRegistryName(Reference.MOD_ID, "slowfall"));
     }
 
     public static void registerRecipes() {

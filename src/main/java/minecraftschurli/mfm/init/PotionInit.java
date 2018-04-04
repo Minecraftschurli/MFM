@@ -5,13 +5,16 @@ import minecraftschurli.mfm.util.interfaces.IEffectProvider;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionType;
 import net.minecraft.util.DamageSource;
 
 import java.awt.*;
 import java.util.ArrayList;
 
 public class PotionInit {
+
     public static final java.util.List<Potion> POTIONS = new ArrayList<>();
+    public static final java.util.List<PotionType> POTION_ITEMS = new ArrayList<>();
 
     public static final Potion BLEEDING = new CustomPotionEffect("bleeding", true, new Color(105, 5, 0).getRGB(),
             new IEffectProvider() {
