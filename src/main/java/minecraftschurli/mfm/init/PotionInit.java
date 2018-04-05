@@ -3,8 +3,11 @@ package minecraftschurli.mfm.init;
 import minecraftschurli.mfm.objects.potions.CustomPotionEffect;
 import minecraftschurli.mfm.util.interfaces.IEffectProvider;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
 import net.minecraft.util.DamageSource;
 
@@ -41,11 +44,24 @@ public class PotionInit {
                     if (!entityLivingBaseIn.onGround) {
                         if (entityLivingBaseIn.motionY < 0) entityLivingBaseIn.addVelocity(0, 1, 0);
                         else
-                            entityLivingBaseIn.setVelocity(entityLivingBaseIn.motionX, -0.01, entityLivingBaseIn.motionZ);
+                            entityLivingBaseIn.setVelocity(entityLivingBaseIn.motionX, -0.001, entityLivingBaseIn.motionZ);
                         entityLivingBaseIn.fallDistance -= entityLivingBaseIn.fallDistance - 0.2F > 0 ? 0.2F : 0;
                     } else entityLivingBaseIn.setVelocity(entityLivingBaseIn.motionX, 0, entityLivingBaseIn.motionZ);
 
                 }
-            }
+            }, new ItemStack(Items.MILK_BUCKET)
+    );
+
+    @SuppressWarnings("Convert2Lambda")
+    public static final Potion HIGH = new CustomPotionEffect("high", true, new Color(118, 167, 2).getRGB(),
+            new IEffectProvider() {
+                @Override
+                public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier) {
+                    entityLivingBaseIn.removePotionEffect(MobEffects.BLINDNESS);
+                    entityLivingBaseIn.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 1800 * (amplifier + 1), amplifier));
+                    entityLivingBaseIn.removePotionEffect(MobEffects.NAUSEA);
+                    entityLivingBaseIn.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 1800 * (amplifier + 1), amplifier));
+                }
+            }, ItemStack.EMPTY
     );
 }

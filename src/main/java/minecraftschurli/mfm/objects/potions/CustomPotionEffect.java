@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+@SuppressWarnings("NullableProblems")
 public class CustomPotionEffect extends Potion {
 
     private final IEffectProvider effectProvider;
@@ -36,7 +37,7 @@ public class CustomPotionEffect extends Potion {
         PotionInit.POTIONS.add(this);
     }
 
-    public static void setPotionName(Potion potion, String potionName) {
+    private static void setPotionName(Potion potion, String potionName) {
         potion.setPotionName("effect." + Reference.MOD_ID + ":" + potionName);
     }
 
@@ -45,7 +46,7 @@ public class CustomPotionEffect extends Potion {
     public void renderInventoryEffect(int x, int y, PotionEffect effect, Minecraft mc) {
         if (mc.currentScreen != null) {
             mc.getTextureManager().bindTexture(iconTexture);
-            Gui.drawModalRectWithCustomSizedTexture(x + 6, y + 7, 0, 0, 18, 18, 18, 18);
+            Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 64, 64, 64, 64);
         }
     }
 
@@ -53,13 +54,14 @@ public class CustomPotionEffect extends Potion {
     @Override
     public void renderHUDEffect(int x, int y, PotionEffect effect, Minecraft mc, float alpha) {
         mc.getTextureManager().bindTexture(iconTexture);
-        Gui.drawModalRectWithCustomSizedTexture(x + 3, y + 3, 0, 0, 18, 18, 18, 18);
+        Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 64, 64, 64, 64);
     }
 
     @Override
     public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier) {
         effectProvider.performEffect(entityLivingBaseIn, amplifier);
     }
+
 
     @Override
     public boolean isReady(int duration, int amplifier) {

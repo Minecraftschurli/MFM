@@ -15,10 +15,14 @@ import minecraftschurli.mfm.util.integrations.tinkers.TinkersMaterial;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import minecraftschurli.mfm.world.gen.WorldGenCustomOres;
 import net.minecraft.block.Block;
+import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
+import net.minecraft.potion.PotionUtils;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.obj.OBJLoader;
 import net.minecraftforge.event.RegistryEvent;
@@ -166,20 +170,27 @@ public class RegistryHandler {
 	}
 
     public static void registerPotionsX() {
-
+        //registerPotionTypes();
     }
 
     @SubscribeEvent
-    public void registerPotions(RegistryEvent.Register<Potion> event) {
+    public static void registerPotions(RegistryEvent.Register<Potion> event) {
         event.getRegistry().registerAll(PotionInit.POTIONS.toArray(new Potion[0]));
     }
 
     @SubscribeEvent
-    public void registerPotionTypes(RegistryEvent.Register<PotionType> event) {
-        event.getRegistry().register(new PotionType("bleeding", new PotionEffect(PotionInit.BLEEDING, 3600, 0)).setRegistryName(Reference.MOD_ID, "bleeding"));
-        event.getRegistry().register(new PotionType("bleeding", new PotionEffect(PotionInit.BLEEDING, 9600, 0)).setRegistryName(Reference.MOD_ID, "long_bleeding"));
-        event.getRegistry().register(new PotionType("bleeding", new PotionEffect(PotionInit.BLEEDING, 1800, 1)).setRegistryName(Reference.MOD_ID, "strong_bleeding"));
-        event.getRegistry().register(new PotionType(new PotionEffect(PotionInit.SLOWFALL, 3600, 0)).setRegistryName(Reference.MOD_ID, "slowfall"));
+    public static void registerPotionTypes(RegistryEvent.Register<PotionType> event) {
+        PotionInit.POTION_ITEMS.add(new PotionType("bleeding", new PotionEffect(PotionInit.BLEEDING, 900, 0)).setRegistryName(Reference.MOD_ID, "bleeding"));
+        PotionInit.POTION_ITEMS.add(new PotionType("bleeding", new PotionEffect(PotionInit.BLEEDING, 1800, 0)).setRegistryName(Reference.MOD_ID, "long_bleeding"));
+        PotionInit.POTION_ITEMS.add(new PotionType("bleeding", new PotionEffect(PotionInit.BLEEDING, 432, 1)).setRegistryName(Reference.MOD_ID, "strong_bleeding"));
+        PotionInit.POTION_ITEMS.add(new PotionType(new PotionEffect(PotionInit.SLOWFALL, 3600, 0)).setRegistryName(Reference.MOD_ID, "slowfall"));
+        PotionInit.POTION_ITEMS.add(new PotionType(new PotionEffect(PotionInit.HIGH, 1800), new PotionEffect(MobEffects.RESISTANCE, 1800, 1), new PotionEffect(MobEffects.ABSORPTION, 1800, 1), new PotionEffect(MobEffects.SPEED, 1800), new PotionEffect(MobEffects.STRENGTH, 1800)).setRegistryName(Reference.MOD_ID, "anabolic"));
+
+        event.getRegistry().registerAll(PotionInit.POTION_ITEMS.toArray(new PotionType[0]));
+        for (PotionType potion : PotionInit.POTION_ITEMS) {
+            PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), potion);
+        }
+
     }
 
     public static void registerRecipes() {
@@ -205,4 +216,6 @@ public class RegistryHandler {
 	{
 		GameRegistry.registerWorldGenerator(new WorldGenCustomOres(), 0);
 	}
+
+
 }
