@@ -33,26 +33,26 @@ public class BlockInit {
 	//Ores
 	public static final Block ORE_NETHER_VULCANIUM = new OreBase("ore_nether_vulcanium",
             new Material(MapColor.NETHERRACK), -1, 8, 11, 10, 100,
-            Blocks.NETHERRACK, 20, 40, "pickaxe", 5, "Vulcanium").setGeneratable();
+			Blocks.NETHERRACK, 20, 40, "pickaxe", 5, "Vulcanium").setGenerate();
 
 	public static final Block ORE_NETHER_STANIUM = new OreBase("ore_nether_stanium",
             new Material(MapColor.NETHERRACK), -1, 10, 20, 10, 110, 1,
             Blocks.NETHERRACK, 18F, 30F, "pickaxe", 2, new ItemStack(ItemInit.GEM_STANIUM),
-            "Stanium").setGeneratable();
+			"Stanium").setGenerate();
 
 	public static final Block ORE_OVERWORLD_KANDIUM = new OreBase("ore_overworld_kandium",
             new Material(MapColor.STONE), 0, 8, 4, 4, 10, Blocks.STONE,
-            18, 45, "pickaxe", 3, "Kandium").setGeneratable();
+			18, 45, "pickaxe", 3, "Kandium").setGenerate();
 
 	public static final Block ORE_OVERWORLD_CRYSTAL = new OreBase("ore_overworld_crystal",
             new Material(MapColor.STONE), 0, 2, 5, 4, 40, 5, Blocks.STONE,
 			16F, 20F, "pickaxe", 3, new ItemStack(ItemInit.GEM_CRYSTAL),
-            "Crystal").setGeneratable();
+			"Crystal").setGenerate();
 
 	public static final Block ORE_END_CRYSTAL = new OreBase("ore_end_crystal", new Material(MapColor.SAND),
             1, 5, 15, 0, 256, 5, Blocks.END_STONE, 20F,
 			40F, "pickaxe", 4, new ItemStack(ItemInit.GEM_CRYSTAL),
-            "Crystal").setGeneratable();
+			"Crystal").setGenerate();
 	
 	//TileEntitys
 	public static final Block ALLOYING_FURNACE = new BlockAlloyingFurnace("alloying_furnace");

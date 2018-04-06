@@ -271,7 +271,7 @@ public class OreBase extends Block implements IHasModel
         return type != null && type.equals(this.getHarvestTool(state));
     }
 
-    public OreBase setGeneratable() {
+    public OreBase setGenerate() {
         BlockInit.ORES.add(this);
         return this;
     }

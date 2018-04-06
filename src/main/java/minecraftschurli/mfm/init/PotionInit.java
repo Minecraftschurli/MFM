@@ -1,9 +1,7 @@
 package minecraftschurli.mfm.init;
 
 import minecraftschurli.mfm.objects.potions.CustomPotionEffect;
-import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.interfaces.IEffectProvider;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -12,14 +10,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.awt.*;
 import java.util.ArrayList;
-
-import static codechicken.lib.gui.GuiDraw.drawTexturedModalRect;
 
 public class PotionInit {
 
@@ -67,7 +60,8 @@ public class PotionInit {
     private static class PotionEffectSlowFall implements IEffectProvider {
         @Override
         public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier) {
-            float fallingSpeed = 2 - (1 / (amplifier + 1));
+            //int fallingSpeed = 2;
+            float fallingSpeed = 10 - (((amplifier > 19 ? 19 : amplifier) / 2) - 1);
             if (!entityLivingBaseIn.onGround && !entityLivingBaseIn.isSneaking()) {
                 double newMotionY = entityLivingBaseIn.motionY - entityLivingBaseIn.motionY / fallingSpeed;
                 if (newMotionY < 0 && !entityLivingBaseIn.isElytraFlying()) {
@@ -77,7 +71,7 @@ public class PotionInit {
             }
         }
 
-        @SubscribeEvent
+        /*@SubscribeEvent
         public void onRenderGameOverlayBar(RenderGameOverlayEvent.Text event) {
             if (event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {
                 Minecraft mc = Minecraft.getMinecraft();
@@ -114,6 +108,6 @@ public class PotionInit {
         @Override
         public boolean hasCustomHUD() {
             return false;
-        }
+        }*/
     }
 }
