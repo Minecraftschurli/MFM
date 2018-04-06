@@ -175,8 +175,6 @@ public class BlockGodiumRefinerController extends BlockBase implements IMultiblo
 
         IBlockState brick = Blocks.BRICK_BLOCK.getDefaultState();
 
-        IBlockState air = Blocks.AIR.getDefaultState();
-
         IBlockState middle1 = axis == EnumFacing.Axis.X ? (world.getBlockState(controllerPos).getValue(FACING) == EnumFacing.WEST ? controller : brick) : (world.getBlockState(controllerPos).getValue(FACING) == EnumFacing.NORTH ? controller : brick);
 
         IBlockState middle2 = axis == EnumFacing.Axis.X ? (world.getBlockState(controllerPos).getValue(FACING) == EnumFacing.EAST ? controller : brick) : (world.getBlockState(controllerPos).getValue(FACING) == EnumFacing.SOUTH ? controller : brick);
@@ -190,7 +188,7 @@ public class BlockGodiumRefinerController extends BlockBase implements IMultiblo
                         },
                         {
                                 {brick, middle1, brick},
-                                {brick, air, brick},
+                                {brick, null, brick},
                                 {brick, middle2, brick}
                         },
                         {
@@ -223,11 +221,20 @@ public class BlockGodiumRefinerController extends BlockBase implements IMultiblo
                         errorText += ("X: " + x + " Y: " + y + " Z: " + z) + newLine;
                         errorText += (block) + newLine;
                     }
-                    if (!(checkBlock == block)) {
-                        System.out.println(errorText + "Fail");
-                        player.sendMessage(new TextComponentString("Fail"));
-                        return false;
+                    if (block == null) {
+                        if (!(checkBlock.getMaterial() == Material.AIR)) {
+                            System.out.println(errorText + "Fail");
+                            player.sendMessage(new TextComponentString("Fail"));
+                            return false;
+                        }
+                    } else {
+                        if (!(checkBlock == block)) {
+                            System.out.println(errorText + "Fail");
+                            player.sendMessage(new TextComponentString("Fail"));
+                            return false;
+                        }
                     }
+
                 }
             }
         }

@@ -1,7 +1,9 @@
 package minecraftschurli.mfm.init;
 
 import minecraftschurli.mfm.objects.potions.CustomPotionEffect;
+import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.interfaces.IEffectProvider;
+import net.minecraft.client.Minecraft;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
@@ -10,46 +12,29 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.awt.*;
 import java.util.ArrayList;
+
+import static codechicken.lib.gui.GuiDraw.drawTexturedModalRect;
 
 public class PotionInit {
 
     public static final java.util.List<Potion> POTIONS = new ArrayList<>();
     public static final java.util.List<PotionType> POTION_ITEMS = new ArrayList<>();
 
-    public static final Potion BLEEDING = new CustomPotionEffect("bleeding", true, new Color(105, 5, 0).getRGB(),
-            new IEffectProvider() {
-                int i = 0;
-                boolean firstTime = true;
-
-                @Override
-                public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier) {
-                    amplifier++;
-                    if (!entityLivingBaseIn.isEntityUndead() && ((entityLivingBaseIn.world.rand.nextBoolean() && i > 80 / (amplifier)) || firstTime)) {
-                        entityLivingBaseIn.attackEntityFrom(new DamageSource("bleeding").setDamageBypassesArmor(), amplifier);
-                        this.i = 0;
-                        this.firstTime = false;
-                    } else i++;
-                }
-            }, new ItemStack(ItemInit.BANDAGES, 1), new ItemStack(ItemInit.MEDKIT)
+    public static final Potion BLEEDING = new CustomPotionEffect("bleeding", true,
+            new Color(105, 5, 0).getRGB(), new PotionEffectBleeding(),
+            new ItemStack(ItemInit.BANDAGES), new ItemStack(ItemInit.MEDKIT)
     );
 
     @SuppressWarnings("Convert2Lambda")
-    public static final Potion SLOWFALL = new CustomPotionEffect("slowfall", false, new Color(215, 215, 215).getRGB(),
-            new IEffectProvider() {
-                @Override
-                public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier) {
-                    if (!entityLivingBaseIn.onGround) {
-                        if (entityLivingBaseIn.motionY < 0) entityLivingBaseIn.addVelocity(0, 1, 0);
-                        else
-                            entityLivingBaseIn.setVelocity(entityLivingBaseIn.motionX, -0.001, entityLivingBaseIn.motionZ);
-                        entityLivingBaseIn.fallDistance -= entityLivingBaseIn.fallDistance - 0.2F > 0 ? 0.2F : 0;
-                    } else entityLivingBaseIn.setVelocity(entityLivingBaseIn.motionX, 0, entityLivingBaseIn.motionZ);
-
-                }
-            }, new ItemStack(Items.MILK_BUCKET)
+    public static final Potion SLOWFALL = new CustomPotionEffect("slowfall", false,
+            new Color(215, 215, 215).getRGB(), new PotionEffectSlowFall(),
+            new ItemStack(Items.MILK_BUCKET)
     );
 
     @SuppressWarnings("Convert2Lambda")
@@ -64,4 +49,71 @@ public class PotionInit {
                 }
             }, ItemStack.EMPTY
     );
+
+    private static class PotionEffectBleeding implements IEffectProvider {
+        int i = 0;
+        boolean firstTime = true;
+
+        @Override
+        public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier) {
+            if (!entityLivingBaseIn.isEntityUndead() && ((i > 100 - (amplifier * 5)) || firstTime)) {
+                entityLivingBaseIn.attackEntityFrom(new DamageSource("bleeding").setDamageBypassesArmor().setDamageIsAbsolute(), 1);
+                this.i = 0;
+                this.firstTime = false;
+            } else i++;
+        }
+    }
+
+    private static class PotionEffectSlowFall implements IEffectProvider {
+        @Override
+        public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier) {
+            float fallingSpeed = 2 - (1 / (amplifier + 1));
+            if (!entityLivingBaseIn.onGround && !entityLivingBaseIn.isSneaking()) {
+                double newMotionY = entityLivingBaseIn.motionY - entityLivingBaseIn.motionY / fallingSpeed;
+                if (newMotionY < 0 && !entityLivingBaseIn.isElytraFlying()) {
+                    entityLivingBaseIn.motionY = newMotionY;
+                }
+                entityLivingBaseIn.fallDistance = 0;
+            }
+        }
+
+        @SubscribeEvent
+        public void onRenderGameOverlayBar(RenderGameOverlayEvent.Text event) {
+            if (event.getType() == RenderGameOverlayEvent.ElementType.TEXT) {
+                Minecraft mc = Minecraft.getMinecraft();
+
+                ResourceLocation BAR = new ResourceLocation(Reference.MOD_ID + ":textures/gui/bar.png");
+                int tex_width = 102;
+                int tex_height = 11;
+
+                //To set the Position of the Bar and Number
+                int posX = event.getResolution().getScaledWidth() / 2 + 92;
+                int posY = event.getResolution().getScaledHeight() - 12;
+
+
+                //How Much of the Bar Should be Rendered
+                float points = 100;
+                int texture_width = (int) (points);
+
+                mc.renderEngine.bindTexture(BAR);
+
+                if (mc.player != null) {
+                    if (!mc.player.isCreative()) {
+                        drawTexturedModalRect(posX, posY, 0, 0, tex_width, tex_height);                //The Bar
+                        drawTexturedModalRect(posX + 1, posY + 1, 0, 11, texture_width, tex_height);
+                    }
+                }
+            }
+        }
+
+        @Override
+        public void renderCustomHUD(int x, int y, PotionEffect effect, Minecraft mc, float alpha) {
+        }
+
+
+        @Override
+        public boolean hasCustomHUD() {
+            return false;
+        }
+    }
 }

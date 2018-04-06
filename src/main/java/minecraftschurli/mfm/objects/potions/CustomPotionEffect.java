@@ -46,7 +46,7 @@ public class CustomPotionEffect extends Potion {
     public void renderInventoryEffect(int x, int y, PotionEffect effect, Minecraft mc) {
         if (mc.currentScreen != null) {
             mc.getTextureManager().bindTexture(iconTexture);
-            Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 64, 64, 64, 64);
+            Gui.drawModalRectWithCustomSizedTexture(x + 6, y + 7, 0, 0, 18, 18, 18, 18);
         }
     }
 
@@ -54,7 +54,10 @@ public class CustomPotionEffect extends Potion {
     @Override
     public void renderHUDEffect(int x, int y, PotionEffect effect, Minecraft mc, float alpha) {
         mc.getTextureManager().bindTexture(iconTexture);
-        Gui.drawModalRectWithCustomSizedTexture(0, 0, 0, 0, 64, 64, 64, 64);
+        Gui.drawModalRectWithCustomSizedTexture(x + 3, y + 3, 0, 0, 18, 18, 18, 18);
+        if (effectProvider.hasCustomHUD()) {
+            effectProvider.renderCustomHUD(x, y, effect, mc, alpha);
+        }
     }
 
     @Override
