@@ -1,10 +1,12 @@
 package minecraftschurli.mfm.init;
 
+import javafx.util.Pair;
 import minecraftschurli.mfm.objects.potions.CustomPotionEffect;
 import minecraftschurli.mfm.util.interfaces.IEffectProvider;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -16,22 +18,23 @@ import java.util.ArrayList;
 
 public class PotionInit {
 
-    public static final java.util.List<Potion> POTIONS = new ArrayList<>();
-    public static final java.util.List<PotionType> POTION_ITEMS = new ArrayList<>();
+    public static final java.util.List<Potion> POTION_EFFECTS = new ArrayList<>();
+    public static final java.util.List<PotionType> POTION_TYPES = new ArrayList<>();
+    public static final java.util.List<Pair<String,Item>> POTION_ITEMS = new ArrayList<>();
 
-    public static final Potion BLEEDING = new CustomPotionEffect("bleeding", true,
+    public static final Potion BLEEDING = new CustomPotionEffect("Bleeding", true,
             new Color(105, 5, 0).getRGB(), new PotionEffectBleeding(),
             new ItemStack(ItemInit.BANDAGES), new ItemStack(ItemInit.MEDKIT)
     );
 
     @SuppressWarnings("Convert2Lambda")
-    public static final Potion SLOWFALL = new CustomPotionEffect("slowfall", false,
+    public static final Potion SLOWFALL = new CustomPotionEffect("Slowfall", false,
             new Color(215, 215, 215).getRGB(), new PotionEffectSlowFall(),
             new ItemStack(Items.MILK_BUCKET)
     );
 
     @SuppressWarnings("Convert2Lambda")
-    public static final Potion HIGH = new CustomPotionEffect("high", true, new Color(118, 167, 2).getRGB(),
+    public static final Potion HIGH = new CustomPotionEffect("High", true, new Color(118, 167, 2).getRGB(),
             new IEffectProvider() {
                 @Override
                 public void performEffect(EntityLivingBase entityLivingBaseIn, int amplifier) {

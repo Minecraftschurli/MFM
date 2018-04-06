@@ -34,7 +34,7 @@ public class CustomPotionEffect extends Potion {
         this.setPotionName(name);
         this.setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 
-        PotionInit.POTIONS.add(this);
+        PotionInit.POTION_EFFECTS.add(this);
     }
 
     private static void setPotionName(Potion potion, String potionName) {

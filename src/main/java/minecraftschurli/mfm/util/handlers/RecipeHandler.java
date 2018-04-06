@@ -1,24 +1,34 @@
 package minecraftschurli.mfm.util.handlers;
 
+import cofh.thermalexpansion.util.managers.machine.BrewerManager;
 import minecraftschurli.mfm.init.BlockInit;
 import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.init.PotionInit;
+import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.misc.MaterialTripplet;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockColored;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.PotionTypes;
 import net.minecraft.item.EnumDyeColor;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.*;
+import net.minecraft.potion.*;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.common.brewing.BrewingRecipe;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
+import net.minecraftforge.common.brewing.IBrewingRecipe;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.GameData;
+
+import javax.annotation.Nonnull;
 
 public class RecipeHandler {
     public static void addStandardRecipes() {
@@ -77,6 +87,14 @@ public class RecipeHandler {
         RecipeHelper.addSmelting(BlockInit.ORE_OVERWORLD_CRYSTAL, cloneStack(ItemInit.GEM_CRYSTAL, 1), 1F);
         RecipeHelper.addSmelting(BlockInit.ORE_END_CRYSTAL, cloneStack(ItemInit.GEM_CRYSTAL, 1), 1F);
         RecipeHelper.addSmelting(BlockInit.ORE_NETHER_STANIUM, cloneStack(ItemInit.GEM_STANIUM, 1), 1F);
+
+        /* brewing */
+        RecipeHelper.addBrewing(PotionTypes.AWKWARD,Items.FEATHER,"slowfall");
+        RecipeHelper.addBrewing("slowfall",Items.REDSTONE,"long_slowfall");
+        RecipeHelper.addBrewing(PotionTypes.WATER,Item.getItemFromBlock(Blocks.GLASS_PANE),"bleeding");
+        RecipeHelper.addBrewing("bleeding",Items.GLOWSTONE_DUST,"strong_bleeding");
+        RecipeHelper.addBrewing("bleeding",Items.REDSTONE,"long_bleeding");
+
     }
 
     public static ItemStack cloneStack(Item item, int stackSize) {
@@ -339,6 +357,40 @@ public class RecipeHandler {
 
             addSmelting(input, output, 0F);
         }
+
+        /* BREWING */
+        static void addBrewing(PotionType potionIn,Item ingredientIn,PotionType potionOut){
+            PotionHelper.addMix(potionIn,ingredientIn,potionOut);
+        }
+
+        static void addBrewing(PotionType potionIn, Item ingredientIn, ResourceLocation potionOutName){
+            PotionType potionOut = null;
+            for (PotionType potion : PotionInit.POTION_TYPES) {
+                if(potion.getRegistryName().equals(potionOutName))potionOut = potion;
+            }
+            if(potionOut!=null) {
+                addBrewing(potionIn, ingredientIn, potionOut);
+            }
+        }
+
+        static void addBrewing(ResourceLocation potionInName, Item ingredientIn, ResourceLocation potionOutName){
+            PotionType potionIn = null;
+            for (PotionType potion : PotionInit.POTION_TYPES) {
+                if(potion.getRegistryName().equals(potionInName))potionIn = potion;
+            }
+            if(potionIn!=null) {
+                addBrewing(potionIn, ingredientIn, potionOutName);
+            }
+        }
+
+        static void addBrewing(PotionType potionIn,Item ingredientIn,String potionOutName){
+            addBrewing(potionIn,ingredientIn,new ResourceLocation(Reference.MOD_ID,potionOutName));
+        }
+
+        static void addBrewing(String potionInName,Item ingredientIn,String potionOutName){
+            addBrewing(new ResourceLocation(Reference.MOD_ID,potionInName),ingredientIn,new ResourceLocation(Reference.MOD_ID,potionOutName));
+        }
+
 
     }
 }
