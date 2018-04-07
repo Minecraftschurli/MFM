@@ -1,7 +1,7 @@
 package minecraftschurli.mfm.objects.blocks.crop;
 
 import minecraftschurli.mfm.Main;
-import minecraftschurli.mfm.init.BlockInit;
+import minecraftschurli.mfm.init.Init;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockReed;
@@ -34,7 +34,7 @@ public class CropCaneBase extends BlockReed implements IHasModel {
         setSoundType(SoundType.PLANT);
         disableStats();
 
-        BlockInit.BLOCKS.add(this);
+        Init.BLOCKS.add(this);
     }
 
     @SuppressWarnings({"NullableProblems", "StatementWithEmptyBody"})

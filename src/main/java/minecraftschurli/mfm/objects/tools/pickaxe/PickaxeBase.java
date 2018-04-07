@@ -1,7 +1,7 @@
 package minecraftschurli.mfm.objects.tools.pickaxe;
 
 import minecraftschurli.mfm.Main;
-import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.init.Init;
 import minecraftschurli.mfm.objects.items.ItemBase;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import net.minecraft.item.Item;
@@ -23,7 +23,7 @@ public class PickaxeBase extends ItemPickaxe implements IHasModel
             addPickaxeRecipe(cloneStack(this, 1), cloneStack(material.getRepairItemStack(), 1), cloneStack((Item) handleMat, 1));
         }
 
-        ItemInit.ITEMS.add(this);
+        Init.ITEMS.add(this);
     }
 
     public PickaxeBase(String name, ToolMaterial material)
@@ -33,7 +33,7 @@ public class PickaxeBase extends ItemPickaxe implements IHasModel
         setRegistryName(name);
         setCreativeTab(Main.CREATIVETAB);
 
-        ItemInit.ITEMS.add(this);
+        Init.ITEMS.add(this);
     }
 
     @Override

@@ -18,10 +18,6 @@ import java.util.ArrayList;
 
 public class PotionInit {
 
-    public static final java.util.List<Potion> POTION_EFFECTS = new ArrayList<>();
-    public static final java.util.List<PotionType> POTION_TYPES = new ArrayList<>();
-    public static final java.util.List<Pair<String,Item>> POTION_ITEMS = new ArrayList<>();
-
     public static final Potion BLEEDING = new CustomPotionEffect("Bleeding", true,
             new Color(105, 5, 0).getRGB(), new PotionEffectBleeding(),
             new ItemStack(ItemInit.BANDAGES), new ItemStack(ItemInit.MEDKIT)

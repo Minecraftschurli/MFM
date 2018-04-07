@@ -43,8 +43,6 @@ import java.util.ArrayList;
 
 public class ItemInit {
 
-    public static final java.util.List<Item> ITEMS = new ArrayList<>();
-
     public static EnumRarity CRAP_RARITY = EnumHelper.addRarity("CRAP", TextFormatting.ITALIC, "CRAP");
     public static EnumRarity LEGENDARY_RARITY = EnumHelper.addRarity("LEGENDARY", TextFormatting.GOLD, "LEGENDARY");
 

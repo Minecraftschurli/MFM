@@ -1,9 +1,8 @@
 package minecraftschurli.mfm.util.handlers;
 
-import cofh.thermalexpansion.util.managers.machine.BrewerManager;
 import minecraftschurli.mfm.init.BlockInit;
+import minecraftschurli.mfm.init.Init;
 import minecraftschurli.mfm.init.ItemInit;
-import minecraftschurli.mfm.init.PotionInit;
 import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.misc.MaterialTripplet;
 import net.minecraft.block.Block;
@@ -18,17 +17,12 @@ import net.minecraft.item.crafting.*;
 import net.minecraft.potion.*;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.brewing.BrewingRecipe;
-import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
-import net.minecraftforge.common.brewing.IBrewingRecipe;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.ModContainer;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.registries.GameData;
-
-import javax.annotation.Nonnull;
 
 public class RecipeHandler {
     public static void addStandardRecipes() {
@@ -42,7 +36,6 @@ public class RecipeHandler {
 
         RecipeHelper.addSmallTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_CRYSTAL, 1), cloneStack(ItemInit.GEM_CRYSTAL, 1));
         RecipeHelper.addTwoWayStorageRecipe(cloneStack(BlockInit.BLOCK_STANIUM, 1), cloneStack(ItemInit.GEM_STANIUM, 1));
-
 
         /*  */
         RecipeHelper.addShapedRecipe(cloneStack(ItemInit.HORSE_ARMOR_GODIUM, 1), "H  ", "CWI", "L L", 'H', cloneStack(ItemInit.HELMET_GODIUM, 1), 'C', cloneStack(ItemInit.CHESTPLATE_GODIUM, 1), 'L', cloneStack(ItemInit.LEGGINGS_GODIUM, 1), 'I', cloneStack(ItemInit.INGOT_GODIUM, 1), 'W', cloneStack(Blocks.WOOL.getDefaultState().withProperty(BlockColored.COLOR, EnumDyeColor.RED).getBlock(), 1));
@@ -365,7 +358,7 @@ public class RecipeHandler {
 
         static void addBrewing(PotionType potionIn, Item ingredientIn, ResourceLocation potionOutName){
             PotionType potionOut = null;
-            for (PotionType potion : PotionInit.POTION_TYPES) {
+            for (PotionType potion : Init.POTION_TYPES) {
                 if(potion.getRegistryName().equals(potionOutName))potionOut = potion;
             }
             if(potionOut!=null) {
@@ -375,7 +368,7 @@ public class RecipeHandler {
 
         static void addBrewing(ResourceLocation potionInName, Item ingredientIn, ResourceLocation potionOutName){
             PotionType potionIn = null;
-            for (PotionType potion : PotionInit.POTION_TYPES) {
+            for (PotionType potion : Init.POTION_TYPES) {
                 if(potion.getRegistryName().equals(potionInName))potionIn = potion;
             }
             if(potionIn!=null) {

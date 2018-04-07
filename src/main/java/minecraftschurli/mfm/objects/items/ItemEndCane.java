@@ -2,7 +2,7 @@ package minecraftschurli.mfm.objects.items;
 
 import minecraftschurli.mfm.Main;
 import minecraftschurli.mfm.init.BlockInit;
-import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.init.Init;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.block.Block;
@@ -33,7 +33,7 @@ public class ItemEndCane extends ItemBlockSpecial implements IHasModel {
         setRegistryName("endcane");
         setCreativeTab(Main.CREATIVETAB);
 
-        ItemInit.ITEMS.add(this);
+        Init.ITEMS.add(this);
     }
 
     @Nonnull

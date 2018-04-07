@@ -1,6 +1,6 @@
 package minecraftschurli.mfm.objects.fluids;
 
-import minecraftschurli.mfm.init.FluidInit;
+import minecraftschurli.mfm.init.Init;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fluids.Fluid;
 
@@ -15,7 +15,7 @@ public class FluidBase extends Fluid
 
         setUnlocalizedName(fluidName);
 
-        FluidInit.FLUIDS.addE(this);
+        Init.FLUIDS.add(this);
     }
 
     FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing, int color)
@@ -24,7 +24,7 @@ public class FluidBase extends Fluid
 
         setUnlocalizedName(fluidName);
 
-        FluidInit.FLUIDS.addE(this);
+        Init.FLUIDS.add(this);
     }
 
     FluidBase(String fluidName, ResourceLocation still, ResourceLocation flowing)
@@ -33,7 +33,7 @@ public class FluidBase extends Fluid
 
         setUnlocalizedName(fluidName);
 
-        FluidInit.FLUIDS.addE(this);
+        Init.FLUIDS.add(this);
     }
 
 

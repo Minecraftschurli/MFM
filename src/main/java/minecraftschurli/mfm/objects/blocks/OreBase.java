@@ -1,9 +1,9 @@
 package minecraftschurli.mfm.objects.blocks;
 
 import minecraftschurli.mfm.Main;
-import minecraftschurli.mfm.init.BlockInit;
-import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.init.Init;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
+import minecraftschurli.mfm.util.interfaces.IOredict;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -17,7 +17,7 @@ import net.minecraft.util.math.BlockPos;
 import java.util.Objects;
 import java.util.Random;
 
-public class OreBase extends Block implements IHasModel 
+public class OreBase extends Block implements IHasModel,IOredict
 {
 
 	private final ItemStack item;
@@ -64,10 +64,11 @@ public class OreBase extends Block implements IHasModel
         this.maxHeight = maxHeight;
         this.baseBlock = baseBlock;
         this.exp = exp;
-        this.oreDictName = "block"+oreDict;
+        this.oreDictName = "ore"+oreDict;
 
-        BlockInit.BLOCKS.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
+        Init.OREDICTS.add(this);
+        Init.BLOCKS.add(this);
+        Init.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
     }
 
     /**
@@ -104,8 +105,9 @@ public class OreBase extends Block implements IHasModel
         this.exp = exp;
         this.oreDictName = "ore"+oreDict;
 
-        BlockInit.BLOCKS.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
+        Init.OREDICTS.add(this);
+        Init.BLOCKS.add(this);
+        Init.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
     }
 
     /**
@@ -141,8 +143,9 @@ public class OreBase extends Block implements IHasModel
         this.exp = 0;
         this.oreDictName = "ore"+oreDict;
 
-        BlockInit.BLOCKS.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
+        Init.OREDICTS.add(this);
+        Init.BLOCKS.add(this);
+        Init.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
     }
 
     /**
@@ -177,8 +180,9 @@ public class OreBase extends Block implements IHasModel
         this.exp = 0;
         this.oreDictName = "ore"+oreDict;
 
-		BlockInit.BLOCKS.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
+        Init.OREDICTS.add(this);
+		Init.BLOCKS.add(this);
+        Init.ITEMS.add(new ItemBlock(this).setRegistryName(Objects.requireNonNull(this.getRegistryName())));
     }
 	
 	public int getDimension() 
@@ -272,7 +276,12 @@ public class OreBase extends Block implements IHasModel
     }
 
     public OreBase setGenerate() {
-        BlockInit.ORES.add(this);
+        Init.ORES.add(this);
         return this;
+    }
+
+    @Override
+    public String getOreDictName() {
+        return this.oreDictName;
     }
 }

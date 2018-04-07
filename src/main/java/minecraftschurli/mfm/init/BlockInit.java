@@ -16,10 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlockInit {
-	
-	public static final List<Block> BLOCKS = new ArrayList<>();
-	public static final List<OreBase> ORES = new ArrayList<>();
-	
+
 	//Blocks
 	public static final Block BLOCK_OP = new BlockBase("block_op",Material.IRON,"Op");
 	public static final Block BLOCK_VULCANIUM = new BlockBase("block_vulcanium",Material.IRON,"Vulcanium");

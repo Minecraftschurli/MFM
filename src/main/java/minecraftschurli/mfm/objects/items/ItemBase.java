@@ -1,12 +1,13 @@
 package minecraftschurli.mfm.objects.items;
 
 import minecraftschurli.mfm.Main;
-import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.init.Init;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
+import minecraftschurli.mfm.util.interfaces.IOredict;
 import net.minecraft.item.Item;
 
-public class ItemBase extends Item implements IHasModel {
-    public final String oreDictName;
+public class ItemBase extends Item implements IHasModel,IOredict {
+    private final String oreDictName;
 
     public ItemBase (String name, String oreDict){
 		setUnlocalizedName(name);
@@ -14,7 +15,8 @@ public class ItemBase extends Item implements IHasModel {
 		setCreativeTab(Main.CREATIVETAB);
         this.oreDictName = oreDict;
 
-		ItemInit.ITEMS.add(this);
+        Init.OREDICTS.add(this);
+		Init.ITEMS.add(this);
 	}
 
     public ItemBase (String name){
@@ -23,7 +25,7 @@ public class ItemBase extends Item implements IHasModel {
         setCreativeTab(Main.CREATIVETAB);
         this.oreDictName = null;
 
-        ItemInit.ITEMS.add(this);
+        Init.ITEMS.add(this);
     }
 	
 	@Override
@@ -31,4 +33,9 @@ public class ItemBase extends Item implements IHasModel {
 	{
 		Main.proxy.registerItemRenderer(this, 0, "inventory");
 	}
+
+    @Override
+    public String getOreDictName() {
+        return this.oreDictName;
+    }
 }

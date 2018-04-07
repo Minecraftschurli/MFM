@@ -1,6 +1,6 @@
 package minecraftschurli.mfm.world.gen;
 
-import minecraftschurli.mfm.init.BlockInit;
+import minecraftschurli.mfm.init.Init;
 import minecraftschurli.mfm.objects.blocks.OreBase;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -27,7 +27,7 @@ public class WorldGenCustomOres implements IWorldGenerator
 		ores = new ArrayList<>();
 		data = new ArrayList<>();
 		
-		for (OreBase ore : BlockInit.ORES) {
+		for (OreBase ore : Init.ORES) {
 			addOreToGenerate(ore.getDefaultState(), ore.getBaseBlock(), ore.getVeinSize(), ore.getDimension(), ore.getRarity(), ore.getMinHeight(), ore.getMaxHeight());
 		}
 		

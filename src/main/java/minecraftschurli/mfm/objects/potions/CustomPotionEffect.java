@@ -1,6 +1,6 @@
 package minecraftschurli.mfm.objects.potions;
 
-import minecraftschurli.mfm.init.PotionInit;
+import minecraftschurli.mfm.init.Init;
 import minecraftschurli.mfm.util.Reference;
 import minecraftschurli.mfm.util.interfaces.IEffectProvider;
 import net.minecraft.client.Minecraft;
@@ -34,7 +34,7 @@ public class CustomPotionEffect extends Potion {
         this.setPotionName(name);
         this.setRegistryName(new ResourceLocation(Reference.MOD_ID, name));
 
-        PotionInit.POTION_EFFECTS.add(this);
+        Init.POTION_EFFECTS.add(this);
     }
 
     private static void setPotionName(Potion potion, String potionName) {

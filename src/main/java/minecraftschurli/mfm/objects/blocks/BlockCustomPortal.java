@@ -1,8 +1,7 @@
 package minecraftschurli.mfm.objects.blocks;
 
 import minecraftschurli.mfm.Main;
-import minecraftschurli.mfm.init.BlockInit;
-import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.init.Init;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
@@ -48,8 +47,8 @@ public class BlockCustomPortal extends BlockBreakable implements IHasModel {
         this.minWidth = minWidth;
         this.portalFrameBlock = portalFrameBlock;
 
-        BlockInit.BLOCKS.add(this);
-        ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(name));
+        Init.BLOCKS.add(this);
+        Init.ITEMS.add(new ItemBlock(this).setRegistryName(name));
     }
 
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {

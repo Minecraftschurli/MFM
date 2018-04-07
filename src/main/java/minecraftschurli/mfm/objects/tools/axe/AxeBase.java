@@ -1,7 +1,7 @@
 package minecraftschurli.mfm.objects.tools.axe;
 
 import minecraftschurli.mfm.Main;
-import minecraftschurli.mfm.init.ItemInit;
+import minecraftschurli.mfm.init.Init;
 import minecraftschurli.mfm.objects.items.ItemBase;
 import minecraftschurli.mfm.util.interfaces.IHasModel;
 import net.minecraft.item.Item;
@@ -23,7 +23,7 @@ public class AxeBase extends ItemAxe implements IHasModel
             addAxeRecipe(cloneStack(this, 1), cloneStack(material.getRepairItemStack(), 1), cloneStack((Item) handleMat, 1));
         }
 
-        ItemInit.ITEMS.add(this);
+        Init.ITEMS.add(this);
     }
 
     public AxeBase(String name, ToolMaterial material, float damage, float speed)
@@ -33,7 +33,7 @@ public class AxeBase extends ItemAxe implements IHasModel
         setRegistryName(name);
         setCreativeTab(Main.CREATIVETAB);
 
-        ItemInit.ITEMS.add(this);
+        Init.ITEMS.add(this);
     }
 
     @Override
